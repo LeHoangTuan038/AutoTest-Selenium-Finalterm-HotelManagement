@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap');
+
+:root {
+  --primary-gold: #c19b4a;
+  --light-bg: #f8f9fa; /* TÔNG NỀN TRẮNG CAO CẤP */
+  --border-color: rgba(0, 0, 0, 0.08);
+  --dark-text: #1a1a1a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--light-bg);
+  color: var(--dark-text);
+  font-family: 'Open Sans', sans-serif;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Serif', serif !important;
+  color: var(--dark-text);
+}
+
+/* Glassmorphism Effect for Light Theme */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Custom Scrollbar for Light Theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-gold);
+}
+
+/* Room Image Zoom Effect */
+.room-image-container:hover img {
+  transform: scale(1.05);
+}
+
+/* Ant Design Overrides: XÓA BỎ ÉP BUỘC TRONG SUỐT ĐỂ DÙNG NỀN TRẮNG */
+.ant-layout {
+  background: transparent;
+}
+.ant-card {
+  background: #fff;
+  border: 1px solid var(--border-color) !important;
+}
+.ant-btn-primary {
+  box-shadow: none !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+.ant-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(193, 155, 74, 0.3) !important;
+}
+
+/* Swiper Dots Customization */
+.swiper-pagination-bullet {
+  width: 10px !important;
+  height: 2px !important;
+  border-radius: 0 !important;
+  background: rgba(255, 255, 255, 0.3) !important;
+  opacity: 1 !important;
+  transition: all 0.3s !important;
+}
+.swiper-pagination-bullet-active {
+  width: 30px !important;
+  background: var(--primary-gold) !important;
+}

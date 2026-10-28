@@ -1,0 +1,10 @@
+# Các file build của .NET
+[Bb]in/
+[Oo]bj/
+
+# Các file rác của Visual Studio / VS Code
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
