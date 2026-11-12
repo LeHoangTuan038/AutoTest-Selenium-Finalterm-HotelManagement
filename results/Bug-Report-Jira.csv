@@ -1,0 +1,130 @@
+﻿Issue Type,Summary,Priority,Component,Labels,Description
+Bug,[BUG-01] Trang /rooms ghi '2 Người lớn' nhưng vẫn hiển thị phòng tối đa 1 khách,Medium,Danh sách phòng,selenium severity-minor,"*Mã lỗi:* BUG-01 | *Mức độ:* Minor | *TC:* TC1.2 (TC1.2-01)
+*Các bước:*
+Bước 1: Lấy danh sách loại phòng công khai từ API làm dữ liệu đối chiếu
+Bước 2: Mở /rooms (mặc định: 2 người lớn, 0 trẻ em)
+*Mong đợi:* Bộ lọc mặc định '2 Người lớn' chỉ hiện phòng có sức chứa >= 2
+*Thực tế:* Hiện cả phòng sức chứa < 2: [('Phòng tiêu chuẩn 1 giường đơn', 1)]
+*Ảnh:* results/screenshots/20261111_224219/TC1.2-01_02_FAIL.png"
+Bug,[BUG-02] Khoảng giá mặc định 0-5.000.000đ ẩn các loại phòng giá cao (Biệt thự 8.000.000đ) khỏi danh sách,Medium,Danh sách phòng,selenium severity-minor,"*Mã lỗi:* BUG-02 | *Mức độ:* Minor | *TC:* TC1.2 (TC1.2-02)
+*Các bước:*
+Bước 1: Mở /rooms?adults=1 (sức chứa thấp nhất để không loại phòng nào)
+*Mong đợi:* Hiển thị đủ 10 loại phòng đang hoạt động
+*Thực tế:* Bị ẩn: ['Biệt thự hoàng gia nguyên căn']
+*Ảnh:* results/screenshots/20261111_224219/TC1.2-02_01_FAIL.png"
+Bug,[BUG-03] Bộ lọc loại phòng 'Standard' không khớp tên phòng tiếng Việt nên không trả về phòng nào,High,Danh sách phòng,selenium severity-major,"*Mã lỗi:* BUG-03 | *Mức độ:* Major | *TC:* TC1.2 (TC1.2-06)
+*Các bước:*
+Bước 1: Mở /rooms?adults=1
+Bước 2: Chọn bộ lọc loại phòng 'Standard'
+*Mong đợi:* Chỉ hiển thị phòng thuộc loại Standard: ['Phòng tiêu chuẩn 1 giường đôi', 'Phòng tiêu chuẩn 1 giường đơn']
+*Thực tế:* []
+*Ảnh:* results/screenshots/20261111_224219/TC1.2-06_02_FAIL.png"
+Bug,[BUG-04] Trang /rooms ghi vị trí 'Hà Nội' trong khi địa chỉ liên hệ ở Đà Nẵng,Low,Nội dung,selenium severity-trivial,"*Mã lỗi:* BUG-04 | *Mức độ:* Trivial | *TC:* TC1.2 (TC1.2-09)
+*Các bước:*
+Bước 1: Mở /contact và đọc địa chỉ khách sạn
+Bước 2: Mở /rooms và đọc phần tiêu đề vị trí
+*Mong đợi:* Tiêu đề /rooms ghi đúng thành phố của khách sạn (Đà Nẵng)
+*Thực tế:* Hà Nội
+*Ảnh:* results/screenshots/20261111_224219/TC1.2-09_01_FAIL.png"
+Bug,[BUG-05] Trang chi tiết phòng hiển thị 'Diện tích: m²' (thiếu số liệu diện tích),Medium,Chi tiết phòng,selenium severity-minor,"*Mã lỗi:* BUG-05 | *Mức độ:* Minor | *TC:* TC1.3 (TC1.3-01)
+*Các bước:*
+Bước 1: Mở /rooms và bấm 'XEM CHI TIẾT' của phòng đầu tiên
+*Mong đợi:* Thông tin 'Diện tích' có giá trị
+*Thực tế:* Diện tích: ' m²'
+*Ảnh:* results/screenshots/20261111_224219/TC1.3-01_02_FAIL.png"
+Bug,[BUG-06] Trang Tin tức không dẫn tới trang chi tiết /post/{id}; khách không thể bình luận qua giao diện,High,Tin tức,selenium severity-major,"*Mã lỗi:* BUG-06 | *Mức độ:* Major | *TC:* TC1.4 (TC1.4-04)
+*Các bước:*
+Bước 1: Mở /news và chọn danh mục
+Bước 2: Bấm 'ĐỌC CHI TIẾT →' của bài viết trong danh mục
+*Mong đợi:* Từ trang chi tiết bài viết, khách có thể xem/gửi bình luận (trang /post/{id})
+*Thực tế:* Chỉ mở modal tại http://localhost:5173/news, không có phần bình luận
+*Ảnh:* results/screenshots/20261111_224219/TC1.4-04_03_FAIL.png"
+Bug,[BUG-07] Form liên hệ báo thành công nhưng không gửi/lưu nội dung lên hệ thống,High,Liên hệ,selenium severity-major,"*Mã lỗi:* BUG-07 | *Mức độ:* Major | *TC:* TC1.5 (TC1.5-03)
+*Các bước:*
+Bước 1: Mở /contact, điền form và bấm 'GỬI TIN NHẮN'
+*Mong đợi:* Nội dung liên hệ được gửi tới Backend để lưu/chuyển cho khách sạn
+*Thực tế:* Không có request nào tới Backend (form chỉ console.log)
+*Ảnh:* results/screenshots/20261111_224219/TC1.5-03_02_FAIL.png"
+Bug,[BUG-08] Đăng nhập sai không hiện thông báo lỗi: interceptor 401 của axios tải lại trang /login nên thông báo bị mất,High,Đăng nhập,selenium severity-major,"*Mã lỗi:* BUG-08 | *Mức độ:* Major | *TC:* TC2.5 (TC2.5-01, TC2.5-02)
+*Các bước:*
+Bước 1: Mở /login, nhập thông tin và bấm 'Đăng nhập'
+*Mong đợi:* Hiển thị lỗi chứa 'không đúng'
+*Thực tế:* Không có thông báo nào, trang /login bị tải lại
+*Ảnh:* results/screenshots/20261111_224219/TC2.5-01_02_FAIL.png"
+Bug,"[BUG-09] Đăng xuất chỉ xóa token, thông tin cá nhân Guest (email, họ tên, id) vẫn lưu trong localStorage",Medium,Tài khoản,selenium severity-minor,"*Mã lỗi:* BUG-09 | *Mức độ:* Minor | *TC:* TC2.7 (TC2.7-01)
+*Các bước:*
+Bước 1: Mở /guest/dashboard khi đang đăng nhập
+Bước 2: Bấm 'Đăng xuất'
+Bước 3: Truy cập trực tiếp /guest/book-room sau khi đăng xuất
+*Mong đợi:* Thông tin cá nhân (user, userEmail, userName, userId) cũng bị xóa khỏi trình duyệt
+*Thực tế:* Vẫn lưu ['user', 'userName', 'userEmail', 'userId']
+*Ảnh:* results/screenshots/20261111_224219/TC2.7-01_02_FAIL.png"
+Bug,[BUG-10] Tìm/đặt phòng chấp nhận ngày nhận phòng ở quá khứ (không kiểm tra ngày ở Frontend và Backend),High,Đặt phòng,selenium severity-major,"*Mã lỗi:* BUG-10 | *Mức độ:* Major | *TC:* TC3.1 (TC3.1-05)
+*Các bước:*
+Bước 1: Mở /guest/book-room
+Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 2
+Bước 3: Bấm 'Kiểm tra phòng trống'
+*Mong đợi:* Hệ thống từ chối tìm phòng khi ngày nhận phòng ở quá khứ và báo lỗi ngày
+*Thực tế:* Vẫn trả 8 loại phòng; thông báo: Đã tìm thấy 8 loại phòng phù hợp!
+*Ảnh:* results/screenshots/20261111_224219/TC3.1-05_02_FAIL.png"
+Bug,[BUG-11] Tìm/đặt phòng chấp nhận số đêm = 0 (ngày trả = ngày nhận) (không kiểm tra ngày ở Frontend và Backend),High,Đặt phòng,selenium severity-major,"*Mã lỗi:* BUG-11 | *Mức độ:* Major | *TC:* TC3.1 (TC3.1-06)
+*Các bước:*
+Bước 1: Mở /guest/book-room
+Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 2
+Bước 3: Bấm 'Kiểm tra phòng trống'
+*Mong đợi:* Hệ thống từ chối tìm phòng khi số đêm = 0 (ngày trả = ngày nhận) và báo lỗi ngày
+*Thực tế:* Vẫn trả 8 loại phòng; thông báo: Đã tìm thấy 8 loại phòng phù hợp!
+*Ảnh:* results/screenshots/20261111_224219/TC3.1-06_02_FAIL.png"
+Bug,[BUG-12] Chi tiết đơn đặt phòng hiển thị 'Tổng tiền NaN ₫',High,Lịch sử đặt phòng,selenium severity-major,"*Mã lỗi:* BUG-12 | *Mức độ:* Major | *TC:* TC3.6 (TC3.6-01)
+*Các bước:*
+Bước 1: Chuẩn bị: tạo 1 booking cho Guest qua API
+Bước 2: Mở /guest/bookings
+Bước 3: Bấm 'Xem chi tiết'
+*Mong đợi:* Chi tiết hiện tổng tiền 1.400.000đ
+*Thực tế:* Tổng tiền: NaN ₫
+*Ảnh:* results/screenshots/20261111_224219/TC3.6-01_02_FAIL.png"
+Bug,[BUG-13] Lịch sử đặt phòng lọc theo email HOẶC họ tên: Guest trùng họ tên xem được booking của người khác,Highest,Lịch sử đặt phòng,selenium severity-critical,"*Mã lỗi:* BUG-13 | *Mức độ:* Critical | *TC:* TC3.6 (TC3.6-02)
+*Các bước:*
+Bước 1: Chuẩn bị: Guest A (cùng họ tên 'Khách Selenium', email khác) tạo một booking qua API
+Bước 2: Guest B (chưa có booking nào) mở /guest/bookings
+*Mong đợi:* Guest B không thấy booking của Guest khác (danh sách rỗng)
+*Thực tế:* Guest B thấy 1 đơn của khách khác, gồm BK-20261111-9190
+*Ảnh:* results/screenshots/20261111_224219/TC3.6-02_02_FAIL.png"
+Bug,[BUG-14] Dashboard ghi tên phòng cố định 'Phòng nghỉ cao cấp' thay vì tên loại phòng đã đặt,Low,Dashboard,selenium severity-trivial,"*Mã lỗi:* BUG-14 | *Mức độ:* Trivial | *TC:* TC4.1 (TC4.1-01)
+*Các bước:*
+Bước 1: Mở /guest/dashboard với Guest mới (chưa có booking)
+Bước 2: Chuẩn bị: Guest tạo 1 booking qua API, tải lại dashboard
+Bước 3: Mở /guest/rank
+*Mong đợi:* Mục 'Đặt phòng sắp tới' ghi đúng tên loại phòng 'Phòng cao cấp hướng phố'
+*Thực tế:* P Phòng nghỉ cao cấp Mã đơn: BK-20261111-5748 Từ: 1/3/2027 - Đến: 2/3/2027 700.000 ₫ Chờ xác nhận
+*Ảnh:* results/screenshots/20261111_224219/TC4.1-01_04_FAIL.png"
+Bug,"[BUG-15] Hóa đơn/QR thanh toán tính theo giá gốc, bỏ qua giảm giá voucher đã áp dụng khi đặt phòng",High,Hóa đơn,selenium severity-major,"*Mã lỗi:* BUG-15 | *Mức độ:* Major | *TC:* TC4.2 (TC4.2-02)
+*Các bước:*
+Bước 1: Chuẩn bị: Guest đặt phòng 2 đêm có áp dụng voucher KM1 (giảm 10%) qua API
+Bước 2: Mở /guest/invoices
+*Mong đợi:* Tổng tiền hóa đơn đã trừ voucher: 1.260.000đ
+*Thực tế:* 1.400.000đ
+*Ảnh:* results/screenshots/20261111_224219/TC4.2-02_02_FAIL.png"
+Bug,"[BUG-16] Ngày sinh lưu bị lùi 1 ngày (gửi toISOString theo UTC, lệch múi giờ +7)",High,Hồ sơ cá nhân,selenium severity-major,"*Mã lỗi:* BUG-16 | *Mức độ:* Major | *TC:* TC4.3 (TC4.3-01)
+*Các bước:*
+Bước 1: Mở /guest/profile và bấm 'Chỉnh sửa hồ sơ'
+Bước 2: Sửa họ tên, số điện thoại, ngày sinh, địa chỉ và bấm 'Lưu thay đổi'
+Bước 3: Tải lại /guest/profile
+*Mong đợi:* Ngày sinh hiển thị đúng 20/05/1999
+*Thực tế:* 19/05/1999
+*Ảnh:* results/screenshots/20261111_224219/TC4.3-01_02_FAIL.png"
+Bug,[BUG-17] Hồ sơ chấp nhận số điện thoại chứa chữ cái (không kiểm tra định dạng),Medium,Hồ sơ cá nhân,selenium severity-minor,"*Mã lỗi:* BUG-17 | *Mức độ:* Minor | *TC:* TC4.3 (TC4.3-03)
+*Các bước:*
+Bước 1: Mở /guest/profile và bấm 'Chỉnh sửa hồ sơ'
+Bước 2: Nhập phone = 'abcxyz' và bấm 'Lưu thay đổi'
+*Mong đợi:* Báo lỗi 'số điện thoại' và không lưu
+*Thực tế:* Lỗi form=[], thông báo=
+*Ảnh:* results/screenshots/20261111_224219/TC4.3-03_02_FAIL.png"
+Bug,[BUG-18] Không nhận thư/voucher sinh nhật khi đặt ngày sinh là hôm nay (ngày sinh lưu lệch múi giờ),High,Hộp thư,selenium severity-major,"*Mã lỗi:* BUG-18 | *Mức độ:* Major | *TC:* TC4.5 (TC4.5-01)
+*Các bước:*
+Bước 1: Mở /guest/profile và bấm 'Chỉnh sửa hồ sơ'
+Bước 2: Đặt ngày sinh là hôm nay và lưu để hệ thống gửi thư sinh nhật
+Bước 3: Mở /guest/profile?tab=mailbox
+*Mong đợi:* Hộp thư có thư chúc mừng sinh nhật (chưa đọc, nhãn 'Mới')
+*Thực tế:* Hộp thư trống
+*Ảnh:* results/screenshots/20261111_224219/TC4.5-01_02_FAIL.png"

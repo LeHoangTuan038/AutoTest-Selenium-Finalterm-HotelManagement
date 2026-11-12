@@ -1,0 +1,1059 @@
+2026-11-11 22:42:19 | INFO    | RUN            | ======================================================================
+2026-11-11 22:42:19 | INFO    | RUN            | BẮT ĐẦU LẦN CHẠY 20261111_224219 - QuanTriKhachSanN5 (User/Guest)
+2026-11-11 22:42:19 | INFO    | RUN            | Frontend http://localhost:5173 | Backend http://localhost:5070 | Selenium + pytest
+2026-11-11 22:42:19 | INFO    | RUN            | ======================================================================
+2026-11-11 22:42:20 | INFO    | SETUP          | Chuẩn bị dữ liệu SQL (prepare_test_data.sql): exit=0
+2026-11-11 22:42:20 | INFO    | TC2.1-01       | ----------------------------------------------------------------------
+2026-11-11 22:42:20 | INFO    | TC2.1-01       | TEST CASE TC2.1-01: Kiểm tra dữ liệu đăng ký Guest | Kỹ thuật: Equivalence Partitioning + Boundary Value (độ dài mật khẩu = 6)
+2026-11-11 22:42:20 | INFO    | TC2.1-01       |    INPUT  fullName = ''
+2026-11-11 22:42:20 | INFO    | TC2.1-01       |    INPUT  email = ''
+2026-11-11 22:42:20 | INFO    | TC2.1-01       |    INPUT  password = ''
+2026-11-11 22:42:20 | INFO    | TC2.1-01       |    INPUT  confirmPassword = ''
+2026-11-11 22:42:20 | INFO    | TC2.1-01       | BƯỚC 1: Mở /register, nhập dữ liệu và bấm 'Đăng Ký'
+2026-11-11 22:42:24 | INFO    | TC2.1-01       |    ẢNH    results/screenshots/20261111_224219/TC2.1-01_01_loi_validation.png
+2026-11-11 22:42:24 | INFO    | TC2.1-01       |    MONG ĐỢI: Hiển thị lỗi ['Vui lòng nhập họ tên!', 'Vui lòng nhập email!', 'Vui lòng nhập mật khẩu!', 'Vui lòng xác nhận mật khẩu!']
+2026-11-11 22:42:24 | INFO    | TC2.1-01       |    THỰC TẾ : ['Vui lòng nhập họ tên!', 'Vui lòng nhập email!', 'Vui lòng nhập mật khẩu!', 'Vui lòng xác nhận mật khẩu!']  => PASS
+2026-11-11 22:42:26 | INFO    | TC2.1-01       |    MONG ĐỢI: Không chuyển sang bước nhập OTP
+2026-11-11 22:42:26 | INFO    | TC2.1-01       |    THỰC TẾ : Vẫn ở bước 1  => PASS
+2026-11-11 22:42:26 | INFO    | TC2.1-01       | KẾT QUẢ: PASSED
+2026-11-11 22:42:28 | INFO    | TC2.1-02       | ----------------------------------------------------------------------
+2026-11-11 22:42:28 | INFO    | TC2.1-02       | TEST CASE TC2.1-02: Kiểm tra dữ liệu đăng ký Guest | Kỹ thuật: Equivalence Partitioning + Boundary Value (độ dài mật khẩu = 6)
+2026-11-11 22:42:28 | INFO    | TC2.1-02       |    INPUT  fullName = 'Khách Test'
+2026-11-11 22:42:28 | INFO    | TC2.1-02       |    INPUT  email = 'khachtest@'
+2026-11-11 22:42:28 | INFO    | TC2.1-02       |    INPUT  password = '123456'
+2026-11-11 22:42:28 | INFO    | TC2.1-02       |    INPUT  confirmPassword = '123456'
+2026-11-11 22:42:28 | INFO    | TC2.1-02       | BƯỚC 1: Mở /register, nhập dữ liệu và bấm 'Đăng Ký'
+2026-11-11 22:42:31 | INFO    | TC2.1-02       |    ẢNH    results/screenshots/20261111_224219/TC2.1-02_01_loi_validation.png
+2026-11-11 22:42:31 | INFO    | TC2.1-02       |    MONG ĐỢI: Hiển thị lỗi ['Email không hợp lệ!']
+2026-11-11 22:42:31 | INFO    | TC2.1-02       |    THỰC TẾ : ['Email không hợp lệ!']  => PASS
+2026-11-11 22:42:34 | INFO    | TC2.1-02       |    MONG ĐỢI: Không chuyển sang bước nhập OTP
+2026-11-11 22:42:34 | INFO    | TC2.1-02       |    THỰC TẾ : Vẫn ở bước 1  => PASS
+2026-11-11 22:42:34 | INFO    | TC2.1-02       | KẾT QUẢ: PASSED
+2026-11-11 22:42:36 | INFO    | TC2.1-03       | ----------------------------------------------------------------------
+2026-11-11 22:42:36 | INFO    | TC2.1-03       | TEST CASE TC2.1-03: Kiểm tra dữ liệu đăng ký Guest | Kỹ thuật: Equivalence Partitioning + Boundary Value (độ dài mật khẩu = 6)
+2026-11-11 22:42:36 | INFO    | TC2.1-03       |    INPUT  fullName = 'Khách Test'
+2026-11-11 22:42:36 | INFO    | TC2.1-03       |    INPUT  email = 'tc21_1794411756827@hotel.com'
+2026-11-11 22:42:36 | INFO    | TC2.1-03       |    INPUT  password = '12345'
+2026-11-11 22:42:36 | INFO    | TC2.1-03       |    INPUT  confirmPassword = '12345'
+2026-11-11 22:42:36 | INFO    | TC2.1-03       | BƯỚC 1: Mở /register, nhập dữ liệu và bấm 'Đăng Ký'
+2026-11-11 22:42:40 | INFO    | TC2.1-03       |    ẢNH    results/screenshots/20261111_224219/TC2.1-03_01_loi_validation.png
+2026-11-11 22:42:40 | INFO    | TC2.1-03       |    MONG ĐỢI: Hiển thị lỗi ['Mật khẩu ít nhất 6 ký tự!']
+2026-11-11 22:42:40 | INFO    | TC2.1-03       |    THỰC TẾ : ['Mật khẩu ít nhất 6 ký tự!']  => PASS
+2026-11-11 22:42:42 | INFO    | TC2.1-03       |    MONG ĐỢI: Không chuyển sang bước nhập OTP
+2026-11-11 22:42:42 | INFO    | TC2.1-03       |    THỰC TẾ : Vẫn ở bước 1  => PASS
+2026-11-11 22:42:42 | INFO    | TC2.1-03       | KẾT QUẢ: PASSED
+2026-11-11 22:42:44 | INFO    | TC2.1-04       | ----------------------------------------------------------------------
+2026-11-11 22:42:44 | INFO    | TC2.1-04       | TEST CASE TC2.1-04: Kiểm tra dữ liệu đăng ký Guest | Kỹ thuật: Equivalence Partitioning + Boundary Value (độ dài mật khẩu = 6)
+2026-11-11 22:42:44 | INFO    | TC2.1-04       |    INPUT  fullName = 'Khách Test'
+2026-11-11 22:42:44 | INFO    | TC2.1-04       |    INPUT  email = 'tc21_1794411764952@hotel.com'
+2026-11-11 22:42:44 | INFO    | TC2.1-04       |    INPUT  password = '123456'
+2026-11-11 22:42:44 | INFO    | TC2.1-04       |    INPUT  confirmPassword = '123456'
+2026-11-11 22:42:44 | INFO    | TC2.1-04       | BƯỚC 1: Mở /register, nhập dữ liệu và bấm 'Đăng Ký'
+2026-11-11 22:42:48 | INFO    | TC2.1-04       |    ẢNH    results/screenshots/20261111_224219/TC2.1-04_01_buoc_otp.png
+2026-11-11 22:42:49 | INFO    | TC2.1-04       |    MONG ĐỢI: Mật khẩu đúng 6 ký tự được chấp nhận, chuyển sang bước nhập OTP
+2026-11-11 22:42:49 | INFO    | TC2.1-04       |    THỰC TẾ : Đã chuyển sang bước OTP  => PASS
+2026-11-11 22:42:49 | INFO    | TC2.1-04       | KẾT QUẢ: PASSED
+2026-11-11 22:42:52 | INFO    | TC2.1-05       | ----------------------------------------------------------------------
+2026-11-11 22:42:52 | INFO    | TC2.1-05       | TEST CASE TC2.1-05: Kiểm tra dữ liệu đăng ký Guest | Kỹ thuật: Equivalence Partitioning + Boundary Value (độ dài mật khẩu = 6)
+2026-11-11 22:42:52 | INFO    | TC2.1-05       |    INPUT  fullName = 'Khách Test'
+2026-11-11 22:42:52 | INFO    | TC2.1-05       |    INPUT  email = 'tc21_1794411772200@hotel.com'
+2026-11-11 22:42:52 | INFO    | TC2.1-05       |    INPUT  password = '123456'
+2026-11-11 22:42:52 | INFO    | TC2.1-05       |    INPUT  confirmPassword = '1234567'
+2026-11-11 22:42:52 | INFO    | TC2.1-05       | BƯỚC 1: Mở /register, nhập dữ liệu và bấm 'Đăng Ký'
+2026-11-11 22:42:55 | INFO    | TC2.1-05       |    ẢNH    results/screenshots/20261111_224219/TC2.1-05_01_loi_validation.png
+2026-11-11 22:42:55 | INFO    | TC2.1-05       |    MONG ĐỢI: Hiển thị lỗi ['Mật khẩu xác nhận không khớp!']
+2026-11-11 22:42:55 | INFO    | TC2.1-05       |    THỰC TẾ : ['Mật khẩu xác nhận không khớp!']  => PASS
+2026-11-11 22:42:57 | INFO    | TC2.1-05       |    MONG ĐỢI: Không chuyển sang bước nhập OTP
+2026-11-11 22:42:57 | INFO    | TC2.1-05       |    THỰC TẾ : Vẫn ở bước 1  => PASS
+2026-11-11 22:42:57 | INFO    | TC2.1-05       | KẾT QUẢ: PASSED
+2026-11-11 22:43:00 | INFO    | TC2.2-01       | ----------------------------------------------------------------------
+2026-11-11 22:43:00 | INFO    | TC2.2-01       | TEST CASE TC2.2-01: Đăng ký Guest thành công bằng OTP test | Kỹ thuật: Equivalence Partitioning (OTP hợp lệ)
+2026-11-11 22:43:00 | INFO    | TC2.2-01       |    INPUT  fullName = 'Khách Selenium'
+2026-11-11 22:43:00 | INFO    | TC2.2-01       |    INPUT  email = 'tc22_1794411780377@hotel.com'
+2026-11-11 22:43:00 | INFO    | TC2.2-01       |    INPUT  password = 'Test@123'
+2026-11-11 22:43:00 | INFO    | TC2.2-01       |    INPUT  otp = '123456'
+2026-11-11 22:43:00 | INFO    | TC2.2-01       | BƯỚC 1: Nhập thông tin đăng ký hợp lệ và bấm 'Đăng Ký'
+2026-11-11 22:43:03 | INFO    | TC2.2-01       |    MONG ĐỢI: Chuyển sang bước nhập OTP
+2026-11-11 22:43:03 | INFO    | TC2.2-01       |    THỰC TẾ : Đã gửi mã OTP (Tài khoản Test: Mặc định là 123456)  => PASS
+2026-11-11 22:43:03 | INFO    | TC2.2-01       | BƯỚC 2: Nhập OTP test 123456 và bấm 'Xác nhận & Đăng Ký'
+2026-11-11 22:43:05 | INFO    | TC2.2-01       |    ẢNH    results/screenshots/20261111_224219/TC2.2-01_01_dang_ky_thanh_cong.png
+2026-11-11 22:43:05 | INFO    | TC2.2-01       |    MONG ĐỢI: Thông báo 'Đăng ký thành công!'
+2026-11-11 22:43:05 | INFO    | TC2.2-01       |    THỰC TẾ : Đăng ký thành công! Đang chuyển hướng... | Đăng ký thành công!  => PASS
+2026-11-11 22:43:06 | INFO    | TC2.2-01       |    MONG ĐỢI: Tự chuyển về /login
+2026-11-11 22:43:06 | INFO    | TC2.2-01       |    THỰC TẾ : http://localhost:5173/login  => PASS
+2026-11-11 22:43:06 | INFO    | TC2.2-01       | BƯỚC 3: Kiểm tra tài khoản mới đăng nhập được và có vai trò Guest
+2026-11-11 22:43:06 | INFO    | TC2.2-01       |    MONG ĐỢI: Tài khoản được tạo với vai trò Guest
+2026-11-11 22:43:06 | INFO    | TC2.2-01       |    THỰC TẾ : HTTP 200, roles=['Guest']  => PASS
+2026-11-11 22:43:06 | INFO    | TC2.2-01       | KẾT QUẢ: PASSED
+2026-11-11 22:43:09 | INFO    | TC2.2-02       | ----------------------------------------------------------------------
+2026-11-11 22:43:09 | INFO    | TC2.2-02       | TEST CASE TC2.2-02: Đăng ký Guest thành công bằng OTP test | Kỹ thuật: Equivalence Partitioning (OTP sai)
+2026-11-11 22:43:09 | INFO    | TC2.2-02       |    INPUT  email = 'tc22otp_1794411789191@hotel.com'
+2026-11-11 22:43:09 | INFO    | TC2.2-02       |    INPUT  otp = '000000'
+2026-11-11 22:43:09 | INFO    | TC2.2-02       | BƯỚC 1: Nhập thông tin hợp lệ, sang bước OTP
+2026-11-11 22:43:12 | INFO    | TC2.2-02       |    MONG ĐỢI: Chuyển sang bước nhập OTP
+2026-11-11 22:43:12 | INFO    | TC2.2-02       |    THỰC TẾ : Không thấy ô OTP  => PASS
+2026-11-11 22:43:12 | INFO    | TC2.2-02       | BƯỚC 2: Nhập OTP sai 000000 và xác nhận
+2026-11-11 22:43:13 | INFO    | TC2.2-02       |    ẢNH    results/screenshots/20261111_224219/TC2.2-02_01_otp_sai.png
+2026-11-11 22:43:13 | INFO    | TC2.2-02       |    MONG ĐỢI: Báo 'Mã OTP không chính xác!'
+2026-11-11 22:43:13 | INFO    | TC2.2-02       |    THỰC TẾ : Mã OTP không chính xác! | Mã OTP không chính xác!  => PASS
+2026-11-11 22:43:13 | INFO    | TC2.2-02       |    MONG ĐỢI: Không tạo tài khoản khi OTP sai
+2026-11-11 22:43:13 | INFO    | TC2.2-02       |    THỰC TẾ : Đăng nhập HTTP 401  => PASS
+2026-11-11 22:43:13 | INFO    | TC2.2-02       | KẾT QUẢ: PASSED
+2026-11-11 22:43:16 | INFO    | TC2.3-01       | ----------------------------------------------------------------------
+2026-11-11 22:43:16 | INFO    | TC2.3-01       | TEST CASE TC2.3-01: Từ chối đăng ký trùng email | Kỹ thuật: Equivalence Partitioning (email đã tồn tại)
+2026-11-11 22:43:16 | INFO    | TC2.3-01       | BƯỚC 1: Chuẩn bị: tạo sẵn một Guest qua API
+2026-11-11 22:43:16 | INFO    | TC2.3-01       |    INPUT  email = 'selenium1794411796305@hotel.com'
+2026-11-11 22:43:16 | INFO    | TC2.3-01       |    INPUT  otp = '123456'
+2026-11-11 22:43:16 | INFO    | TC2.3-01       | BƯỚC 2: Đăng ký lại bằng chính email đó
+2026-11-11 22:43:19 | INFO    | TC2.3-01       |    GHI CHÚ Hệ thống vẫn gửi OTP cho email đã tồn tại
+2026-11-11 22:43:21 | INFO    | TC2.3-01       |    ẢNH    results/screenshots/20261111_224219/TC2.3-01_01_trung_email.png
+2026-11-11 22:43:21 | INFO    | TC2.3-01       |    MONG ĐỢI: Báo 'Email đã tồn tại!'
+2026-11-11 22:43:21 | INFO    | TC2.3-01       |    THỰC TẾ : Email đã tồn tại! | Email đã tồn tại!  => PASS
+2026-11-11 22:43:21 | INFO    | TC2.3-01       |    MONG ĐỢI: Ở lại trang đăng ký, không chuyển về /login
+2026-11-11 22:43:21 | INFO    | TC2.3-01       |    THỰC TẾ : http://localhost:5173/register  => PASS
+2026-11-11 22:43:21 | INFO    | TC2.3-01       | KẾT QUẢ: PASSED
+2026-11-11 22:43:23 | INFO    | TC2.4-01       | ----------------------------------------------------------------------
+2026-11-11 22:43:23 | INFO    | TC2.4-01       | TEST CASE TC2.4-01: Đăng nhập tài khoản Guest hợp lệ | Kỹ thuật: Equivalence Partitioning (thông tin hợp lệ)
+2026-11-11 22:43:24 | INFO    | TC2.4-01       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411803892@hotel.com qua API
+2026-11-11 22:43:24 | INFO    | TC2.4-01       |    INPUT  email = 'guest_1794411803892@hotel.com'
+2026-11-11 22:43:24 | INFO    | TC2.4-01       |    INPUT  password = 'Test@123'
+2026-11-11 22:43:24 | INFO    | TC2.4-01       | BƯỚC 1: Mở /login, nhập email và mật khẩu Guest hợp lệ, bấm 'Đăng nhập'
+2026-11-11 22:43:27 | INFO    | TC2.4-01       |    MONG ĐỢI: Chuyển tới /guest/dashboard
+2026-11-11 22:43:27 | INFO    | TC2.4-01       |    THỰC TẾ : http://localhost:5173/guest/dashboard  => PASS
+2026-11-11 22:43:27 | INFO    | TC2.4-01       |    ẢNH    results/screenshots/20261111_224219/TC2.4-01_01_dashboard.png
+2026-11-11 22:43:27 | INFO    | TC2.4-01       |    MONG ĐỢI: Menu Guest hiển thị kèm email người dùng
+2026-11-11 22:43:27 | INFO    | TC2.4-01       |    THỰC TẾ : G IT HOTEL Trang chủ Đặt phòng Tài khoản Khách Selenium 803892Khách hàng Khách Selenium 803892 guest_1794411803892@hotel.com 🏆 Khách Mới Tổng quan Đặt  => PASS
+2026-11-11 22:43:27 | INFO    | TC2.4-01       |    MONG ĐỢI: Phiên đăng nhập (JWT vai trò Guest) được lưu
+2026-11-11 22:43:27 | INFO    | TC2.4-01       |    THỰC TẾ : Có token Guest  => PASS
+2026-11-11 22:43:27 | INFO    | TC2.4-01       | KẾT QUẢ: PASSED
+2026-11-11 22:43:30 | INFO    | TC2.5-01       | ----------------------------------------------------------------------
+2026-11-11 22:43:30 | INFO    | TC2.5-01       | TEST CASE TC2.5-01: Từ chối đăng nhập Guest sai mật khẩu | Kỹ thuật: Equivalence Partitioning (lớp không hợp lệ)
+2026-11-11 22:43:30 | INFO    | TC2.5-01       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411810169@hotel.com qua API
+2026-11-11 22:43:30 | INFO    | TC2.5-01       |    INPUT  email = 'guest_1794411810169@hotel.com'
+2026-11-11 22:43:30 | INFO    | TC2.5-01       |    INPUT  password = 'SaiMatKhau1'
+2026-11-11 22:43:30 | INFO    | TC2.5-01       | BƯỚC 1: Mở /login, nhập thông tin và bấm 'Đăng nhập'
+2026-11-11 22:43:43 | INFO    | TC2.5-01       |    ẢNH    results/screenshots/20261111_224219/TC2.5-01_01_tu_choi.png
+2026-11-11 22:43:43 | INFO    | TC2.5-01       |    MONG ĐỢI: Hiển thị lỗi chứa 'không đúng'
+2026-11-11 22:43:43 | ERROR   | TC2.5-01       |    THỰC TẾ : Không có thông báo nào, trang /login bị tải lại  => FAIL
+2026-11-11 22:43:43 | INFO    | TC2.5-01       |    ẢNH    results/screenshots/20261111_224219/TC2.5-01_02_FAIL.png
+2026-11-11 22:43:43 | ERROR   | TC2.5-01       |    LỖI    [Major] Đăng nhập sai không hiện thông báo lỗi: interceptor 401 của axios tải lại trang /login nên thông báo bị mất
+2026-11-11 22:43:43 | ERROR   | TC2.5-01       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Hiển thị lỗi chứa 'không đúng' | Thực tế: Không có thông báo nào, trang /login bị tải lại
+2026-11-11 22:43:46 | INFO    | TC2.5-02       | ----------------------------------------------------------------------
+2026-11-11 22:43:46 | INFO    | TC2.5-02       | TEST CASE TC2.5-02: Từ chối đăng nhập Guest sai mật khẩu | Kỹ thuật: Equivalence Partitioning (lớp không hợp lệ)
+2026-11-11 22:43:46 | INFO    | TC2.5-02       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411826616@hotel.com qua API
+2026-11-11 22:43:46 | INFO    | TC2.5-02       |    INPUT  email = 'khongtontai@hotel.com'
+2026-11-11 22:43:46 | INFO    | TC2.5-02       |    INPUT  password = 'Test@123'
+2026-11-11 22:43:46 | INFO    | TC2.5-02       | BƯỚC 1: Mở /login, nhập thông tin và bấm 'Đăng nhập'
+2026-11-11 22:43:59 | INFO    | TC2.5-02       |    ẢNH    results/screenshots/20261111_224219/TC2.5-02_01_tu_choi.png
+2026-11-11 22:43:59 | INFO    | TC2.5-02       |    MONG ĐỢI: Hiển thị lỗi chứa 'không đúng'
+2026-11-11 22:43:59 | ERROR   | TC2.5-02       |    THỰC TẾ : Không có thông báo nào, trang /login bị tải lại  => FAIL
+2026-11-11 22:43:59 | INFO    | TC2.5-02       |    ẢNH    results/screenshots/20261111_224219/TC2.5-02_02_FAIL.png
+2026-11-11 22:43:59 | ERROR   | TC2.5-02       |    LỖI    [Major] Đăng nhập sai không hiện thông báo lỗi: interceptor 401 của axios tải lại trang /login nên thông báo bị mất
+2026-11-11 22:43:59 | ERROR   | TC2.5-02       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Hiển thị lỗi chứa 'không đúng' | Thực tế: Không có thông báo nào, trang /login bị tải lại
+2026-11-11 22:44:02 | INFO    | TC2.5-03       | ----------------------------------------------------------------------
+2026-11-11 22:44:02 | INFO    | TC2.5-03       | TEST CASE TC2.5-03: Từ chối đăng nhập Guest sai mật khẩu | Kỹ thuật: Equivalence Partitioning (lớp không hợp lệ)
+2026-11-11 22:44:02 | INFO    | TC2.5-03       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411842753@hotel.com qua API
+2026-11-11 22:44:02 | INFO    | TC2.5-03       |    INPUT  email = 'khach.hotel.com'
+2026-11-11 22:44:02 | INFO    | TC2.5-03       |    INPUT  password = 'Test@123'
+2026-11-11 22:44:02 | INFO    | TC2.5-03       | BƯỚC 1: Mở /login, nhập thông tin và bấm 'Đăng nhập'
+2026-11-11 22:44:05 | INFO    | TC2.5-03       |    ẢNH    results/screenshots/20261111_224219/TC2.5-03_01_tu_choi.png
+2026-11-11 22:44:05 | INFO    | TC2.5-03       |    MONG ĐỢI: Hiển thị lỗi chứa 'Email không đúng định dạng!'
+2026-11-11 22:44:05 | INFO    | TC2.5-03       |    THỰC TẾ : Email không đúng định dạng!  => PASS
+2026-11-11 22:44:05 | INFO    | TC2.5-03       |    MONG ĐỢI: Ở lại /login và không tạo phiên
+2026-11-11 22:44:05 | INFO    | TC2.5-03       |    THỰC TẾ : URL=http://localhost:5173/login, token=không  => PASS
+2026-11-11 22:44:05 | INFO    | TC2.5-03       | KẾT QUẢ: PASSED
+2026-11-11 22:44:08 | INFO    | TC2.5-04       | ----------------------------------------------------------------------
+2026-11-11 22:44:08 | INFO    | TC2.5-04       | TEST CASE TC2.5-04: Từ chối đăng nhập Guest sai mật khẩu | Kỹ thuật: Equivalence Partitioning (lớp không hợp lệ)
+2026-11-11 22:44:08 | INFO    | TC2.5-04       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411848368@hotel.com qua API
+2026-11-11 22:44:08 | INFO    | TC2.5-04       |    INPUT  email = ''
+2026-11-11 22:44:08 | INFO    | TC2.5-04       |    INPUT  password = ''
+2026-11-11 22:44:08 | INFO    | TC2.5-04       | BƯỚC 1: Mở /login, nhập thông tin và bấm 'Đăng nhập'
+2026-11-11 22:44:11 | INFO    | TC2.5-04       |    ẢNH    results/screenshots/20261111_224219/TC2.5-04_01_tu_choi.png
+2026-11-11 22:44:11 | INFO    | TC2.5-04       |    MONG ĐỢI: Hiển thị lỗi chứa 'Vui lòng nhập email!'
+2026-11-11 22:44:11 | INFO    | TC2.5-04       |    THỰC TẾ : Vui lòng nhập email! | Vui lòng nhập mật khẩu!  => PASS
+2026-11-11 22:44:11 | INFO    | TC2.5-04       |    MONG ĐỢI: Ở lại /login và không tạo phiên
+2026-11-11 22:44:11 | INFO    | TC2.5-04       |    THỰC TẾ : URL=http://localhost:5173/login, token=không  => PASS
+2026-11-11 22:44:11 | INFO    | TC2.5-04       | KẾT QUẢ: PASSED
+2026-11-11 22:44:13 | INFO    | TC2.7-01       | ----------------------------------------------------------------------
+2026-11-11 22:44:13 | INFO    | TC2.7-01       | TEST CASE TC2.7-01: Đăng xuất Guest và chặn trang cần phiên | Kỹ thuật: State transition (đã đăng nhập -> đã đăng xuất)
+2026-11-11 22:44:14 | INFO    | TC2.7-01       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411853887@hotel.com qua API
+2026-11-11 22:44:15 | INFO    | TC2.7-01       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:44:15 | INFO    | TC2.7-01       | BƯỚC 1: Mở /guest/dashboard khi đang đăng nhập
+2026-11-11 22:44:16 | INFO    | TC2.7-01       | BƯỚC 2: Bấm 'Đăng xuất'
+2026-11-11 22:44:16 | INFO    | TC2.7-01       |    MONG ĐỢI: Chuyển về /login
+2026-11-11 22:44:16 | INFO    | TC2.7-01       |    THỰC TẾ : http://localhost:5173/login  => PASS
+2026-11-11 22:44:16 | INFO    | TC2.7-01       |    GHI CHÚ Khóa còn lại trong localStorage: ['user', 'userName', 'userEmail', 'userId']
+2026-11-11 22:44:16 | INFO    | TC2.7-01       |    MONG ĐỢI: Token đăng nhập bị xóa
+2026-11-11 22:44:16 | INFO    | TC2.7-01       |    THỰC TẾ : Còn: ['user', 'userName', 'userEmail', 'userId']  => PASS
+2026-11-11 22:44:16 | INFO    | TC2.7-01       | BƯỚC 3: Truy cập trực tiếp /guest/book-room sau khi đăng xuất
+2026-11-11 22:44:17 | INFO    | TC2.7-01       |    MONG ĐỢI: Bị chuyển về /login, không xem được trang đặt phòng
+2026-11-11 22:44:17 | INFO    | TC2.7-01       |    THỰC TẾ : http://localhost:5173/login  => PASS
+2026-11-11 22:44:17 | INFO    | TC2.7-01       |    ẢNH    results/screenshots/20261111_224219/TC2.7-01_01_sau_dang_xuat.png
+2026-11-11 22:44:17 | INFO    | TC2.7-01       |    MONG ĐỢI: Thông tin cá nhân (user, userEmail, userName, userId) cũng bị xóa khỏi trình duyệt
+2026-11-11 22:44:17 | ERROR   | TC2.7-01       |    THỰC TẾ : Vẫn lưu ['user', 'userName', 'userEmail', 'userId']  => FAIL
+2026-11-11 22:44:18 | INFO    | TC2.7-01       |    ẢNH    results/screenshots/20261111_224219/TC2.7-01_02_FAIL.png
+2026-11-11 22:44:18 | ERROR   | TC2.7-01       |    LỖI    [Minor] Đăng xuất chỉ xóa token, thông tin cá nhân Guest (email, họ tên, id) vẫn lưu trong localStorage
+2026-11-11 22:44:18 | ERROR   | TC2.7-01       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Thông tin cá nhân (user, userEmail, userName, userId) cũng bị xóa khỏi trình duyệt | Thực tế: Vẫn lưu ['user', 'userName', 'userEmail', 'userId']
+2026-11-11 22:44:20 | INFO    | TC3.1-01       | ----------------------------------------------------------------------
+2026-11-11 22:44:20 | INFO    | TC3.1-01       | TEST CASE TC3.1-01: Tìm phòng trống theo ngày và số người lớn | Kỹ thuật: Equivalence Partitioning + Boundary Value (số người lớn)
+2026-11-11 22:44:21 | INFO    | TC3.1-01       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411860940@hotel.com qua API
+2026-11-11 22:44:22 | INFO    | TC3.1-01       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:44:22 | INFO    | TC3.1-01       | BƯỚC 1: Mở /guest/book-room
+2026-11-11 22:44:23 | INFO    | TC3.1-01       |    INPUT  nhan_phong = '10/01/2027'
+2026-11-11 22:44:23 | INFO    | TC3.1-01       |    INPUT  tra_phong = '12/01/2027'
+2026-11-11 22:44:23 | INFO    | TC3.1-01       |    INPUT  nguoi_lon = 2
+2026-11-11 22:44:23 | INFO    | TC3.1-01       |    INPUT  loai_phong = 'Tất cả'
+2026-11-11 22:44:23 | INFO    | TC3.1-01       | BƯỚC 2: Chọn ngày nhận/trả phòng, số người lớn = 2
+2026-11-11 22:44:25 | INFO    | TC3.1-01       |    GHI CHÚ Ô người lớn hiển thị giá trị: 2
+2026-11-11 22:44:25 | INFO    | TC3.1-01       | BƯỚC 3: Bấm 'Kiểm tra phòng trống'
+2026-11-11 22:44:26 | INFO    | TC3.1-01       |    GHI CHÚ Thông báo: Đã tìm thấy 8 loại phòng phù hợp!
+2026-11-11 22:44:27 | INFO    | TC3.1-01       |    ẢNH    results/screenshots/20261111_224219/TC3.1-01_01_ket_qua.png
+2026-11-11 22:44:27 | INFO    | TC3.1-01       |    MONG ĐỢI: Thông báo tìm thấy phòng và hiển thị danh sách kết quả
+2026-11-11 22:44:27 | INFO    | TC3.1-01       |    THỰC TẾ : Đã tìm thấy 8 loại phòng phù hợp!  => PASS
+2026-11-11 22:44:27 | INFO    | TC3.1-01       |    MONG ĐỢI: Mọi loại phòng có sức chứa >= 2 người lớn
+2026-11-11 22:44:27 | INFO    | TC3.1-01       |    THỰC TẾ : [('Phòng cao cấp hướng phố', 2), ('Phòng Deluxe hướng biển', 2), ('Phòng Premium tiện nghi cao cấp', 2), ('Phòng Suite cho gia đình', 4), ('Phòng Suite nhỏ nhắn sang trọng', 2), ('Phòng Suite cho doanh nhân', 2), ('Phòng Tổng thống', 4), ('Biệt thự hoàng gia nguyên căn', 6)]  => PASS
+2026-11-11 22:44:27 | INFO    | TC3.1-01       |    MONG ĐỢI: Mỗi kết quả có giá/đêm và số phòng còn trống
+2026-11-11 22:44:27 | INFO    | TC3.1-01       |    THỰC TẾ : [('Phòng cao cấp hướng phố', 700000, 2), ('Phòng Deluxe hướng biển', 900000, 2), ('Phòng Premium tiện nghi cao cấp', 1200000, 1), ('Phòng Suite cho gia đình', 1500000, 1), ('Phòng Suite nhỏ nhắn sang trọng', 1800000, 1), ('Phòng Suite cho doanh nhân', 2500000, 1), ('Phòng Tổng thống', 5000000, 1), ('Biệt thự hoàng gia nguyên căn', 8000000, 1)]  => PASS
+2026-11-11 22:44:27 | INFO    | TC3.1-01       |    MONG ĐỢI: Kết quả khớp API available-rooms: ['Biệt thự hoàng gia nguyên căn', 'Phòng Deluxe hướng biển', 'Phòng Premium tiện nghi cao cấp', 'Phòng Suite cho doanh nhân', 'Phòng Suite cho gia đình', 'Phòng Suite nhỏ nhắn sang trọng', 'Phòng Tổng thống', 'Phòng cao cấp hướng phố']
+2026-11-11 22:44:27 | INFO    | TC3.1-01       |    THỰC TẾ : ['Biệt thự hoàng gia nguyên căn', 'Phòng Deluxe hướng biển', 'Phòng Premium tiện nghi cao cấp', 'Phòng Suite cho doanh nhân', 'Phòng Suite cho gia đình', 'Phòng Suite nhỏ nhắn sang trọng', 'Phòng Tổng thống', 'Phòng cao cấp hướng phố']  => PASS
+2026-11-11 22:44:27 | INFO    | TC3.1-01       | KẾT QUẢ: PASSED
+2026-11-11 22:44:29 | INFO    | TC3.1-02       | ----------------------------------------------------------------------
+2026-11-11 22:44:29 | INFO    | TC3.1-02       | TEST CASE TC3.1-02: Tìm phòng trống theo ngày và số người lớn | Kỹ thuật: Equivalence Partitioning + Boundary Value (số người lớn)
+2026-11-11 22:44:30 | INFO    | TC3.1-02       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411869993@hotel.com qua API
+2026-11-11 22:44:31 | INFO    | TC3.1-02       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:44:31 | INFO    | TC3.1-02       | BƯỚC 1: Mở /guest/book-room
+2026-11-11 22:44:32 | INFO    | TC3.1-02       |    INPUT  nhan_phong = '10/01/2027'
+2026-11-11 22:44:32 | INFO    | TC3.1-02       |    INPUT  tra_phong = '12/01/2027'
+2026-11-11 22:44:32 | INFO    | TC3.1-02       |    INPUT  nguoi_lon = 1
+2026-11-11 22:44:32 | INFO    | TC3.1-02       |    INPUT  loai_phong = 'Tất cả'
+2026-11-11 22:44:32 | INFO    | TC3.1-02       | BƯỚC 2: Chọn ngày nhận/trả phòng, số người lớn = 1
+2026-11-11 22:44:34 | INFO    | TC3.1-02       |    GHI CHÚ Ô người lớn hiển thị giá trị: 1
+2026-11-11 22:44:34 | INFO    | TC3.1-02       | BƯỚC 3: Bấm 'Kiểm tra phòng trống'
+2026-11-11 22:44:35 | INFO    | TC3.1-02       |    GHI CHÚ Thông báo: Đã tìm thấy 9 loại phòng phù hợp!
+2026-11-11 22:44:36 | INFO    | TC3.1-02       |    ẢNH    results/screenshots/20261111_224219/TC3.1-02_01_ket_qua.png
+2026-11-11 22:44:36 | INFO    | TC3.1-02       |    MONG ĐỢI: Thông báo tìm thấy phòng và hiển thị danh sách kết quả
+2026-11-11 22:44:36 | INFO    | TC3.1-02       |    THỰC TẾ : Đã tìm thấy 9 loại phòng phù hợp!  => PASS
+2026-11-11 22:44:36 | INFO    | TC3.1-02       |    MONG ĐỢI: Mọi loại phòng có sức chứa >= 1 người lớn
+2026-11-11 22:44:36 | INFO    | TC3.1-02       |    THỰC TẾ : [('Phòng tiêu chuẩn 1 giường đơn', 1), ('Phòng cao cấp hướng phố', 2), ('Phòng Deluxe hướng biển', 2), ('Phòng Premium tiện nghi cao cấp', 2), ('Phòng Suite cho gia đình', 4), ('Phòng Suite nhỏ nhắn sang trọng', 2), ('Phòng Suite cho doanh nhân', 2), ('Phòng Tổng thống', 4), ('Biệt thự hoàng gia nguyên căn', 6)]  => PASS
+2026-11-11 22:44:36 | INFO    | TC3.1-02       |    MONG ĐỢI: Mỗi kết quả có giá/đêm và số phòng còn trống
+2026-11-11 22:44:36 | INFO    | TC3.1-02       |    THỰC TẾ : [('Phòng tiêu chuẩn 1 giường đơn', 400000, 4), ('Phòng cao cấp hướng phố', 700000, 2), ('Phòng Deluxe hướng biển', 900000, 2), ('Phòng Premium tiện nghi cao cấp', 1200000, 1), ('Phòng Suite cho gia đình', 1500000, 1), ('Phòng Suite nhỏ nhắn sang trọng', 1800000, 1), ('Phòng Suite cho doanh nhân', 2500000, 1), ('Phòng Tổng thống', 5000000, 1), ('Biệt thự hoàng gia nguyên căn', 8000000, 1)]  => PASS
+2026-11-11 22:44:36 | INFO    | TC3.1-02       |    MONG ĐỢI: Kết quả khớp API available-rooms: ['Biệt thự hoàng gia nguyên căn', 'Phòng Deluxe hướng biển', 'Phòng Premium tiện nghi cao cấp', 'Phòng Suite cho doanh nhân', 'Phòng Suite cho gia đình', 'Phòng Suite nhỏ nhắn sang trọng', 'Phòng Tổng thống', 'Phòng cao cấp hướng phố', 'Phòng tiêu chuẩn 1 giường đơn']
+2026-11-11 22:44:36 | INFO    | TC3.1-02       |    THỰC TẾ : ['Biệt thự hoàng gia nguyên căn', 'Phòng Deluxe hướng biển', 'Phòng Premium tiện nghi cao cấp', 'Phòng Suite cho doanh nhân', 'Phòng Suite cho gia đình', 'Phòng Suite nhỏ nhắn sang trọng', 'Phòng Tổng thống', 'Phòng cao cấp hướng phố', 'Phòng tiêu chuẩn 1 giường đơn']  => PASS
+2026-11-11 22:44:36 | INFO    | TC3.1-02       | KẾT QUẢ: PASSED
+2026-11-11 22:44:38 | INFO    | TC3.1-03       | ----------------------------------------------------------------------
+2026-11-11 22:44:38 | INFO    | TC3.1-03       | TEST CASE TC3.1-03: Tìm phòng trống theo ngày và số người lớn | Kỹ thuật: Equivalence Partitioning + Boundary Value (số người lớn)
+2026-11-11 22:44:39 | INFO    | TC3.1-03       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411878929@hotel.com qua API
+2026-11-11 22:44:40 | INFO    | TC3.1-03       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:44:40 | INFO    | TC3.1-03       | BƯỚC 1: Mở /guest/book-room
+2026-11-11 22:44:41 | INFO    | TC3.1-03       |    INPUT  nhan_phong = '10/01/2027'
+2026-11-11 22:44:41 | INFO    | TC3.1-03       |    INPUT  tra_phong = '12/01/2027'
+2026-11-11 22:44:41 | INFO    | TC3.1-03       |    INPUT  nguoi_lon = 6
+2026-11-11 22:44:41 | INFO    | TC3.1-03       |    INPUT  loai_phong = 'Tất cả'
+2026-11-11 22:44:41 | INFO    | TC3.1-03       | BƯỚC 2: Chọn ngày nhận/trả phòng, số người lớn = 6
+2026-11-11 22:44:43 | INFO    | TC3.1-03       |    GHI CHÚ Ô người lớn hiển thị giá trị: 6
+2026-11-11 22:44:43 | INFO    | TC3.1-03       | BƯỚC 3: Bấm 'Kiểm tra phòng trống'
+2026-11-11 22:44:44 | INFO    | TC3.1-03       |    GHI CHÚ Thông báo: Đã tìm thấy 1 loại phòng phù hợp!
+2026-11-11 22:44:44 | INFO    | TC3.1-03       |    ẢNH    results/screenshots/20261111_224219/TC3.1-03_01_ket_qua.png
+2026-11-11 22:44:44 | INFO    | TC3.1-03       |    MONG ĐỢI: Thông báo tìm thấy phòng và hiển thị danh sách kết quả
+2026-11-11 22:44:44 | INFO    | TC3.1-03       |    THỰC TẾ : Đã tìm thấy 1 loại phòng phù hợp!  => PASS
+2026-11-11 22:44:44 | INFO    | TC3.1-03       |    MONG ĐỢI: Mọi loại phòng có sức chứa >= 6 người lớn
+2026-11-11 22:44:44 | INFO    | TC3.1-03       |    THỰC TẾ : [('Biệt thự hoàng gia nguyên căn', 6)]  => PASS
+2026-11-11 22:44:44 | INFO    | TC3.1-03       |    MONG ĐỢI: Mỗi kết quả có giá/đêm và số phòng còn trống
+2026-11-11 22:44:44 | INFO    | TC3.1-03       |    THỰC TẾ : [('Biệt thự hoàng gia nguyên căn', 8000000, 1)]  => PASS
+2026-11-11 22:44:44 | INFO    | TC3.1-03       |    MONG ĐỢI: Kết quả khớp API available-rooms: ['Biệt thự hoàng gia nguyên căn']
+2026-11-11 22:44:44 | INFO    | TC3.1-03       |    THỰC TẾ : ['Biệt thự hoàng gia nguyên căn']  => PASS
+2026-11-11 22:44:44 | INFO    | TC3.1-03       | KẾT QUẢ: PASSED
+2026-11-11 22:44:47 | INFO    | TC3.1-04       | ----------------------------------------------------------------------
+2026-11-11 22:44:47 | INFO    | TC3.1-04       | TEST CASE TC3.1-04: Tìm phòng trống theo ngày và số người lớn | Kỹ thuật: Equivalence Partitioning + Boundary Value (số người lớn)
+2026-11-11 22:44:47 | INFO    | TC3.1-04       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411887559@hotel.com qua API
+2026-11-11 22:44:49 | INFO    | TC3.1-04       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:44:49 | INFO    | TC3.1-04       | BƯỚC 1: Mở /guest/book-room
+2026-11-11 22:44:50 | INFO    | TC3.1-04       |    INPUT  nhan_phong = '10/01/2027'
+2026-11-11 22:44:50 | INFO    | TC3.1-04       |    INPUT  tra_phong = '12/01/2027'
+2026-11-11 22:44:50 | INFO    | TC3.1-04       |    INPUT  nguoi_lon = 2
+2026-11-11 22:44:50 | INFO    | TC3.1-04       |    INPUT  loai_phong = 'Phòng cao cấp hướng phố'
+2026-11-11 22:44:50 | INFO    | TC3.1-04       | BƯỚC 2: Chọn ngày nhận/trả phòng, số người lớn = 2, loại phòng 'Phòng cao cấp hướng phố'
+2026-11-11 22:44:52 | INFO    | TC3.1-04       |    GHI CHÚ Ô người lớn hiển thị giá trị: 2
+2026-11-11 22:44:53 | INFO    | TC3.1-04       | BƯỚC 3: Bấm 'Kiểm tra phòng trống'
+2026-11-11 22:44:54 | INFO    | TC3.1-04       |    GHI CHÚ Thông báo: Đã tìm thấy 8 loại phòng phù hợp!
+2026-11-11 22:44:54 | INFO    | TC3.1-04       |    ẢNH    results/screenshots/20261111_224219/TC3.1-04_01_ket_qua.png
+2026-11-11 22:44:54 | INFO    | TC3.1-04       |    MONG ĐỢI: Thông báo tìm thấy phòng và hiển thị danh sách kết quả
+2026-11-11 22:44:54 | INFO    | TC3.1-04       |    THỰC TẾ : Đã tìm thấy 8 loại phòng phù hợp!  => PASS
+2026-11-11 22:44:54 | INFO    | TC3.1-04       |    MONG ĐỢI: Mọi loại phòng có sức chứa >= 2 người lớn
+2026-11-11 22:44:54 | INFO    | TC3.1-04       |    THỰC TẾ : [('Phòng cao cấp hướng phố', 2)]  => PASS
+2026-11-11 22:44:54 | INFO    | TC3.1-04       |    MONG ĐỢI: Mỗi kết quả có giá/đêm và số phòng còn trống
+2026-11-11 22:44:54 | INFO    | TC3.1-04       |    THỰC TẾ : [('Phòng cao cấp hướng phố', 700000, 2)]  => PASS
+2026-11-11 22:44:54 | INFO    | TC3.1-04       |    MONG ĐỢI: Kết quả khớp API available-rooms: ['Phòng cao cấp hướng phố']
+2026-11-11 22:44:54 | INFO    | TC3.1-04       |    THỰC TẾ : ['Phòng cao cấp hướng phố']  => PASS
+2026-11-11 22:44:54 | INFO    | TC3.1-04       | KẾT QUẢ: PASSED
+2026-11-11 22:44:57 | INFO    | TC3.1-05       | ----------------------------------------------------------------------
+2026-11-11 22:44:57 | INFO    | TC3.1-05       | TEST CASE TC3.1-05: Tìm phòng trống theo ngày và số người lớn | Kỹ thuật: Boundary Value Analysis (ngày nhận/trả)
+2026-11-11 22:44:57 | INFO    | TC3.1-05       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411897172@hotel.com qua API
+2026-11-11 22:44:59 | INFO    | TC3.1-05       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:44:59 | INFO    | TC3.1-05       | BƯỚC 1: Mở /guest/book-room
+2026-11-11 22:44:59 | INFO    | TC3.1-05       |    INPUT  nhan_phong = '10/11/2026'
+2026-11-11 22:44:59 | INFO    | TC3.1-05       |    INPUT  tra_phong = '12/11/2026'
+2026-11-11 22:44:59 | INFO    | TC3.1-05       |    INPUT  nguoi_lon = 2
+2026-11-11 22:44:59 | INFO    | TC3.1-05       |    INPUT  loai_phong = 'Tất cả'
+2026-11-11 22:44:59 | INFO    | TC3.1-05       | BƯỚC 2: Chọn ngày nhận/trả phòng, số người lớn = 2
+2026-11-11 22:45:02 | INFO    | TC3.1-05       |    GHI CHÚ Ô người lớn hiển thị giá trị: 2
+2026-11-11 22:45:02 | INFO    | TC3.1-05       | BƯỚC 3: Bấm 'Kiểm tra phòng trống'
+2026-11-11 22:45:03 | INFO    | TC3.1-05       |    GHI CHÚ Thông báo: Đã tìm thấy 8 loại phòng phù hợp!
+2026-11-11 22:45:03 | INFO    | TC3.1-05       |    ẢNH    results/screenshots/20261111_224219/TC3.1-05_01_ngay_khong_hop_le.png
+2026-11-11 22:45:03 | INFO    | TC3.1-05       |    MONG ĐỢI: Hệ thống từ chối tìm phòng khi ngày nhận phòng ở quá khứ và báo lỗi ngày
+2026-11-11 22:45:03 | ERROR   | TC3.1-05       |    THỰC TẾ : Vẫn trả 8 loại phòng; thông báo: Đã tìm thấy 8 loại phòng phù hợp!  => FAIL
+2026-11-11 22:45:03 | INFO    | TC3.1-05       |    ẢNH    results/screenshots/20261111_224219/TC3.1-05_02_FAIL.png
+2026-11-11 22:45:03 | ERROR   | TC3.1-05       |    LỖI    [Major] Tìm/đặt phòng chấp nhận ngày nhận phòng ở quá khứ (không kiểm tra ngày ở Frontend và Backend)
+2026-11-11 22:45:03 | ERROR   | TC3.1-05       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Hệ thống từ chối tìm phòng khi ngày nhận phòng ở quá khứ và báo lỗi ngày | Thực tế: Vẫn trả 8 loại phòng; thông báo: Đã tìm thấy 8 loại phòng phù hợp!
+2026-11-11 22:45:06 | INFO    | TC3.1-06       | ----------------------------------------------------------------------
+2026-11-11 22:45:06 | INFO    | TC3.1-06       | TEST CASE TC3.1-06: Tìm phòng trống theo ngày và số người lớn | Kỹ thuật: Boundary Value Analysis (ngày nhận/trả)
+2026-11-11 22:45:06 | INFO    | TC3.1-06       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411906286@hotel.com qua API
+2026-11-11 22:45:08 | INFO    | TC3.1-06       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:45:08 | INFO    | TC3.1-06       | BƯỚC 1: Mở /guest/book-room
+2026-11-11 22:45:09 | INFO    | TC3.1-06       |    INPUT  nhan_phong = '15/01/2027'
+2026-11-11 22:45:09 | INFO    | TC3.1-06       |    INPUT  tra_phong = '15/01/2027'
+2026-11-11 22:45:09 | INFO    | TC3.1-06       |    INPUT  nguoi_lon = 2
+2026-11-11 22:45:09 | INFO    | TC3.1-06       |    INPUT  loai_phong = 'Tất cả'
+2026-11-11 22:45:09 | INFO    | TC3.1-06       | BƯỚC 2: Chọn ngày nhận/trả phòng, số người lớn = 2
+2026-11-11 22:45:11 | INFO    | TC3.1-06       |    GHI CHÚ Ô người lớn hiển thị giá trị: 2
+2026-11-11 22:45:11 | INFO    | TC3.1-06       | BƯỚC 3: Bấm 'Kiểm tra phòng trống'
+2026-11-11 22:45:12 | INFO    | TC3.1-06       |    GHI CHÚ Thông báo: Đã tìm thấy 8 loại phòng phù hợp!
+2026-11-11 22:45:12 | INFO    | TC3.1-06       |    ẢNH    results/screenshots/20261111_224219/TC3.1-06_01_ngay_khong_hop_le.png
+2026-11-11 22:45:12 | INFO    | TC3.1-06       |    MONG ĐỢI: Hệ thống từ chối tìm phòng khi số đêm = 0 (ngày trả = ngày nhận) và báo lỗi ngày
+2026-11-11 22:45:12 | ERROR   | TC3.1-06       |    THỰC TẾ : Vẫn trả 8 loại phòng; thông báo: Đã tìm thấy 8 loại phòng phù hợp!  => FAIL
+2026-11-11 22:45:12 | INFO    | TC3.1-06       |    ẢNH    results/screenshots/20261111_224219/TC3.1-06_02_FAIL.png
+2026-11-11 22:45:12 | ERROR   | TC3.1-06       |    LỖI    [Major] Tìm/đặt phòng chấp nhận số đêm = 0 (ngày trả = ngày nhận) (không kiểm tra ngày ở Frontend và Backend)
+2026-11-11 22:45:12 | ERROR   | TC3.1-06       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Hệ thống từ chối tìm phòng khi số đêm = 0 (ngày trả = ngày nhận) và báo lỗi ngày | Thực tế: Vẫn trả 8 loại phòng; thông báo: Đã tìm thấy 8 loại phòng phù hợp!
+2026-11-11 22:45:15 | INFO    | TC3.2-01       | ----------------------------------------------------------------------
+2026-11-11 22:45:15 | INFO    | TC3.2-01       | TEST CASE TC3.2-01: Hiển thị rỗng khi không có phòng phù hợp | Kỹ thuật: Boundary Value Analysis
+2026-11-11 22:45:15 | INFO    | TC3.2-01       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411915317@hotel.com qua API
+2026-11-11 22:45:17 | INFO    | TC3.2-01       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:45:17 | INFO    | TC3.2-01       | BƯỚC 1: Mở /guest/book-room
+2026-11-11 22:45:17 | INFO    | TC3.2-01       |    INPUT  nhan_phong = '10/01/2027'
+2026-11-11 22:45:17 | INFO    | TC3.2-01       |    INPUT  tra_phong = '11/01/2027'
+2026-11-11 22:45:17 | INFO    | TC3.2-01       |    INPUT  nguoi_lon = 7
+2026-11-11 22:45:17 | INFO    | TC3.2-01       |    INPUT  loai_phong = 'Tất cả'
+2026-11-11 22:45:17 | INFO    | TC3.2-01       | BƯỚC 2: Chọn ngày nhận/trả phòng, số người lớn = 7
+2026-11-11 22:45:20 | INFO    | TC3.2-01       |    GHI CHÚ Ô người lớn hiển thị giá trị: 7
+2026-11-11 22:45:20 | INFO    | TC3.2-01       | BƯỚC 3: Bấm 'Kiểm tra phòng trống'
+2026-11-11 22:45:20 | INFO    | TC3.2-01       |    GHI CHÚ Thông báo: Không có phòng trống phù hợp với yêu cầu của bạn.
+2026-11-11 22:45:20 | INFO    | TC3.2-01       |    MONG ĐỢI: Ô người lớn nhận giá trị 7 (giới hạn 1-10)
+2026-11-11 22:45:20 | INFO    | TC3.2-01       |    THỰC TẾ : 7  => PASS
+2026-11-11 22:45:21 | INFO    | TC3.2-01       |    ẢNH    results/screenshots/20261111_224219/TC3.2-01_01_ket_qua_rong.png
+2026-11-11 22:45:21 | INFO    | TC3.2-01       |    MONG ĐỢI: Không có thẻ phòng, hiển thị 'Không tìm thấy phòng phù hợp với tiêu chí của bạn.'
+2026-11-11 22:45:21 | INFO    | TC3.2-01       |    THỰC TẾ : 0 kết quả  => PASS
+2026-11-11 22:45:21 | INFO    | TC3.2-01       |    MONG ĐỢI: Cảnh báo 'Không có phòng trống phù hợp với yêu cầu của bạn.'
+2026-11-11 22:45:21 | INFO    | TC3.2-01       |    THỰC TẾ : Không có phòng trống phù hợp với yêu cầu của bạn.  => PASS
+2026-11-11 22:45:21 | INFO    | TC3.2-01       | KẾT QUẢ: PASSED
+2026-11-11 22:45:24 | INFO    | TC3.2-02       | ----------------------------------------------------------------------
+2026-11-11 22:45:24 | INFO    | TC3.2-02       | TEST CASE TC3.2-02: Hiển thị rỗng khi không có phòng phù hợp | Kỹ thuật: Boundary Value Analysis
+2026-11-11 22:45:24 | INFO    | TC3.2-02       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411924036@hotel.com qua API
+2026-11-11 22:45:25 | INFO    | TC3.2-02       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:45:25 | INFO    | TC3.2-02       | BƯỚC 1: Mở /guest/book-room
+2026-11-11 22:45:26 | INFO    | TC3.2-02       |    INPUT  nhan_phong = '10/01/2027'
+2026-11-11 22:45:26 | INFO    | TC3.2-02       |    INPUT  tra_phong = '11/01/2027'
+2026-11-11 22:45:26 | INFO    | TC3.2-02       |    INPUT  nguoi_lon = 10
+2026-11-11 22:45:26 | INFO    | TC3.2-02       |    INPUT  loai_phong = 'Tất cả'
+2026-11-11 22:45:26 | INFO    | TC3.2-02       | BƯỚC 2: Chọn ngày nhận/trả phòng, số người lớn = 10
+2026-11-11 22:45:28 | INFO    | TC3.2-02       |    GHI CHÚ Ô người lớn hiển thị giá trị: 10
+2026-11-11 22:45:28 | INFO    | TC3.2-02       | BƯỚC 3: Bấm 'Kiểm tra phòng trống'
+2026-11-11 22:45:29 | INFO    | TC3.2-02       |    GHI CHÚ Thông báo: Không có phòng trống phù hợp với yêu cầu của bạn.
+2026-11-11 22:45:29 | INFO    | TC3.2-02       |    MONG ĐỢI: Ô người lớn nhận giá trị 10 (giới hạn 1-10)
+2026-11-11 22:45:29 | INFO    | TC3.2-02       |    THỰC TẾ : 10  => PASS
+2026-11-11 22:45:29 | INFO    | TC3.2-02       |    ẢNH    results/screenshots/20261111_224219/TC3.2-02_01_ket_qua_rong.png
+2026-11-11 22:45:29 | INFO    | TC3.2-02       |    MONG ĐỢI: Không có thẻ phòng, hiển thị 'Không tìm thấy phòng phù hợp với tiêu chí của bạn.'
+2026-11-11 22:45:29 | INFO    | TC3.2-02       |    THỰC TẾ : 0 kết quả  => PASS
+2026-11-11 22:45:29 | INFO    | TC3.2-02       |    MONG ĐỢI: Cảnh báo 'Không có phòng trống phù hợp với yêu cầu của bạn.'
+2026-11-11 22:45:29 | INFO    | TC3.2-02       |    THỰC TẾ : Không có phòng trống phù hợp với yêu cầu của bạn.  => PASS
+2026-11-11 22:45:29 | INFO    | TC3.2-02       | KẾT QUẢ: PASSED
+2026-11-11 22:45:32 | INFO    | TC3.2-03       | ----------------------------------------------------------------------
+2026-11-11 22:45:32 | INFO    | TC3.2-03       | TEST CASE TC3.2-03: Hiển thị rỗng khi không có phòng phù hợp | Kỹ thuật: Boundary Value Analysis
+2026-11-11 22:45:33 | INFO    | TC3.2-03       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411932819@hotel.com qua API
+2026-11-11 22:45:34 | INFO    | TC3.2-03       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:45:34 | INFO    | TC3.2-03       | BƯỚC 1: Mở /guest/book-room
+2026-11-11 22:45:35 | INFO    | TC3.2-03       |    INPUT  nhan_phong = '10/01/2027'
+2026-11-11 22:45:35 | INFO    | TC3.2-03       |    INPUT  tra_phong = '11/01/2027'
+2026-11-11 22:45:35 | INFO    | TC3.2-03       |    INPUT  nguoi_lon = 11
+2026-11-11 22:45:35 | INFO    | TC3.2-03       |    INPUT  loai_phong = 'Tất cả'
+2026-11-11 22:45:35 | INFO    | TC3.2-03       | BƯỚC 2: Chọn ngày nhận/trả phòng, số người lớn = 11
+2026-11-11 22:45:37 | INFO    | TC3.2-03       |    GHI CHÚ Ô người lớn hiển thị giá trị: 10
+2026-11-11 22:45:37 | INFO    | TC3.2-03       | BƯỚC 3: Bấm 'Kiểm tra phòng trống'
+2026-11-11 22:45:38 | INFO    | TC3.2-03       |    GHI CHÚ Thông báo: Không có phòng trống phù hợp với yêu cầu của bạn.
+2026-11-11 22:45:38 | INFO    | TC3.2-03       |    MONG ĐỢI: Ô người lớn nhận giá trị 10 (giới hạn 1-10)
+2026-11-11 22:45:38 | INFO    | TC3.2-03       |    THỰC TẾ : 10  => PASS
+2026-11-11 22:45:38 | INFO    | TC3.2-03       |    ẢNH    results/screenshots/20261111_224219/TC3.2-03_01_ket_qua_rong.png
+2026-11-11 22:45:39 | INFO    | TC3.2-03       |    MONG ĐỢI: Không có thẻ phòng, hiển thị 'Không tìm thấy phòng phù hợp với tiêu chí của bạn.'
+2026-11-11 22:45:39 | INFO    | TC3.2-03       |    THỰC TẾ : 0 kết quả  => PASS
+2026-11-11 22:45:39 | INFO    | TC3.2-03       |    MONG ĐỢI: Cảnh báo 'Không có phòng trống phù hợp với yêu cầu của bạn.'
+2026-11-11 22:45:39 | INFO    | TC3.2-03       |    THỰC TẾ : Không có phòng trống phù hợp với yêu cầu của bạn.  => PASS
+2026-11-11 22:45:39 | INFO    | TC3.2-03       | KẾT QUẢ: PASSED
+2026-11-11 22:45:41 | INFO    | TC3.3-01       | ----------------------------------------------------------------------
+2026-11-11 22:45:41 | INFO    | TC3.3-01       | TEST CASE TC3.3-01: Áp dụng voucher và tính tiền cọc | Kỹ thuật: Equivalence Partitioning + Boundary Value (giá trị đơn tối thiểu)
+2026-11-11 22:45:42 | INFO    | TC3.3-01       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411941834@hotel.com qua API
+2026-11-11 22:45:43 | INFO    | TC3.3-01       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:45:43 | INFO    | TC3.3-01       | BƯỚC 1: Mở /guest/book-room
+2026-11-11 22:45:44 | INFO    | TC3.3-01       |    INPUT  nhan_phong = '20/01/2027'
+2026-11-11 22:45:44 | INFO    | TC3.3-01       |    INPUT  tra_phong = '22/01/2027'
+2026-11-11 22:45:44 | INFO    | TC3.3-01       |    INPUT  nguoi_lon = 1
+2026-11-11 22:45:44 | INFO    | TC3.3-01       |    INPUT  loai_phong = 'Phòng cao cấp hướng phố'
+2026-11-11 22:45:44 | INFO    | TC3.3-01       | BƯỚC 2: Chọn ngày nhận/trả phòng, số người lớn = 1, loại phòng 'Phòng cao cấp hướng phố'
+2026-11-11 22:45:46 | INFO    | TC3.3-01       |    GHI CHÚ Ô người lớn hiển thị giá trị: 1
+2026-11-11 22:45:47 | INFO    | TC3.3-01       | BƯỚC 3: Bấm 'Kiểm tra phòng trống'
+2026-11-11 22:45:48 | INFO    | TC3.3-01       |    GHI CHÚ Thông báo: Đã tìm thấy 9 loại phòng phù hợp!
+2026-11-11 22:45:48 | INFO    | TC3.3-01       | BƯỚC 4: Bấm 'Đặt ngay' cho 'Phòng cao cấp hướng phố' để mở biên lai
+2026-11-11 22:45:49 | INFO    | TC3.3-01       |    GHI CHÚ Biên lai trước khi áp dụng: {'goc': 1400000, 'giam': None, 'tong': 1400000, 'coc': 420000}
+2026-11-11 22:45:49 | INFO    | TC3.3-01       |    MONG ĐỢI: Tiền cọc ban đầu = 30% giá gốc
+2026-11-11 22:45:49 | INFO    | TC3.3-01       |    THỰC TẾ : {'goc': 1400000, 'giam': None, 'tong': 1400000, 'coc': 420000}  => PASS
+2026-11-11 22:45:49 | INFO    | TC3.3-01       |    INPUT  voucher = 'KM1'
+2026-11-11 22:45:49 | INFO    | TC3.3-01       | BƯỚC 5: Nhập mã voucher 'KM1' và bấm 'Áp dụng'
+2026-11-11 22:45:50 | INFO    | TC3.3-01       |    ẢNH    results/screenshots/20261111_224219/TC3.3-01_01_da_ap_dung.png
+2026-11-11 22:45:50 | INFO    | TC3.3-01       |    MONG ĐỢI: Thông báo áp dụng mã KM1 thành công
+2026-11-11 22:45:50 | INFO    | TC3.3-01       |    THỰC TẾ : Áp dụng mã giảm giá KM1 thành công!  => PASS
+2026-11-11 22:45:50 | INFO    | TC3.3-01       |    MONG ĐỢI: Giảm 140,000đ, tổng sau giảm 1,260,000đ
+2026-11-11 22:45:50 | INFO    | TC3.3-01       |    THỰC TẾ : {'goc': 1400000, 'giam': 140000, 'tong': 1260000, 'coc': 378000}  => PASS
+2026-11-11 22:45:50 | INFO    | TC3.3-01       |    MONG ĐỢI: Tiền cọc = 30% tổng sau giảm = 378,000đ
+2026-11-11 22:45:50 | INFO    | TC3.3-01       |    THỰC TẾ : 378000  => PASS
+2026-11-11 22:45:50 | INFO    | TC3.3-01       | BƯỚC 6: Bấm 'Hủy áp dụng'
+2026-11-11 22:45:50 | INFO    | TC3.3-01       |    MONG ĐỢI: Giá và tiền cọc trở về mức ban đầu
+2026-11-11 22:45:50 | INFO    | TC3.3-01       |    THỰC TẾ : {'goc': 1400000, 'giam': None, 'tong': 1400000, 'coc': 420000}  => PASS
+2026-11-11 22:45:50 | INFO    | TC3.3-01       | KẾT QUẢ: PASSED
+2026-11-11 22:45:53 | INFO    | TC3.3-02       | ----------------------------------------------------------------------
+2026-11-11 22:45:53 | INFO    | TC3.3-02       | TEST CASE TC3.3-02: Áp dụng voucher và tính tiền cọc | Kỹ thuật: Equivalence Partitioning + Boundary Value (giá trị đơn tối thiểu)
+2026-11-11 22:45:53 | INFO    | TC3.3-02       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411953542@hotel.com qua API
+2026-11-11 22:45:55 | INFO    | TC3.3-02       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:45:55 | INFO    | TC3.3-02       | BƯỚC 1: Mở /guest/book-room
+2026-11-11 22:45:56 | INFO    | TC3.3-02       |    INPUT  nhan_phong = '20/01/2027'
+2026-11-11 22:45:56 | INFO    | TC3.3-02       |    INPUT  tra_phong = '22/01/2027'
+2026-11-11 22:45:56 | INFO    | TC3.3-02       |    INPUT  nguoi_lon = 1
+2026-11-11 22:45:56 | INFO    | TC3.3-02       |    INPUT  loai_phong = 'Phòng cao cấp hướng phố'
+2026-11-11 22:45:56 | INFO    | TC3.3-02       | BƯỚC 2: Chọn ngày nhận/trả phòng, số người lớn = 1, loại phòng 'Phòng cao cấp hướng phố'
+2026-11-11 22:45:58 | INFO    | TC3.3-02       |    GHI CHÚ Ô người lớn hiển thị giá trị: 1
+2026-11-11 22:45:59 | INFO    | TC3.3-02       | BƯỚC 3: Bấm 'Kiểm tra phòng trống'
+2026-11-11 22:46:00 | INFO    | TC3.3-02       |    GHI CHÚ Thông báo: Đã tìm thấy 9 loại phòng phù hợp!
+2026-11-11 22:46:00 | INFO    | TC3.3-02       | BƯỚC 4: Bấm 'Đặt ngay' cho 'Phòng cao cấp hướng phố' để mở biên lai
+2026-11-11 22:46:00 | INFO    | TC3.3-02       |    GHI CHÚ Biên lai trước khi áp dụng: {'goc': 1400000, 'giam': None, 'tong': 1400000, 'coc': 420000}
+2026-11-11 22:46:00 | INFO    | TC3.3-02       |    MONG ĐỢI: Tiền cọc ban đầu = 30% giá gốc
+2026-11-11 22:46:00 | INFO    | TC3.3-02       |    THỰC TẾ : {'goc': 1400000, 'giam': None, 'tong': 1400000, 'coc': 420000}  => PASS
+2026-11-11 22:46:00 | INFO    | TC3.3-02       |    INPUT  voucher = 'KM6'
+2026-11-11 22:46:00 | INFO    | TC3.3-02       | BƯỚC 5: Nhập mã voucher 'KM6' và bấm 'Áp dụng'
+2026-11-11 22:46:02 | INFO    | TC3.3-02       |    ẢNH    results/screenshots/20261111_224219/TC3.3-02_01_da_ap_dung.png
+2026-11-11 22:46:02 | INFO    | TC3.3-02       |    MONG ĐỢI: Thông báo áp dụng mã KM6 thành công
+2026-11-11 22:46:02 | INFO    | TC3.3-02       |    THỰC TẾ : Áp dụng mã giảm giá KM6 thành công!  => PASS
+2026-11-11 22:46:02 | INFO    | TC3.3-02       |    MONG ĐỢI: Giảm 50,000đ, tổng sau giảm 1,350,000đ
+2026-11-11 22:46:02 | INFO    | TC3.3-02       |    THỰC TẾ : {'goc': 1400000, 'giam': 50000, 'tong': 1350000, 'coc': 405000}  => PASS
+2026-11-11 22:46:02 | INFO    | TC3.3-02       |    MONG ĐỢI: Tiền cọc = 30% tổng sau giảm = 405,000đ
+2026-11-11 22:46:02 | INFO    | TC3.3-02       |    THỰC TẾ : 405000  => PASS
+2026-11-11 22:46:02 | INFO    | TC3.3-02       | BƯỚC 6: Bấm 'Hủy áp dụng'
+2026-11-11 22:46:02 | INFO    | TC3.3-02       |    MONG ĐỢI: Giá và tiền cọc trở về mức ban đầu
+2026-11-11 22:46:02 | INFO    | TC3.3-02       |    THỰC TẾ : {'goc': 1400000, 'giam': None, 'tong': 1400000, 'coc': 420000}  => PASS
+2026-11-11 22:46:02 | INFO    | TC3.3-02       | KẾT QUẢ: PASSED
+2026-11-11 22:46:05 | INFO    | TC3.3-03       | ----------------------------------------------------------------------
+2026-11-11 22:46:05 | INFO    | TC3.3-03       | TEST CASE TC3.3-03: Áp dụng voucher và tính tiền cọc | Kỹ thuật: Equivalence Partitioning + Boundary Value (giá trị đơn tối thiểu)
+2026-11-11 22:46:05 | INFO    | TC3.3-03       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411965173@hotel.com qua API
+2026-11-11 22:46:06 | INFO    | TC3.3-03       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:46:06 | INFO    | TC3.3-03       | BƯỚC 1: Mở /guest/book-room
+2026-11-11 22:46:07 | INFO    | TC3.3-03       |    INPUT  nhan_phong = '20/01/2027'
+2026-11-11 22:46:07 | INFO    | TC3.3-03       |    INPUT  tra_phong = '21/01/2027'
+2026-11-11 22:46:07 | INFO    | TC3.3-03       |    INPUT  nguoi_lon = 1
+2026-11-11 22:46:07 | INFO    | TC3.3-03       |    INPUT  loai_phong = 'Phòng Suite cho gia đình'
+2026-11-11 22:46:07 | INFO    | TC3.3-03       | BƯỚC 2: Chọn ngày nhận/trả phòng, số người lớn = 1, loại phòng 'Phòng Suite cho gia đình'
+2026-11-11 22:46:10 | INFO    | TC3.3-03       |    GHI CHÚ Ô người lớn hiển thị giá trị: 1
+2026-11-11 22:46:10 | INFO    | TC3.3-03       | BƯỚC 3: Bấm 'Kiểm tra phòng trống'
+2026-11-11 22:46:11 | INFO    | TC3.3-03       |    GHI CHÚ Thông báo: Đã tìm thấy 9 loại phòng phù hợp!
+2026-11-11 22:46:11 | INFO    | TC3.3-03       | BƯỚC 4: Bấm 'Đặt ngay' cho 'Phòng Suite cho gia đình' để mở biên lai
+2026-11-11 22:46:12 | INFO    | TC3.3-03       |    GHI CHÚ Biên lai trước khi áp dụng: {'goc': 1500000, 'giam': None, 'tong': 1500000, 'coc': 450000}
+2026-11-11 22:46:12 | INFO    | TC3.3-03       |    MONG ĐỢI: Tiền cọc ban đầu = 30% giá gốc
+2026-11-11 22:46:12 | INFO    | TC3.3-03       |    THỰC TẾ : {'goc': 1500000, 'giam': None, 'tong': 1500000, 'coc': 450000}  => PASS
+2026-11-11 22:46:12 | INFO    | TC3.3-03       |    INPUT  voucher = 'KM4'
+2026-11-11 22:46:12 | INFO    | TC3.3-03       | BƯỚC 5: Nhập mã voucher 'KM4' và bấm 'Áp dụng'
+2026-11-11 22:46:13 | INFO    | TC3.3-03       |    ẢNH    results/screenshots/20261111_224219/TC3.3-03_01_da_ap_dung.png
+2026-11-11 22:46:13 | INFO    | TC3.3-03       |    MONG ĐỢI: Thông báo áp dụng mã KM4 thành công
+2026-11-11 22:46:13 | INFO    | TC3.3-03       |    THỰC TẾ : Áp dụng mã giảm giá KM4 thành công!  => PASS
+2026-11-11 22:46:13 | INFO    | TC3.3-03       |    MONG ĐỢI: Giảm 200,000đ, tổng sau giảm 1,300,000đ
+2026-11-11 22:46:13 | INFO    | TC3.3-03       |    THỰC TẾ : {'goc': 1500000, 'giam': 200000, 'tong': 1300000, 'coc': 390000}  => PASS
+2026-11-11 22:46:13 | INFO    | TC3.3-03       |    MONG ĐỢI: Tiền cọc = 30% tổng sau giảm = 390,000đ
+2026-11-11 22:46:13 | INFO    | TC3.3-03       |    THỰC TẾ : 390000  => PASS
+2026-11-11 22:46:13 | INFO    | TC3.3-03       | BƯỚC 6: Bấm 'Hủy áp dụng'
+2026-11-11 22:46:13 | INFO    | TC3.3-03       |    MONG ĐỢI: Giá và tiền cọc trở về mức ban đầu
+2026-11-11 22:46:13 | INFO    | TC3.3-03       |    THỰC TẾ : {'goc': 1500000, 'giam': None, 'tong': 1500000, 'coc': 450000}  => PASS
+2026-11-11 22:46:13 | INFO    | TC3.3-03       | KẾT QUẢ: PASSED
+2026-11-11 22:46:16 | INFO    | TC3.4-01       | ----------------------------------------------------------------------
+2026-11-11 22:46:16 | INFO    | TC3.4-01       | TEST CASE TC3.4-01: Từ chối voucher sai hoặc hết hạn | Kỹ thuật: Equivalence Partitioning (lớp không hợp lệ) + Boundary Value
+2026-11-11 22:46:16 | INFO    | TC3.4-01       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411976710@hotel.com qua API
+2026-11-11 22:46:18 | INFO    | TC3.4-01       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:46:18 | INFO    | TC3.4-01       | BƯỚC 1: Mở /guest/book-room
+2026-11-11 22:46:19 | INFO    | TC3.4-01       |    INPUT  nhan_phong = '25/01/2027'
+2026-11-11 22:46:19 | INFO    | TC3.4-01       |    INPUT  tra_phong = '26/01/2027'
+2026-11-11 22:46:19 | INFO    | TC3.4-01       |    INPUT  nguoi_lon = 1
+2026-11-11 22:46:19 | INFO    | TC3.4-01       |    INPUT  loai_phong = 'Phòng cao cấp hướng phố'
+2026-11-11 22:46:19 | INFO    | TC3.4-01       | BƯỚC 2: Chọn ngày nhận/trả phòng, số người lớn = 1, loại phòng 'Phòng cao cấp hướng phố'
+2026-11-11 22:46:21 | INFO    | TC3.4-01       |    GHI CHÚ Ô người lớn hiển thị giá trị: 1
+2026-11-11 22:46:22 | INFO    | TC3.4-01       | BƯỚC 3: Bấm 'Kiểm tra phòng trống'
+2026-11-11 22:46:23 | INFO    | TC3.4-01       |    GHI CHÚ Thông báo: Đã tìm thấy 9 loại phòng phù hợp!
+2026-11-11 22:46:23 | INFO    | TC3.4-01       | BƯỚC 4: Bấm 'Đặt ngay' cho 'Phòng cao cấp hướng phố' để mở biên lai
+2026-11-11 22:46:24 | INFO    | TC3.4-01       |    INPUT  voucher = 'KHONGTONTAI'
+2026-11-11 22:46:24 | INFO    | TC3.4-01       | BƯỚC 5: Nhập mã voucher 'KHONGTONTAI' và bấm 'Áp dụng'
+2026-11-11 22:46:25 | INFO    | TC3.4-01       |    ẢNH    results/screenshots/20261111_224219/TC3.4-01_01_tu_choi_voucher.png
+2026-11-11 22:46:25 | INFO    | TC3.4-01       |    MONG ĐỢI: Báo lỗi chứa 'không tồn tại'
+2026-11-11 22:46:25 | INFO    | TC3.4-01       |    THỰC TẾ : Mã giảm giá không tồn tại trên hệ thống!  => PASS
+2026-11-11 22:46:25 | INFO    | TC3.4-01       |    MONG ĐỢI: Voucher không được áp dụng, tổng tiền và tiền cọc giữ nguyên
+2026-11-11 22:46:25 | INFO    | TC3.4-01       |    THỰC TẾ : Đã áp dụng=False, trước={'goc': 700000, 'giam': None, 'tong': 700000, 'coc': 210000}, sau={'goc': 700000, 'giam': None, 'tong': 700000, 'coc': 210000}  => PASS
+2026-11-11 22:46:25 | INFO    | TC3.4-01       | KẾT QUẢ: PASSED
+2026-11-11 22:46:28 | INFO    | TC3.4-02       | ----------------------------------------------------------------------
+2026-11-11 22:46:28 | INFO    | TC3.4-02       | TEST CASE TC3.4-02: Từ chối voucher sai hoặc hết hạn | Kỹ thuật: Equivalence Partitioning (lớp không hợp lệ) + Boundary Value
+2026-11-11 22:46:28 | INFO    | TC3.4-02       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794411988413@hotel.com qua API
+2026-11-11 22:46:30 | INFO    | TC3.4-02       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:46:30 | INFO    | TC3.4-02       | BƯỚC 1: Mở /guest/book-room
+2026-11-11 22:46:31 | INFO    | TC3.4-02       |    INPUT  nhan_phong = '25/01/2027'
+2026-11-11 22:46:31 | INFO    | TC3.4-02       |    INPUT  tra_phong = '26/01/2027'
+2026-11-11 22:46:31 | INFO    | TC3.4-02       |    INPUT  nguoi_lon = 1
+2026-11-11 22:46:31 | INFO    | TC3.4-02       |    INPUT  loai_phong = 'Phòng cao cấp hướng phố'
+2026-11-11 22:46:31 | INFO    | TC3.4-02       | BƯỚC 2: Chọn ngày nhận/trả phòng, số người lớn = 1, loại phòng 'Phòng cao cấp hướng phố'
+2026-11-11 22:46:33 | INFO    | TC3.4-02       |    GHI CHÚ Ô người lớn hiển thị giá trị: 1
+2026-11-11 22:46:34 | INFO    | TC3.4-02       | BƯỚC 3: Bấm 'Kiểm tra phòng trống'
+2026-11-11 22:46:35 | INFO    | TC3.4-02       |    GHI CHÚ Thông báo: Đã tìm thấy 9 loại phòng phù hợp!
+2026-11-11 22:46:35 | INFO    | TC3.4-02       | BƯỚC 4: Bấm 'Đặt ngay' cho 'Phòng cao cấp hướng phố' để mở biên lai
+2026-11-11 22:46:35 | INFO    | TC3.4-02       |    INPUT  voucher = 'SELENIUMEXPIRED'
+2026-11-11 22:46:35 | INFO    | TC3.4-02       | BƯỚC 5: Nhập mã voucher 'SELENIUMEXPIRED' và bấm 'Áp dụng'
+2026-11-11 22:46:37 | INFO    | TC3.4-02       |    ẢNH    results/screenshots/20261111_224219/TC3.4-02_01_tu_choi_voucher.png
+2026-11-11 22:46:37 | INFO    | TC3.4-02       |    MONG ĐỢI: Báo lỗi chứa 'quá hạn'
+2026-11-11 22:46:37 | INFO    | TC3.4-02       |    THỰC TẾ : Mã giảm giá đã quá hạn sử dụng!  => PASS
+2026-11-11 22:46:37 | INFO    | TC3.4-02       |    MONG ĐỢI: Voucher không được áp dụng, tổng tiền và tiền cọc giữ nguyên
+2026-11-11 22:46:37 | INFO    | TC3.4-02       |    THỰC TẾ : Đã áp dụng=False, trước={'goc': 700000, 'giam': None, 'tong': 700000, 'coc': 210000}, sau={'goc': 700000, 'giam': None, 'tong': 700000, 'coc': 210000}  => PASS
+2026-11-11 22:46:37 | INFO    | TC3.4-02       | KẾT QUẢ: PASSED
+2026-11-11 22:46:40 | INFO    | TC3.4-03       | ----------------------------------------------------------------------
+2026-11-11 22:46:40 | INFO    | TC3.4-03       | TEST CASE TC3.4-03: Từ chối voucher sai hoặc hết hạn | Kỹ thuật: Equivalence Partitioning (lớp không hợp lệ) + Boundary Value
+2026-11-11 22:46:40 | INFO    | TC3.4-03       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794412000686@hotel.com qua API
+2026-11-11 22:46:42 | INFO    | TC3.4-03       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:46:42 | INFO    | TC3.4-03       | BƯỚC 1: Mở /guest/book-room
+2026-11-11 22:46:43 | INFO    | TC3.4-03       |    INPUT  nhan_phong = '25/01/2027'
+2026-11-11 22:46:43 | INFO    | TC3.4-03       |    INPUT  tra_phong = '26/01/2027'
+2026-11-11 22:46:43 | INFO    | TC3.4-03       |    INPUT  nguoi_lon = 1
+2026-11-11 22:46:43 | INFO    | TC3.4-03       |    INPUT  loai_phong = 'Phòng Premium tiện nghi cao cấp'
+2026-11-11 22:46:43 | INFO    | TC3.4-03       | BƯỚC 2: Chọn ngày nhận/trả phòng, số người lớn = 1, loại phòng 'Phòng Premium tiện nghi cao cấp'
+2026-11-11 22:46:45 | INFO    | TC3.4-03       |    GHI CHÚ Ô người lớn hiển thị giá trị: 1
+2026-11-11 22:46:46 | INFO    | TC3.4-03       | BƯỚC 3: Bấm 'Kiểm tra phòng trống'
+2026-11-11 22:46:47 | INFO    | TC3.4-03       |    GHI CHÚ Thông báo: Đã tìm thấy 9 loại phòng phù hợp!
+2026-11-11 22:46:47 | INFO    | TC3.4-03       | BƯỚC 4: Bấm 'Đặt ngay' cho 'Phòng Premium tiện nghi cao cấp' để mở biên lai
+2026-11-11 22:46:48 | INFO    | TC3.4-03       |    INPUT  voucher = 'KM4'
+2026-11-11 22:46:48 | INFO    | TC3.4-03       | BƯỚC 5: Nhập mã voucher 'KM4' và bấm 'Áp dụng'
+2026-11-11 22:46:49 | INFO    | TC3.4-03       |    ẢNH    results/screenshots/20261111_224219/TC3.4-03_01_tu_choi_voucher.png
+2026-11-11 22:46:49 | INFO    | TC3.4-03       |    MONG ĐỢI: Báo lỗi chứa 'chỉ áp dụng cho đơn'
+2026-11-11 22:46:49 | INFO    | TC3.4-03       |    THỰC TẾ : Mã này chỉ áp dụng cho đơn đặt phòng từ 1,500,000đ trở lên!  => PASS
+2026-11-11 22:46:49 | INFO    | TC3.4-03       |    MONG ĐỢI: Voucher không được áp dụng, tổng tiền và tiền cọc giữ nguyên
+2026-11-11 22:46:49 | INFO    | TC3.4-03       |    THỰC TẾ : Đã áp dụng=False, trước={'goc': 1200000, 'giam': None, 'tong': 1200000, 'coc': 360000}, sau={'goc': 1200000, 'giam': None, 'tong': 1200000, 'coc': 360000}  => PASS
+2026-11-11 22:46:49 | INFO    | TC3.4-03       | KẾT QUẢ: PASSED
+2026-11-11 22:46:52 | INFO    | TC3.4-04       | ----------------------------------------------------------------------
+2026-11-11 22:46:52 | INFO    | TC3.4-04       | TEST CASE TC3.4-04: Từ chối voucher sai hoặc hết hạn | Kỹ thuật: Equivalence Partitioning (lớp không hợp lệ) + Boundary Value
+2026-11-11 22:46:52 | INFO    | TC3.4-04       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794412012001@hotel.com qua API
+2026-11-11 22:46:53 | INFO    | TC3.4-04       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:46:53 | INFO    | TC3.4-04       | BƯỚC 1: Mở /guest/book-room
+2026-11-11 22:46:54 | INFO    | TC3.4-04       |    INPUT  nhan_phong = '25/01/2027'
+2026-11-11 22:46:54 | INFO    | TC3.4-04       |    INPUT  tra_phong = '26/01/2027'
+2026-11-11 22:46:54 | INFO    | TC3.4-04       |    INPUT  nguoi_lon = 1
+2026-11-11 22:46:54 | INFO    | TC3.4-04       |    INPUT  loai_phong = 'Phòng cao cấp hướng phố'
+2026-11-11 22:46:54 | INFO    | TC3.4-04       | BƯỚC 2: Chọn ngày nhận/trả phòng, số người lớn = 1, loại phòng 'Phòng cao cấp hướng phố'
+2026-11-11 22:46:56 | INFO    | TC3.4-04       |    GHI CHÚ Ô người lớn hiển thị giá trị: 1
+2026-11-11 22:46:57 | INFO    | TC3.4-04       | BƯỚC 3: Bấm 'Kiểm tra phòng trống'
+2026-11-11 22:46:58 | INFO    | TC3.4-04       |    GHI CHÚ Thông báo: Đã tìm thấy 9 loại phòng phù hợp!
+2026-11-11 22:46:58 | INFO    | TC3.4-04       | BƯỚC 4: Bấm 'Đặt ngay' cho 'Phòng cao cấp hướng phố' để mở biên lai
+2026-11-11 22:46:59 | INFO    | TC3.4-04       |    INPUT  voucher = '(trống)'
+2026-11-11 22:46:59 | INFO    | TC3.4-04       | BƯỚC 5: Nhập mã voucher '' và bấm 'Áp dụng'
+2026-11-11 22:47:00 | INFO    | TC3.4-04       |    ẢNH    results/screenshots/20261111_224219/TC3.4-04_01_tu_choi_voucher.png
+2026-11-11 22:47:00 | INFO    | TC3.4-04       |    MONG ĐỢI: Báo lỗi chứa 'Vui lòng nhập mã giảm giá'
+2026-11-11 22:47:00 | INFO    | TC3.4-04       |    THỰC TẾ : Vui lòng nhập mã giảm giá!  => PASS
+2026-11-11 22:47:00 | INFO    | TC3.4-04       |    MONG ĐỢI: Voucher không được áp dụng, tổng tiền và tiền cọc giữ nguyên
+2026-11-11 22:47:00 | INFO    | TC3.4-04       |    THỰC TẾ : Đã áp dụng=False, trước={'goc': 700000, 'giam': None, 'tong': 700000, 'coc': 210000}, sau={'goc': 700000, 'giam': None, 'tong': 700000, 'coc': 210000}  => PASS
+2026-11-11 22:47:00 | INFO    | TC3.4-04       | KẾT QUẢ: PASSED
+2026-11-11 22:47:02 | INFO    | TC3.5-01       | ----------------------------------------------------------------------
+2026-11-11 22:47:02 | INFO    | TC3.5-01       | TEST CASE TC3.5-01: Tạo đặt phòng Guest thành công | Kỹ thuật: Equivalence Partitioning (luồng hợp lệ)
+2026-11-11 22:47:03 | INFO    | TC3.5-01       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794412022909@hotel.com qua API
+2026-11-11 22:47:04 | INFO    | TC3.5-01       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:47:04 | INFO    | TC3.5-01       | BƯỚC 1: Mở /guest/book-room
+2026-11-11 22:47:05 | INFO    | TC3.5-01       |    INPUT  nhan_phong = '30/01/2027'
+2026-11-11 22:47:05 | INFO    | TC3.5-01       |    INPUT  tra_phong = '31/01/2027'
+2026-11-11 22:47:05 | INFO    | TC3.5-01       |    INPUT  nguoi_lon = 2
+2026-11-11 22:47:05 | INFO    | TC3.5-01       |    INPUT  loai_phong = 'Phòng Deluxe hướng biển'
+2026-11-11 22:47:05 | INFO    | TC3.5-01       | BƯỚC 2: Chọn ngày nhận/trả phòng, số người lớn = 2, loại phòng 'Phòng Deluxe hướng biển'
+2026-11-11 22:47:07 | INFO    | TC3.5-01       |    GHI CHÚ Ô người lớn hiển thị giá trị: 2
+2026-11-11 22:47:08 | INFO    | TC3.5-01       | BƯỚC 3: Bấm 'Kiểm tra phòng trống'
+2026-11-11 22:47:09 | INFO    | TC3.5-01       |    GHI CHÚ Thông báo: Đã tìm thấy 8 loại phòng phù hợp!
+2026-11-11 22:47:09 | INFO    | TC3.5-01       | BƯỚC 4: Bấm 'Đặt ngay' cho 'Phòng Deluxe hướng biển' để mở biên lai
+2026-11-11 22:47:10 | INFO    | TC3.5-01       |    ẢNH    results/screenshots/20261111_224219/TC3.5-01_01_bien_lai.png
+2026-11-11 22:47:10 | INFO    | TC3.5-01       | BƯỚC 5: Bấm 'Xác nhận đã chuyển khoản & Đặt phòng'
+2026-11-11 22:47:15 | INFO    | TC3.5-01       |    MONG ĐỢI: Thông báo 'Đặt phòng Phòng Deluxe hướng biển thành công!'
+2026-11-11 22:47:15 | INFO    | TC3.5-01       |    THỰC TẾ : Đặt phòng Phòng Deluxe hướng biển thành công!  => PASS
+2026-11-11 22:47:15 | INFO    | TC3.5-01       |    MONG ĐỢI: Chuyển tới /guest/bookings
+2026-11-11 22:47:15 | INFO    | TC3.5-01       |    THỰC TẾ : http://localhost:5173/guest/bookings  => PASS
+2026-11-11 22:47:15 | INFO    | TC3.5-01       |    ẢNH    results/screenshots/20261111_224219/TC3.5-01_02_lich_su.png
+2026-11-11 22:47:15 | INFO    | TC3.5-01       |    MONG ĐỢI: Có đúng 1 mã đơn mới, trạng thái 'Chờ xác nhận'
+2026-11-11 22:47:15 | INFO    | TC3.5-01       |    THỰC TẾ : Mã: ['BK-20261111-5197'], có 'Chờ xác nhận'=True  => PASS
+2026-11-11 22:47:15 | INFO    | TC3.5-01       |    INPUT  ma_don = 'BK-20261111-5197'
+2026-11-11 22:47:15 | INFO    | TC3.5-01       |    MONG ĐỢI: Booking lưu ở Backend: trạng thái Pending, đúng email Guest
+2026-11-11 22:47:15 | INFO    | TC3.5-01       |    THỰC TẾ : {'id': 29, 'bookingCode': 'BK-20261111-5197', 'guestName': 'Khách Selenium 022909', 'guestEmail': 'guest_1794412022909@hotel.com', 'checkInDate': '2027-01-30T00:00:00', 'checkOutDate': '2027-01-31T00:00:00', 'totalAmount': 900000.0, 'status': 'Pending'}  => PASS
+2026-11-11 22:47:15 | INFO    | TC3.5-01       |    MONG ĐỢI: Tổng tiền đơn = 900,000đ như biên lai
+2026-11-11 22:47:15 | INFO    | TC3.5-01       |    THỰC TẾ : 900000.0  => PASS
+2026-11-11 22:47:15 | INFO    | TC3.5-01       | KẾT QUẢ: PASSED
+2026-11-11 22:47:18 | INFO    | TC3.6-01       | ----------------------------------------------------------------------
+2026-11-11 22:47:18 | INFO    | TC3.6-01       | TEST CASE TC3.6-01: Xem lịch sử và chi tiết booking Guest | Kỹ thuật: Equivalence Partitioning
+2026-11-11 22:47:18 | INFO    | TC3.6-01       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794412038458@hotel.com qua API
+2026-11-11 22:47:20 | INFO    | TC3.6-01       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:47:20 | INFO    | TC3.6-01       | BƯỚC 1: Chuẩn bị: tạo 1 booking cho Guest qua API
+2026-11-11 22:47:24 | INFO    | TC3.6-01       |    INPUT  ma_don = 'BK-20261111-9099'
+2026-11-11 22:47:24 | INFO    | TC3.6-01       | BƯỚC 2: Mở /guest/bookings
+2026-11-11 22:47:25 | INFO    | TC3.6-01       |    MONG ĐỢI: Danh sách có mã đơn BK-20261111-9099
+2026-11-11 22:47:25 | INFO    | TC3.6-01       |    THỰC TẾ : Dashboard > Lịch sử đặt phòng Lịch sử đặt phòng của tôi Mã đơn: BK-20261111-9099 Từ: 04/02/2027 - Đến: 06/02/2027 1.400.000 ₫ Chờ xác nhận Xem chi tiết  => PASS
+2026-11-11 22:47:25 | INFO    | TC3.6-01       | BƯỚC 3: Bấm 'Xem chi tiết'
+2026-11-11 22:47:26 | INFO    | TC3.6-01       |    ẢNH    results/screenshots/20261111_224219/TC3.6-01_01_chi_tiet_don.png
+2026-11-11 22:47:26 | INFO    | TC3.6-01       |    MONG ĐỢI: Chi tiết hiện đúng mã đơn, khách hàng và trạng thái 'Chờ xác nhận'
+2026-11-11 22:47:26 | INFO    | TC3.6-01       |    THỰC TẾ : Chi Tiết Mã Đơn: BK-20261111-9099 Khách hàng Khách Selenium 038458 Số điện thoại N/A Trạng thái Chờ xác nhận Tổng tiền NaN ₫ Danh sách phòng đã được cấp Số Phòng Loại phòng Check-in Check-out Giá / Đêm P.201 Phòng cao cấp hướng phố 04/02/2027 06/02/2027 700.000 Đóng  => PASS
+2026-11-11 22:47:26 | INFO    | TC3.6-01       |    MONG ĐỢI: Chi tiết hiện tổng tiền 1.400.000đ
+2026-11-11 22:47:26 | ERROR   | TC3.6-01       |    THỰC TẾ : Tổng tiền: NaN ₫  => FAIL
+2026-11-11 22:47:26 | INFO    | TC3.6-01       |    ẢNH    results/screenshots/20261111_224219/TC3.6-01_02_FAIL.png
+2026-11-11 22:47:26 | ERROR   | TC3.6-01       |    LỖI    [Major] Chi tiết đơn đặt phòng hiển thị 'Tổng tiền NaN ₫'
+2026-11-11 22:47:26 | ERROR   | TC3.6-01       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Chi tiết hiện tổng tiền 1.400.000đ | Thực tế: Tổng tiền: NaN ₫
+2026-11-11 22:47:29 | INFO    | TC3.6-02       | ----------------------------------------------------------------------
+2026-11-11 22:47:29 | INFO    | TC3.6-02       | TEST CASE TC3.6-02: Xem lịch sử và chi tiết booking Guest | Kỹ thuật: Equivalence Partitioning (Guest khác cùng họ tên)
+2026-11-11 22:47:29 | INFO    | TC3.6-02       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794412049088@hotel.com qua API
+2026-11-11 22:47:30 | INFO    | TC3.6-02       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:47:30 | INFO    | TC3.6-02       | BƯỚC 1: Chuẩn bị: Guest A (cùng họ tên 'Khách Selenium', email khác) tạo một booking qua API
+2026-11-11 22:47:35 | INFO    | TC3.6-02       |    INPUT  guest_A = 'guestA_1794412050993@hotel.com'
+2026-11-11 22:47:35 | INFO    | TC3.6-02       |    INPUT  guest_B = 'guest_1794412049088@hotel.com'
+2026-11-11 22:47:35 | INFO    | TC3.6-02       |    INPUT  ma_don_A = 'BK-20261111-9190'
+2026-11-11 22:47:35 | INFO    | TC3.6-02       | BƯỚC 2: Guest B (chưa có booking nào) mở /guest/bookings
+2026-11-11 22:47:36 | INFO    | TC3.6-02       |    ẢNH    results/screenshots/20261111_224219/TC3.6-02_01_lich_su_guest_B.png
+2026-11-11 22:47:36 | INFO    | TC3.6-02       |    MONG ĐỢI: Guest B không thấy booking của Guest khác (danh sách rỗng)
+2026-11-11 22:47:36 | ERROR   | TC3.6-02       |    THỰC TẾ : Guest B thấy 1 đơn của khách khác, gồm BK-20261111-9190  => FAIL
+2026-11-11 22:47:36 | INFO    | TC3.6-02       |    ẢNH    results/screenshots/20261111_224219/TC3.6-02_02_FAIL.png
+2026-11-11 22:47:36 | ERROR   | TC3.6-02       |    LỖI    [Critical] Lịch sử đặt phòng lọc theo email HOẶC họ tên: Guest trùng họ tên xem được booking của người khác
+2026-11-11 22:47:36 | ERROR   | TC3.6-02       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Guest B không thấy booking của Guest khác (danh sách rỗng) | Thực tế: Guest B thấy 1 đơn của khách khác, gồm BK-20261111-9190
+2026-11-11 22:47:39 | INFO    | TC4.1-01       | ----------------------------------------------------------------------
+2026-11-11 22:47:39 | INFO    | TC4.1-01       | TEST CASE TC4.1-01: Dashboard và hạng thành viên Guest | Kỹ thuật: Equivalence Partitioning (Guest mới / Guest có booking)
+2026-11-11 22:47:39 | INFO    | TC4.1-01       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794412059566@hotel.com qua API
+2026-11-11 22:47:41 | INFO    | TC4.1-01       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:47:41 | INFO    | TC4.1-01       | BƯỚC 1: Mở /guest/dashboard với Guest mới (chưa có booking)
+2026-11-11 22:47:42 | INFO    | TC4.1-01       |    ẢNH    results/screenshots/20261111_224219/TC4.1-01_01_dashboard_moi.png
+2026-11-11 22:47:42 | INFO    | TC4.1-01       |    MONG ĐỢI: Guest mới: 0 lượt đặt, 0 điểm, hạng 'Khách Mới'
+2026-11-11 22:47:42 | INFO    | TC4.1-01       |    THỰC TẾ : lượt=0, điểm=0  => PASS
+2026-11-11 22:47:42 | INFO    | TC4.1-01       | BƯỚC 2: Chuẩn bị: Guest tạo 1 booking qua API, tải lại dashboard
+2026-11-11 22:47:46 | INFO    | TC4.1-01       |    INPUT  ma_don = 'BK-20261111-5748'
+2026-11-11 22:47:47 | INFO    | TC4.1-01       |    ẢNH    results/screenshots/20261111_224219/TC4.1-01_02_dashboard_co_booking.png
+2026-11-11 22:47:47 | INFO    | TC4.1-01       |    MONG ĐỢI: Lượt đặt phòng tăng thành 1
+2026-11-11 22:47:47 | INFO    | TC4.1-01       |    THỰC TẾ : 1  => PASS
+2026-11-11 22:47:47 | INFO    | TC4.1-01       |    MONG ĐỢI: Mục 'Đặt phòng sắp tới' hiện mã đơn BK-20261111-5748
+2026-11-11 22:47:47 | INFO    | TC4.1-01       |    THỰC TẾ : P Phòng nghỉ cao cấp Mã đơn: BK-20261111-5748 Từ: 1/3/2027 - Đến: 2/3/2027 700.000 ₫ Chờ xác nhận  => PASS
+2026-11-11 22:47:47 | INFO    | TC4.1-01       | BƯỚC 3: Mở /guest/rank
+2026-11-11 22:47:48 | INFO    | TC4.1-01       |    ẢNH    results/screenshots/20261111_224219/TC4.1-01_03_hang_thanh_vien.png
+2026-11-11 22:47:48 | INFO    | TC4.1-01       |    MONG ĐỢI: Hạng hiện tại 'Khách Mới', tiến trình 0%
+2026-11-11 22:47:48 | INFO    | TC4.1-01       |    THỰC TẾ : Dashboard > Hạng thành viên Khách Mới Hạng hiện tại Điểm tích lũy: 0 điểm Bạn cần thêm 500 điểm nữa để thăng hạng lên Đồng. 0% 0 điểm 500 điểm Hệ thống Hạng thà  => PASS
+2026-11-11 22:47:48 | INFO    | TC4.1-01       |    MONG ĐỢI: Hiện mốc kế tiếp: cần thêm 500 điểm để lên hạng Đồng
+2026-11-11 22:47:48 | INFO    | TC4.1-01       |    THỰC TẾ : Dashboard > Hạng thành viên Khách Mới Hạng hiện tại Điểm tích lũy: 0 điểm Bạn cần thêm 500 điểm nữa để thăng hạng lên Đồng. 0% 0 điểm 500 điểm Hệ thống Hạng thành viên Khách Mới Yêu cầu: 0 điểm Đồng Yêu cầu: 500 điểm Bạc  => PASS
+2026-11-11 22:47:48 | INFO    | TC4.1-01       |    MONG ĐỢI: Mục 'Đặt phòng sắp tới' ghi đúng tên loại phòng 'Phòng cao cấp hướng phố'
+2026-11-11 22:47:48 | ERROR   | TC4.1-01       |    THỰC TẾ : P Phòng nghỉ cao cấp Mã đơn: BK-20261111-5748 Từ: 1/3/2027 - Đến: 2/3/2027 700.000 ₫ Chờ xác nhận  => FAIL
+2026-11-11 22:47:48 | INFO    | TC4.1-01       |    ẢNH    results/screenshots/20261111_224219/TC4.1-01_04_FAIL.png
+2026-11-11 22:47:48 | ERROR   | TC4.1-01       |    LỖI    [Trivial] Dashboard ghi tên phòng cố định 'Phòng nghỉ cao cấp' thay vì tên loại phòng đã đặt
+2026-11-11 22:47:48 | ERROR   | TC4.1-01       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Mục 'Đặt phòng sắp tới' ghi đúng tên loại phòng 'Phòng cao cấp hướng phố' | Thực tế: P Phòng nghỉ cao cấp Mã đơn: BK-20261111-5748 Từ: 1/3/2027 - Đến: 2/3/2027 700.000 ₫ Chờ xác nhận
+2026-11-11 22:47:51 | INFO    | TC4.2-01       | ----------------------------------------------------------------------
+2026-11-11 22:47:51 | INFO    | TC4.2-01       | TEST CASE TC4.2-01: Xem QR và gửi yêu cầu xác nhận thanh toán | Kỹ thuật: State transition (Chưa thanh toán -> Đang xử lý)
+2026-11-11 22:47:51 | INFO    | TC4.2-01       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794412071149@hotel.com qua API
+2026-11-11 22:47:52 | INFO    | TC4.2-01       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:47:52 | INFO    | TC4.2-01       | BƯỚC 1: Chuẩn bị: Guest tạo booking 2 đêm qua API
+2026-11-11 22:47:56 | INFO    | TC4.2-01       |    INPUT  ma_don = 'BK-20261111-4655'
+2026-11-11 22:47:56 | INFO    | TC4.2-01       |    INPUT  tong_tien = '1.400.000'
+2026-11-11 22:47:56 | INFO    | TC4.2-01       | BƯỚC 2: Mở /guest/invoices
+2026-11-11 22:47:56 | INFO    | TC4.2-01       |    MONG ĐỢI: Hóa đơn hiện mã đơn và tổng tiền 1.400.000
+2026-11-11 22:47:56 | INFO    | TC4.2-01       |    THỰC TẾ : Dashboard > Hóa đơn Hóa đơn của tôi Quản lý và thanh toán các hóa đơn đặt phòng của bạn. Hóa đơn #INV-BK-20261111-4655 Chưa thanh toán Ngày đặt: 06/03/2027 Mã đặt phòng: BK-20261111-4655 Tổng tiền: 1.400.000 ₫ Thanh toán  => PASS
+2026-11-11 22:47:56 | INFO    | TC4.2-01       | BƯỚC 3: Bấm 'Thanh toán'
+2026-11-11 22:47:57 | INFO    | TC4.2-01       |    GHI CHÚ Ảnh QR: https://img.vietqr.io/image/970407-000000000000-compact2.png?amount=1400000&addInfo=Thanh%20toan%20don%20BK-20261111-4655&accountName=HOTEL%20IT%20CODE
+2026-11-11 22:47:57 | INFO    | TC4.2-01       |    ẢNH    results/screenshots/20261111_224219/TC4.2-01_01_ma_qr.png
+2026-11-11 22:47:57 | INFO    | TC4.2-01       |    MONG ĐỢI: Cửa sổ VietQR hiện đúng mã đơn và số tiền
+2026-11-11 22:47:57 | INFO    | TC4.2-01       |    THỰC TẾ : Thanh toán trực tuyến (Mã VietQR) Ngân hàng Techcombank - HOTEL IT CODE Số tài khoản: 000000000000 Mã đơn đặt phòng: BK-20261111-4655 Tổng tiền cần thanh toán: 1.400.000 ₫ Quay lại Xác nhận đã chuyển khoản  => PASS
+2026-11-11 22:47:57 | INFO    | TC4.2-01       |    MONG ĐỢI: Mã QR chứa đúng số tiền thanh toán
+2026-11-11 22:47:57 | INFO    | TC4.2-01       |    THỰC TẾ : https://img.vietqr.io/image/970407-000000000000-compact2.png?amount=1400000&addInfo=Thanh%20toan%20don%20BK-20261111-4655&accountName=HOTEL%20IT%20CODE  => PASS
+2026-11-11 22:47:57 | INFO    | TC4.2-01       | BƯỚC 4: Bấm 'Xác nhận đã chuyển khoản'
+2026-11-11 22:47:58 | INFO    | TC4.2-01       |    MONG ĐỢI: Thông báo đã gửi yêu cầu xác nhận thanh toán
+2026-11-11 22:47:58 | INFO    | TC4.2-01       |    THỰC TẾ : Đã gửi yêu cầu xác nhận thanh toán. Tiền trả trước đã được ghi nhận vào đơn!  => PASS
+2026-11-11 22:47:58 | INFO    | TC4.2-01       | BƯỚC 5: Tải lại /guest/invoices
+2026-11-11 22:47:59 | INFO    | TC4.2-01       |    ẢNH    results/screenshots/20261111_224219/TC4.2-01_02_dang_xu_ly.png
+2026-11-11 22:47:59 | INFO    | TC4.2-01       |    MONG ĐỢI: Đơn chuyển sang 'Đang xử lý' (nút bị khóa), không cho gửi lại yêu cầu
+2026-11-11 22:47:59 | INFO    | TC4.2-01       |    THỰC TẾ : ['Đang xử lý']  => PASS
+2026-11-11 22:47:59 | INFO    | TC4.2-01       | KẾT QUẢ: PASSED
+2026-11-11 22:48:01 | INFO    | TC4.2-02       | ----------------------------------------------------------------------
+2026-11-11 22:48:01 | INFO    | TC4.2-02       | TEST CASE TC4.2-02: Xem QR và gửi yêu cầu xác nhận thanh toán | Kỹ thuật: Equivalence Partitioning (đơn có voucher)
+2026-11-11 22:48:02 | INFO    | TC4.2-02       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794412081917@hotel.com qua API
+2026-11-11 22:48:03 | INFO    | TC4.2-02       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:48:03 | INFO    | TC4.2-02       | BƯỚC 1: Chuẩn bị: Guest đặt phòng 2 đêm có áp dụng voucher KM1 (giảm 10%) qua API
+2026-11-11 22:48:07 | INFO    | TC4.2-02       |    INPUT  ma_don = 'BK-20261111-5954'
+2026-11-11 22:48:07 | INFO    | TC4.2-02       |    INPUT  voucher = 'KM1'
+2026-11-11 22:48:07 | INFO    | TC4.2-02       |    INPUT  gia_goc = 1400000
+2026-11-11 22:48:07 | INFO    | TC4.2-02       |    INPUT  tong_sau_giam = '1.260.000'
+2026-11-11 22:48:07 | INFO    | TC4.2-02       | BƯỚC 2: Mở /guest/invoices
+2026-11-11 22:48:08 | INFO    | TC4.2-02       |    ẢNH    results/screenshots/20261111_224219/TC4.2-02_01_hoa_don_voucher.png
+2026-11-11 22:48:08 | INFO    | TC4.2-02       |    MONG ĐỢI: Tổng tiền hóa đơn đã trừ voucher: 1.260.000đ
+2026-11-11 22:48:08 | ERROR   | TC4.2-02       |    THỰC TẾ : 1.400.000đ  => FAIL
+2026-11-11 22:48:08 | INFO    | TC4.2-02       |    ẢNH    results/screenshots/20261111_224219/TC4.2-02_02_FAIL.png
+2026-11-11 22:48:08 | ERROR   | TC4.2-02       |    LỖI    [Major] Hóa đơn/QR thanh toán tính theo giá gốc, bỏ qua giảm giá voucher đã áp dụng khi đặt phòng
+2026-11-11 22:48:08 | ERROR   | TC4.2-02       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Tổng tiền hóa đơn đã trừ voucher: 1.260.000đ | Thực tế: 1.400.000đ
+2026-11-11 22:48:11 | INFO    | TC4.3-01       | ----------------------------------------------------------------------
+2026-11-11 22:48:11 | INFO    | TC4.3-01       | TEST CASE TC4.3-01: Cập nhật hồ sơ và ảnh đại diện | Kỹ thuật: Equivalence Partitioning (dữ liệu hợp lệ)
+2026-11-11 22:48:11 | INFO    | TC4.3-01       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794412091561@hotel.com qua API
+2026-11-11 22:48:13 | INFO    | TC4.3-01       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:48:13 | INFO    | TC4.3-01       |    INPUT  fullName = 'Nguyễn Selenium Test'
+2026-11-11 22:48:13 | INFO    | TC4.3-01       |    INPUT  phone = '0912345678'
+2026-11-11 22:48:13 | INFO    | TC4.3-01       |    INPUT  address = 'Hải Châu, Đà Nẵng'
+2026-11-11 22:48:13 | INFO    | TC4.3-01       |    INPUT  dob = datetime.date(1999, 5, 20)
+2026-11-11 22:48:13 | INFO    | TC4.3-01       | BƯỚC 1: Mở /guest/profile và bấm 'Chỉnh sửa hồ sơ'
+2026-11-11 22:48:14 | INFO    | TC4.3-01       | BƯỚC 2: Sửa họ tên, số điện thoại, ngày sinh, địa chỉ và bấm 'Lưu thay đổi'
+2026-11-11 22:48:17 | INFO    | TC4.3-01       |    MONG ĐỢI: Thông báo cập nhật thông tin thành công
+2026-11-11 22:48:17 | INFO    | TC4.3-01       |    THỰC TẾ : Cập nhật thông tin cá nhân thành công!  => PASS
+2026-11-11 22:48:17 | INFO    | TC4.3-01       | BƯỚC 3: Tải lại /guest/profile
+2026-11-11 22:48:18 | INFO    | TC4.3-01       |    ẢNH    results/screenshots/20261111_224219/TC4.3-01_01_ho_so_sau_cap_nhat.png
+2026-11-11 22:48:18 | INFO    | TC4.3-01       |    MONG ĐỢI: Họ tên, số điện thoại, địa chỉ mới hiển thị sau khi tải lại
+2026-11-11 22:48:18 | INFO    | TC4.3-01       |    THỰC TẾ : Trang chủ > Cài đặt tài khoản Nguyễn Selenium Test guest_1794412091561@hotel.com 🏆 Khách Mới SĐT: 0912345678 Địa chỉ: Hải Châu, Đà Nẵng Ngày sinh: 19/05/1999 Điểm tích lũy: 0 điểm Thông tin cá nhân Hộp thư cá nhân Thông Tin Cá Nhân Chi Tiết Chỉnh sửa hồ sơ Họ và tên Nguyễn Selenium Test Địa chỉ Emai  => PASS
+2026-11-11 22:48:18 | INFO    | TC4.3-01       |    MONG ĐỢI: Ngày sinh hiển thị đúng 20/05/1999
+2026-11-11 22:48:18 | ERROR   | TC4.3-01       |    THỰC TẾ : 19/05/1999  => FAIL
+2026-11-11 22:48:18 | INFO    | TC4.3-01       |    ẢNH    results/screenshots/20261111_224219/TC4.3-01_02_FAIL.png
+2026-11-11 22:48:18 | ERROR   | TC4.3-01       |    LỖI    [Major] Ngày sinh lưu bị lùi 1 ngày (gửi toISOString theo UTC, lệch múi giờ +7)
+2026-11-11 22:48:18 | ERROR   | TC4.3-01       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Ngày sinh hiển thị đúng 20/05/1999 | Thực tế: 19/05/1999
+2026-11-11 22:48:21 | INFO    | TC4.3-02       | ----------------------------------------------------------------------
+2026-11-11 22:48:21 | INFO    | TC4.3-02       | TEST CASE TC4.3-02: Cập nhật hồ sơ và ảnh đại diện | Kỹ thuật: Equivalence Partitioning (dữ liệu không hợp lệ)
+2026-11-11 22:48:21 | INFO    | TC4.3-02       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794412101111@hotel.com qua API
+2026-11-11 22:48:22 | INFO    | TC4.3-02       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:48:22 | INFO    | TC4.3-02       |    INPUT  fullName = '(trống)'
+2026-11-11 22:48:22 | INFO    | TC4.3-02       | BƯỚC 1: Mở /guest/profile và bấm 'Chỉnh sửa hồ sơ'
+2026-11-11 22:48:24 | INFO    | TC4.3-02       | BƯỚC 2: Nhập fullName = '' và bấm 'Lưu thay đổi'
+2026-11-11 22:48:28 | INFO    | TC4.3-02       |    ẢNH    results/screenshots/20261111_224219/TC4.3-02_01_du_lieu_sai.png
+2026-11-11 22:48:28 | INFO    | TC4.3-02       |    MONG ĐỢI: Báo lỗi 'Vui lòng nhập họ tên!' và không lưu
+2026-11-11 22:48:28 | INFO    | TC4.3-02       |    THỰC TẾ : Lỗi form=['Vui lòng nhập họ tên!'], thông báo=  => PASS
+2026-11-11 22:48:28 | INFO    | TC4.3-02       | KẾT QUẢ: PASSED
+2026-11-11 22:48:30 | INFO    | TC4.3-03       | ----------------------------------------------------------------------
+2026-11-11 22:48:30 | INFO    | TC4.3-03       | TEST CASE TC4.3-03: Cập nhật hồ sơ và ảnh đại diện | Kỹ thuật: Equivalence Partitioning (dữ liệu không hợp lệ)
+2026-11-11 22:48:31 | INFO    | TC4.3-03       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794412110842@hotel.com qua API
+2026-11-11 22:48:32 | INFO    | TC4.3-03       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:48:32 | INFO    | TC4.3-03       |    INPUT  phone = 'abcxyz'
+2026-11-11 22:48:32 | INFO    | TC4.3-03       | BƯỚC 1: Mở /guest/profile và bấm 'Chỉnh sửa hồ sơ'
+2026-11-11 22:48:34 | INFO    | TC4.3-03       | BƯỚC 2: Nhập phone = 'abcxyz' và bấm 'Lưu thay đổi'
+2026-11-11 22:48:42 | INFO    | TC4.3-03       |    ẢNH    results/screenshots/20261111_224219/TC4.3-03_01_du_lieu_sai.png
+2026-11-11 22:48:42 | INFO    | TC4.3-03       |    MONG ĐỢI: Báo lỗi 'số điện thoại' và không lưu
+2026-11-11 22:48:42 | ERROR   | TC4.3-03       |    THỰC TẾ : Lỗi form=[], thông báo=  => FAIL
+2026-11-11 22:48:42 | INFO    | TC4.3-03       |    ẢNH    results/screenshots/20261111_224219/TC4.3-03_02_FAIL.png
+2026-11-11 22:48:42 | ERROR   | TC4.3-03       |    LỖI    [Minor] Hồ sơ chấp nhận số điện thoại chứa chữ cái (không kiểm tra định dạng)
+2026-11-11 22:48:42 | ERROR   | TC4.3-03       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Báo lỗi 'số điện thoại' và không lưu | Thực tế: Lỗi form=[], thông báo=
+2026-11-11 22:48:44 | INFO    | TC4.3-04       | ----------------------------------------------------------------------
+2026-11-11 22:48:44 | INFO    | TC4.3-04       | TEST CASE TC4.3-04: Cập nhật hồ sơ và ảnh đại diện | Kỹ thuật: Equivalence Partitioning (ảnh PNG hợp lệ)
+2026-11-11 22:48:45 | INFO    | TC4.3-04       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794412124962@hotel.com qua API
+2026-11-11 22:48:46 | INFO    | TC4.3-04       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:48:46 | INFO    | TC4.3-04       |    INPUT  file = 'avatar.png'
+2026-11-11 22:48:46 | INFO    | TC4.3-04       | BƯỚC 1: Mở /guest/profile và bấm 'Chỉnh sửa hồ sơ'
+2026-11-11 22:48:48 | INFO    | TC4.3-04       | BƯỚC 2: Chọn file ảnh avatar.png ở 'Thay đổi ảnh đại diện'
+2026-11-11 22:48:51 | INFO    | TC4.3-04       |    ẢNH    results/screenshots/20261111_224219/TC4.3-04_01_tai_anh.png
+2026-11-11 22:48:51 | INFO    | TC4.3-04       |    MONG ĐỢI: Thông báo 'Cập nhật ảnh đại diện thành công!'
+2026-11-11 22:48:51 | INFO    | TC4.3-04       |    THỰC TẾ : Cập nhật ảnh đại diện thành công!  => PASS
+2026-11-11 22:48:51 | INFO    | TC4.3-04       | BƯỚC 3: Tải lại hồ sơ và kiểm tra ảnh đại diện
+2026-11-11 22:48:51 | INFO    | TC4.3-04       |    MONG ĐỢI: Ảnh đại diện mới (Cloudinary) hiển thị sau khi tải lại
+2026-11-11 22:48:51 | INFO    | TC4.3-04       |    THỰC TẾ : ['https://res.cloudinary.com/dqx8hqmcv/image/upload/v1794412129/QuanTriKhachSan/nhs20nicetlwyzu3cv3o.png']  => PASS
+2026-11-11 22:48:51 | INFO    | TC4.3-04       | KẾT QUẢ: PASSED
+2026-11-11 22:48:54 | INFO    | TC4.5-01       | ----------------------------------------------------------------------
+2026-11-11 22:48:54 | INFO    | TC4.5-01       | TEST CASE TC4.5-01: Đọc thông báo trong hộp thư Guest | Kỹ thuật: State transition (thư Mới -> Đã đọc)
+2026-11-11 22:48:54 | INFO    | TC4.5-01       |    GHI CHÚ Chuẩn bị dữ liệu: tạo Guest guest_1794412134742@hotel.com qua API
+2026-11-11 22:48:56 | INFO    | TC4.5-01       |    GHI CHÚ Chuẩn bị dữ liệu: nạp phiên đăng nhập Guest vào trình duyệt
+2026-11-11 22:48:56 | INFO    | TC4.5-01       |    INPUT  ngay_sinh = '11/11/2026'
+2026-11-11 22:48:56 | INFO    | TC4.5-01       | BƯỚC 1: Mở /guest/profile và bấm 'Chỉnh sửa hồ sơ'
+2026-11-11 22:48:58 | INFO    | TC4.5-01       | BƯỚC 2: Đặt ngày sinh là hôm nay và lưu để hệ thống gửi thư sinh nhật
+2026-11-11 22:49:00 | INFO    | TC4.5-01       |    GHI CHÚ Thông báo: Cập nhật thông tin cá nhân thành công!
+2026-11-11 22:49:00 | INFO    | TC4.5-01       | BƯỚC 3: Mở /guest/profile?tab=mailbox
+2026-11-11 22:49:00 | INFO    | TC4.5-01       |    ẢNH    results/screenshots/20261111_224219/TC4.5-01_01_hop_thu.png
+2026-11-11 22:49:00 | INFO    | TC4.5-01       |    MONG ĐỢI: Hộp thư có thư chúc mừng sinh nhật (chưa đọc, nhãn 'Mới')
+2026-11-11 22:49:00 | ERROR   | TC4.5-01       |    THỰC TẾ : Hộp thư trống  => FAIL
+2026-11-11 22:49:01 | INFO    | TC4.5-01       |    ẢNH    results/screenshots/20261111_224219/TC4.5-01_02_FAIL.png
+2026-11-11 22:49:01 | ERROR   | TC4.5-01       |    LỖI    [Major] Không nhận thư/voucher sinh nhật khi đặt ngày sinh là hôm nay (ngày sinh lưu lệch múi giờ)
+2026-11-11 22:49:01 | ERROR   | TC4.5-01       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Hộp thư có thư chúc mừng sinh nhật (chưa đọc, nhãn 'Mới') | Thực tế: Hộp thư trống
+2026-11-11 22:49:03 | INFO    | TC2.6-01       | ----------------------------------------------------------------------
+2026-11-11 22:49:03 | INFO    | TC2.6-01       | TEST CASE TC2.6-01: Khôi phục mật khẩu Guest bằng OTP | Kỹ thuật: Thủ công
+2026-11-11 22:49:03 | INFO    | TC2.6-01       |    GHI CHÚ Không tự động hóa: OTP khôi phục sinh ngẫu nhiên và chỉ gửi qua email, Selenium không đọc được hộp thư.
+2026-11-11 22:49:03 | WARNING | TC2.6-01       | KẾT QUẢ: MANUAL - THỦ CÔNG - OTP khôi phục sinh ngẫu nhiên và chỉ gửi qua email, Selenium không đọc được hộp thư.
+2026-11-11 22:49:03 | INFO    | TC4.4-01       | ----------------------------------------------------------------------
+2026-11-11 22:49:03 | INFO    | TC4.4-01       | TEST CASE TC4.4-01: Đổi mật khẩu Guest bằng OTP | Kỹ thuật: Thủ công
+2026-11-11 22:49:03 | INFO    | TC4.4-01       |    GHI CHÚ Không tự động hóa: OTP đổi mật khẩu sinh ngẫu nhiên và chỉ gửi qua email, không có OTP test cố định.
+2026-11-11 22:49:03 | WARNING | TC4.4-01       | KẾT QUẢ: MANUAL - THỦ CÔNG - OTP đổi mật khẩu sinh ngẫu nhiên và chỉ gửi qua email, không có OTP test cố định.
+2026-11-11 22:49:03 | INFO    | TC4.6-01       | ----------------------------------------------------------------------
+2026-11-11 22:49:03 | INFO    | TC4.6-01       | TEST CASE TC4.6-01: Đánh giá booking đã hoàn tất | Kỹ thuật: Thủ công
+2026-11-11 22:49:03 | INFO    | TC4.6-01       |    GHI CHÚ Không tự động hóa: Cần booking trạng thái Completed do Lễ tân/Admin trả phòng, ngoài phạm vi User.
+2026-11-11 22:49:03 | WARNING | TC4.6-01       | KẾT QUẢ: MANUAL - THỦ CÔNG - Cần booking trạng thái Completed do Lễ tân/Admin trả phòng, ngoài phạm vi User.
+2026-11-11 22:49:03 | INFO    | TC4.7-01       | ----------------------------------------------------------------------
+2026-11-11 22:49:03 | INFO    | TC4.7-01       | TEST CASE TC4.7-01: Đánh giá loại phòng từ trang chi tiết | Kỹ thuật: Thủ công
+2026-11-11 22:49:03 | INFO    | TC4.7-01       |    GHI CHÚ Không tự động hóa: Backend chỉ cho đánh giá khi Guest có lượt lưu trú Completed/Checked_out, cần Lễ tân/Admin.
+2026-11-11 22:49:03 | WARNING | TC4.7-01       | KẾT QUẢ: MANUAL - THỦ CÔNG - Backend chỉ cho đánh giá khi Guest có lượt lưu trú Completed/Checked_out, cần Lễ tân/Admin.
+2026-11-11 22:49:03 | INFO    | TC1.1-01       | ----------------------------------------------------------------------
+2026-11-11 22:49:03 | INFO    | TC1.1-01       | TEST CASE TC1.1-01: Trang chủ và điều hướng công khai | Kỹ thuật: Kiểm thử điều hướng (state transition)
+2026-11-11 22:49:03 | INFO    | TC1.1-01       | BƯỚC 1: Mở /homepage và chờ nội dung chính tải
+2026-11-11 22:49:07 | INFO    | TC1.1-01       |    MONG ĐỢI: Trang chủ hiển thị nhận diện 'IT HOTEL'
+2026-11-11 22:49:07 | INFO    | TC1.1-01       |    THỰC TẾ : Có 'IT HOTEL'  => PASS
+2026-11-11 22:49:07 | INFO    | TC1.1-01       |    MONG ĐỢI: Menu có đủ ['TRANG CHỦ', 'PHÒNG NGHỈ', 'GIỚI THIỆU', 'LIÊN HỆ']
+2026-11-11 22:49:07 | INFO    | TC1.1-01       |    THỰC TẾ : Đủ 4 mục menu  => PASS
+2026-11-11 22:49:08 | INFO    | TC1.1-01       |    ẢNH    results/screenshots/20261111_224219/TC1.1-01_01_trang_chu.png
+2026-11-11 22:49:08 | INFO    | TC1.1-01       | BƯỚC 2: Bấm menu 'PHÒNG NGHỈ'
+2026-11-11 22:49:09 | INFO    | TC1.1-01       |    MONG ĐỢI: Chuyển tới /rooms và có nội dung 'phòng có sẵn'
+2026-11-11 22:49:09 | INFO    | TC1.1-01       |    THỰC TẾ : URL=http://localhost:5173/rooms, có nội dung=True  => PASS
+2026-11-11 22:49:09 | INFO    | TC1.1-01       | BƯỚC 3: Quay lại trang chủ
+2026-11-11 22:49:10 | INFO    | TC1.1-01       | BƯỚC 4: Bấm menu 'GIỚI THIỆU'
+2026-11-11 22:49:12 | INFO    | TC1.1-01       |    MONG ĐỢI: Chuyển tới /about và có nội dung 'Câu Chuyện'
+2026-11-11 22:49:12 | INFO    | TC1.1-01       |    THỰC TẾ : URL=http://localhost:5173/about, có nội dung=True  => PASS
+2026-11-11 22:49:12 | INFO    | TC1.1-01       | BƯỚC 5: Quay lại trang chủ
+2026-11-11 22:49:13 | INFO    | TC1.1-01       | BƯỚC 6: Bấm menu 'LIÊN HỆ'
+2026-11-11 22:49:14 | INFO    | TC1.1-01       |    MONG ĐỢI: Chuyển tới /contact và có nội dung 'Thông Tin Liên Hệ'
+2026-11-11 22:49:14 | INFO    | TC1.1-01       |    THỰC TẾ : URL=http://localhost:5173/contact, có nội dung=True  => PASS
+2026-11-11 22:49:14 | INFO    | TC1.1-01       | BƯỚC 7: Quay lại trang chủ
+2026-11-11 22:49:15 | INFO    | TC1.1-01       | BƯỚC 8: Mở một route không tồn tại /khong-ton-tai
+2026-11-11 22:49:15 | INFO    | TC1.1-01       |    GHI CHÚ Trang 404 hiển thị: 404 - Đường dẫn này không tồn tại 😢
+2026-11-11 22:49:15 | INFO    | TC1.1-01       |    MONG ĐỢI: Route sai hiển thị trang NotFound thay vì trang trắng
+2026-11-11 22:49:15 | INFO    | TC1.1-01       |    THỰC TẾ : 404 - Đường dẫn này không tồn tại 😢  => PASS
+2026-11-11 22:49:15 | INFO    | TC1.1-01       | KẾT QUẢ: PASSED
+2026-11-11 22:49:18 | INFO    | TC1.2-01       | ----------------------------------------------------------------------
+2026-11-11 22:49:18 | INFO    | TC1.2-01       | TEST CASE TC1.2-01: Danh sách phòng và bộ lọc | Kỹ thuật: Equivalence Partitioning
+2026-11-11 22:49:18 | INFO    | TC1.2-01       | BƯỚC 1: Lấy danh sách loại phòng công khai từ API làm dữ liệu đối chiếu
+2026-11-11 22:49:18 | INFO    | TC1.2-01       |    INPUT  api_room_types = 10
+2026-11-11 22:49:18 | INFO    | TC1.2-01       | BƯỚC 2: Mở /rooms (mặc định: 2 người lớn, 0 trẻ em)
+2026-11-11 22:49:21 | INFO    | TC1.2-01       |    ẢNH    results/screenshots/20261111_224219/TC1.2-01_01_danh_sach_mac_dinh.png
+2026-11-11 22:49:21 | INFO    | TC1.2-01       |    MONG ĐỢI: Số đếm 'N phòng có sẵn' bằng số thẻ phòng
+2026-11-11 22:49:21 | INFO    | TC1.2-01       |    THỰC TẾ : Nhãn=9, thẻ=9  => PASS
+2026-11-11 22:49:21 | INFO    | TC1.2-01       |    MONG ĐỢI: Mỗi thẻ có tên và sức chứa
+2026-11-11 22:49:21 | INFO    | TC1.2-01       |    THỰC TẾ : [('Phòng tiêu chuẩn 1 giường đơn', 1), ('Phòng tiêu chuẩn 1 giường đôi', 2), ('Phòng cao cấp hướng phố', 2)]  => PASS
+2026-11-11 22:49:21 | INFO    | TC1.2-01       |    MONG ĐỢI: Bộ lọc mặc định '2 Người lớn' chỉ hiện phòng có sức chứa >= 2
+2026-11-11 22:49:21 | ERROR   | TC1.2-01       |    THỰC TẾ : Hiện cả phòng sức chứa < 2: [('Phòng tiêu chuẩn 1 giường đơn', 1)]  => FAIL
+2026-11-11 22:49:21 | INFO    | TC1.2-01       |    ẢNH    results/screenshots/20261111_224219/TC1.2-01_02_FAIL.png
+2026-11-11 22:49:21 | ERROR   | TC1.2-01       |    LỖI    [Minor] Trang /rooms ghi '2 Người lớn' nhưng vẫn hiển thị phòng tối đa 1 khách
+2026-11-11 22:49:21 | ERROR   | TC1.2-01       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Bộ lọc mặc định '2 Người lớn' chỉ hiện phòng có sức chứa >= 2 | Thực tế: Hiện cả phòng sức chứa < 2: [('Phòng tiêu chuẩn 1 giường đơn', 1)]
+2026-11-11 22:49:24 | INFO    | TC1.2-02       | ----------------------------------------------------------------------
+2026-11-11 22:49:24 | INFO    | TC1.2-02       | TEST CASE TC1.2-02: Danh sách phòng và bộ lọc | Kỹ thuật: Equivalence Partitioning
+2026-11-11 22:49:24 | INFO    | TC1.2-02       | BƯỚC 1: Mở /rooms?adults=1 (sức chứa thấp nhất để không loại phòng nào)
+2026-11-11 22:49:27 | INFO    | TC1.2-02       |    INPUT  api_active_types = 10
+2026-11-11 22:49:27 | INFO    | TC1.2-02       |    INPUT  shown = 9
+2026-11-11 22:49:27 | INFO    | TC1.2-02       |    MONG ĐỢI: Hiển thị đủ 10 loại phòng đang hoạt động
+2026-11-11 22:49:27 | ERROR   | TC1.2-02       |    THỰC TẾ : Bị ẩn: ['Biệt thự hoàng gia nguyên căn']  => FAIL
+2026-11-11 22:49:27 | INFO    | TC1.2-02       |    ẢNH    results/screenshots/20261111_224219/TC1.2-02_01_FAIL.png
+2026-11-11 22:49:27 | ERROR   | TC1.2-02       |    LỖI    [Minor] Khoảng giá mặc định 0-5.000.000đ ẩn các loại phòng giá cao (Biệt thự 8.000.000đ) khỏi danh sách
+2026-11-11 22:49:27 | ERROR   | TC1.2-02       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Hiển thị đủ 10 loại phòng đang hoạt động | Thực tế: Bị ẩn: ['Biệt thự hoàng gia nguyên căn']
+2026-11-11 22:49:30 | INFO    | TC1.2-03       | ----------------------------------------------------------------------
+2026-11-11 22:49:30 | INFO    | TC1.2-03       | TEST CASE TC1.2-03: Danh sách phòng và bộ lọc | Kỹ thuật: Boundary Value Analysis
+2026-11-11 22:49:30 | INFO    | TC1.2-03       |    INPUT  adults = 4
+2026-11-11 22:49:30 | INFO    | TC1.2-03       |    INPUT  children = 0
+2026-11-11 22:49:30 | INFO    | TC1.2-03       | BƯỚC 1: Mở /rooms?adults=4&children=0
+2026-11-11 22:49:32 | INFO    | TC1.2-03       |    ẢNH    results/screenshots/20261111_224219/TC1.2-03_01_adults_4.png
+2026-11-11 22:49:32 | INFO    | TC1.2-03       |    MONG ĐỢI: Mọi phòng hiển thị có sức chứa >= 4
+2026-11-11 22:49:32 | INFO    | TC1.2-03       |    THỰC TẾ : [('Phòng Suite cho gia đình', 4), ('Phòng Tổng thống', 4)]  => PASS
+2026-11-11 22:49:32 | INFO    | TC1.2-03       |    MONG ĐỢI: Danh sách khớp dữ liệu API: ['Phòng Suite cho gia đình', 'Phòng Tổng thống']
+2026-11-11 22:49:32 | INFO    | TC1.2-03       |    THỰC TẾ : ['Phòng Suite cho gia đình', 'Phòng Tổng thống']  => PASS
+2026-11-11 22:49:32 | INFO    | TC1.2-03       | KẾT QUẢ: PASSED
+2026-11-11 22:49:35 | INFO    | TC1.2-04       | ----------------------------------------------------------------------
+2026-11-11 22:49:35 | INFO    | TC1.2-04       | TEST CASE TC1.2-04: Danh sách phòng và bộ lọc | Kỹ thuật: Boundary Value Analysis
+2026-11-11 22:49:35 | INFO    | TC1.2-04       |    INPUT  adults = 6
+2026-11-11 22:49:35 | INFO    | TC1.2-04       |    INPUT  children = 0
+2026-11-11 22:49:35 | INFO    | TC1.2-04       | BƯỚC 1: Mở /rooms?adults=6&children=0
+2026-11-11 22:49:37 | INFO    | TC1.2-04       |    ẢNH    results/screenshots/20261111_224219/TC1.2-04_01_adults_6.png
+2026-11-11 22:49:37 | INFO    | TC1.2-04       |    MONG ĐỢI: Mọi phòng hiển thị có sức chứa >= 6
+2026-11-11 22:49:37 | INFO    | TC1.2-04       |    THỰC TẾ : []  => PASS
+2026-11-11 22:49:37 | INFO    | TC1.2-04       |    MONG ĐỢI: Danh sách khớp dữ liệu API: []
+2026-11-11 22:49:37 | INFO    | TC1.2-04       |    THỰC TẾ : []  => PASS
+2026-11-11 22:49:37 | INFO    | TC1.2-04       |    MONG ĐỢI: Hiển thị trạng thái rỗng kèm nút 'Xóa bộ lọc'
+2026-11-11 22:49:37 | INFO    | TC1.2-04       |    THỰC TẾ : ộ lọc Đặt phòng an toàn Thanh toán được mã hóa Xác nhận tức thì Nhận email ngay lập tức Hỗ trợ 24/7 Luôn sẵn sàng hỗ trợ  => PASS
+2026-11-11 22:49:37 | INFO    | TC1.2-04       | KẾT QUẢ: PASSED
+2026-11-11 22:49:40 | INFO    | TC1.2-05       | ----------------------------------------------------------------------
+2026-11-11 22:49:40 | INFO    | TC1.2-05       | TEST CASE TC1.2-05: Danh sách phòng và bộ lọc | Kỹ thuật: Boundary Value Analysis
+2026-11-11 22:49:40 | INFO    | TC1.2-05       |    INPUT  adults = 7
+2026-11-11 22:49:40 | INFO    | TC1.2-05       |    INPUT  children = 0
+2026-11-11 22:49:40 | INFO    | TC1.2-05       | BƯỚC 1: Mở /rooms?adults=7&children=0
+2026-11-11 22:49:42 | INFO    | TC1.2-05       |    ẢNH    results/screenshots/20261111_224219/TC1.2-05_01_adults_7.png
+2026-11-11 22:49:42 | INFO    | TC1.2-05       |    MONG ĐỢI: Mọi phòng hiển thị có sức chứa >= 7
+2026-11-11 22:49:42 | INFO    | TC1.2-05       |    THỰC TẾ : []  => PASS
+2026-11-11 22:49:42 | INFO    | TC1.2-05       |    MONG ĐỢI: Danh sách khớp dữ liệu API: []
+2026-11-11 22:49:42 | INFO    | TC1.2-05       |    THỰC TẾ : []  => PASS
+2026-11-11 22:49:42 | INFO    | TC1.2-05       |    MONG ĐỢI: Hiển thị trạng thái rỗng kèm nút 'Xóa bộ lọc'
+2026-11-11 22:49:42 | INFO    | TC1.2-05       |    THỰC TẾ : ộ lọc Đặt phòng an toàn Thanh toán được mã hóa Xác nhận tức thì Nhận email ngay lập tức Hỗ trợ 24/7 Luôn sẵn sàng hỗ trợ  => PASS
+2026-11-11 22:49:42 | INFO    | TC1.2-05       | KẾT QUẢ: PASSED
+2026-11-11 22:49:45 | INFO    | TC1.2-06       | ----------------------------------------------------------------------
+2026-11-11 22:49:45 | INFO    | TC1.2-06       | TEST CASE TC1.2-06: Danh sách phòng và bộ lọc | Kỹ thuật: Equivalence Partitioning
+2026-11-11 22:49:45 | INFO    | TC1.2-06       |    INPUT  loai_phong = 'Standard'
+2026-11-11 22:49:45 | INFO    | TC1.2-06       | BƯỚC 1: Mở /rooms?adults=1
+2026-11-11 22:49:48 | INFO    | TC1.2-06       | BƯỚC 2: Chọn bộ lọc loại phòng 'Standard'
+2026-11-11 22:49:48 | INFO    | TC1.2-06       |    ẢNH    results/screenshots/20261111_224219/TC1.2-06_01_loc_Standard.png
+2026-11-11 22:49:48 | INFO    | TC1.2-06       |    MONG ĐỢI: Chỉ hiển thị phòng thuộc loại Standard: ['Phòng tiêu chuẩn 1 giường đôi', 'Phòng tiêu chuẩn 1 giường đơn']
+2026-11-11 22:49:48 | ERROR   | TC1.2-06       |    THỰC TẾ : []  => FAIL
+2026-11-11 22:49:48 | INFO    | TC1.2-06       |    ẢNH    results/screenshots/20261111_224219/TC1.2-06_02_FAIL.png
+2026-11-11 22:49:48 | ERROR   | TC1.2-06       |    LỖI    [Major] Bộ lọc loại phòng 'Standard' không khớp tên phòng tiếng Việt nên không trả về phòng nào
+2026-11-11 22:49:48 | ERROR   | TC1.2-06       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Chỉ hiển thị phòng thuộc loại Standard: ['Phòng tiêu chuẩn 1 giường đôi', 'Phòng tiêu chuẩn 1 giường đơn'] | Thực tế: []
+2026-11-11 22:49:51 | INFO    | TC1.2-07       | ----------------------------------------------------------------------
+2026-11-11 22:49:51 | INFO    | TC1.2-07       | TEST CASE TC1.2-07: Danh sách phòng và bộ lọc | Kỹ thuật: Equivalence Partitioning
+2026-11-11 22:49:51 | INFO    | TC1.2-07       |    INPUT  loai_phong = 'Deluxe'
+2026-11-11 22:49:51 | INFO    | TC1.2-07       | BƯỚC 1: Mở /rooms?adults=1
+2026-11-11 22:49:54 | INFO    | TC1.2-07       | BƯỚC 2: Chọn bộ lọc loại phòng 'Deluxe'
+2026-11-11 22:49:55 | INFO    | TC1.2-07       |    ẢNH    results/screenshots/20261111_224219/TC1.2-07_01_loc_Deluxe.png
+2026-11-11 22:49:55 | INFO    | TC1.2-07       |    MONG ĐỢI: Chỉ hiển thị phòng thuộc loại Deluxe: ['Phòng Deluxe hướng biển']
+2026-11-11 22:49:55 | INFO    | TC1.2-07       |    THỰC TẾ : ['Phòng Deluxe hướng biển']  => PASS
+2026-11-11 22:49:55 | INFO    | TC1.2-07       | KẾT QUẢ: PASSED
+2026-11-11 22:49:57 | INFO    | TC1.2-08       | ----------------------------------------------------------------------
+2026-11-11 22:49:57 | INFO    | TC1.2-08       | TEST CASE TC1.2-08: Danh sách phòng và bộ lọc | Kỹ thuật: Equivalence Partitioning
+2026-11-11 22:49:57 | INFO    | TC1.2-08       |    INPUT  loai_phong = 'Suite'
+2026-11-11 22:49:57 | INFO    | TC1.2-08       | BƯỚC 1: Mở /rooms?adults=1
+2026-11-11 22:50:00 | INFO    | TC1.2-08       | BƯỚC 2: Chọn bộ lọc loại phòng 'Suite'
+2026-11-11 22:50:02 | INFO    | TC1.2-08       |    ẢNH    results/screenshots/20261111_224219/TC1.2-08_01_loc_Suite.png
+2026-11-11 22:50:02 | INFO    | TC1.2-08       |    MONG ĐỢI: Chỉ hiển thị phòng thuộc loại Suite: ['Phòng Suite cho doanh nhân', 'Phòng Suite cho gia đình', 'Phòng Suite nhỏ nhắn sang trọng']
+2026-11-11 22:50:02 | INFO    | TC1.2-08       |    THỰC TẾ : ['Phòng Suite cho doanh nhân', 'Phòng Suite cho gia đình', 'Phòng Suite nhỏ nhắn sang trọng']  => PASS
+2026-11-11 22:50:02 | INFO    | TC1.2-08       | KẾT QUẢ: PASSED
+2026-11-11 22:50:05 | INFO    | TC1.2-09       | ----------------------------------------------------------------------
+2026-11-11 22:50:05 | INFO    | TC1.2-09       | TEST CASE TC1.2-09: Danh sách phòng và bộ lọc | Kỹ thuật: Kiểm tra nội dung
+2026-11-11 22:50:05 | INFO    | TC1.2-09       | BƯỚC 1: Mở /contact và đọc địa chỉ khách sạn
+2026-11-11 22:50:07 | INFO    | TC1.2-09       | BƯỚC 2: Mở /rooms và đọc phần tiêu đề vị trí
+2026-11-11 22:50:08 | INFO    | TC1.2-09       |    MONG ĐỢI: Tiêu đề /rooms ghi đúng thành phố của khách sạn (Đà Nẵng)
+2026-11-11 22:50:08 | ERROR   | TC1.2-09       |    THỰC TẾ : Hà Nội  => FAIL
+2026-11-11 22:50:09 | INFO    | TC1.2-09       |    ẢNH    results/screenshots/20261111_224219/TC1.2-09_01_FAIL.png
+2026-11-11 22:50:09 | ERROR   | TC1.2-09       |    LỖI    [Trivial] Trang /rooms ghi vị trí 'Hà Nội' trong khi địa chỉ liên hệ ở Đà Nẵng
+2026-11-11 22:50:09 | ERROR   | TC1.2-09       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Tiêu đề /rooms ghi đúng thành phố của khách sạn (Đà Nẵng) | Thực tế: Hà Nội
+2026-11-11 22:50:11 | INFO    | TC1.3-01       | ----------------------------------------------------------------------
+2026-11-11 22:50:11 | INFO    | TC1.3-01       | TEST CASE TC1.3-01: Chi tiết loại phòng và đánh giá hiện có | Kỹ thuật: Equivalence Partitioning
+2026-11-11 22:50:11 | INFO    | TC1.3-01       | BƯỚC 1: Mở /rooms và bấm 'XEM CHI TIẾT' của phòng đầu tiên
+2026-11-11 22:50:15 | INFO    | TC1.3-01       |    MONG ĐỢI: Chuyển tới /room/{id}
+2026-11-11 22:50:15 | INFO    | TC1.3-01       |    THỰC TẾ : http://localhost:5173/room/1  => PASS
+2026-11-11 22:50:15 | INFO    | TC1.3-01       |    INPUT  room_id = 1
+2026-11-11 22:50:15 | INFO    | TC1.3-01       |    INPUT  ten_phong = 'Phòng tiêu chuẩn 1 giường đơn'
+2026-11-11 22:50:16 | INFO    | TC1.3-01       |    ẢNH    results/screenshots/20261111_224219/TC1.3-01_01_chi_tiet_phong.png
+2026-11-11 22:50:16 | INFO    | TC1.3-01       |    MONG ĐỢI: Tên phòng trên trang chi tiết khớp thẻ đã chọn và dữ liệu API
+2026-11-11 22:50:16 | INFO    | TC1.3-01       |    THỰC TẾ : Thẻ='Phòng tiêu chuẩn 1 giường đơn', API='Phòng tiêu chuẩn 1 giường đơn'  => PASS
+2026-11-11 22:50:16 | INFO    | TC1.3-01       |    MONG ĐỢI: Hiển thị giá 400.000đ/đêm
+2026-11-11 22:50:16 | INFO    | TC1.3-01       |    THỰC TẾ : Có  => PASS
+2026-11-11 22:50:16 | INFO    | TC1.3-01       |    MONG ĐỢI: Hiển thị sức chứa '1 người lớn, 0 trẻ em'
+2026-11-11 22:50:16 | INFO    | TC1.3-01       |    THỰC TẾ : Sức chứa: 1 người lớn, 0 trẻ em  => PASS
+2026-11-11 22:50:16 | INFO    | TC1.3-01       |    MONG ĐỢI: Có khu vực đánh giá và form gửi đánh giá
+2026-11-11 22:50:16 | INFO    | TC1.3-01       |    THỰC TẾ : Có  => PASS
+2026-11-11 22:50:16 | INFO    | TC1.3-01       |    MONG ĐỢI: Thông tin 'Diện tích' có giá trị
+2026-11-11 22:50:16 | ERROR   | TC1.3-01       |    THỰC TẾ : Diện tích: ' m²'  => FAIL
+2026-11-11 22:50:16 | INFO    | TC1.3-01       |    ẢNH    results/screenshots/20261111_224219/TC1.3-01_02_FAIL.png
+2026-11-11 22:50:16 | ERROR   | TC1.3-01       |    LỖI    [Minor] Trang chi tiết phòng hiển thị 'Diện tích: m²' (thiếu số liệu diện tích)
+2026-11-11 22:50:16 | ERROR   | TC1.3-01       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Thông tin 'Diện tích' có giá trị | Thực tế: Diện tích: ' m²'
+2026-11-11 22:50:19 | INFO    | TC1.3-02       | ----------------------------------------------------------------------
+2026-11-11 22:50:19 | INFO    | TC1.3-02       | TEST CASE TC1.3-02: Chi tiết loại phòng và đánh giá hiện có | Kỹ thuật: Equivalence Partitioning (chưa đăng nhập)
+2026-11-11 22:50:19 | INFO    | TC1.3-02       | BƯỚC 1: Mở /room/1 khi chưa đăng nhập
+2026-11-11 22:50:21 | INFO    | TC1.3-02       | BƯỚC 2: Chọn 5 sao, nhập nhận xét và bấm GỬI ĐÁNH GIÁ
+2026-11-11 22:50:25 | INFO    | TC1.3-02       |    ẢNH    results/screenshots/20261111_224219/TC1.3-02_01_danh_gia_chua_dang_nhap.png
+2026-11-11 22:50:25 | INFO    | TC1.3-02       |    MONG ĐỢI: Hệ thống yêu cầu đăng nhập trước khi gửi đánh giá
+2026-11-11 22:50:25 | INFO    | TC1.3-02       |    THỰC TẾ : Vui lòng đăng nhập để gửi đánh giá.  => PASS
+2026-11-11 22:50:25 | INFO    | TC1.3-02       | KẾT QUẢ: PASSED
+2026-11-11 22:50:28 | INFO    | TC1.4-01       | ----------------------------------------------------------------------
+2026-11-11 22:50:28 | INFO    | TC1.4-01       | TEST CASE TC1.4-01: Tìm kiếm tin tức và gửi bình luận | Kỹ thuật: Equivalence Partitioning
+2026-11-11 22:50:28 | INFO    | TC1.4-01       |    INPUT  tu_khoa = 'hải sản'
+2026-11-11 22:50:28 | INFO    | TC1.4-01       | BƯỚC 1: Mở /news
+2026-11-11 22:50:29 | INFO    | TC1.4-01       | BƯỚC 2: Nhập từ khóa 'hải sản' vào ô tìm kiếm
+2026-11-11 22:50:31 | INFO    | TC1.4-01       |    ẢNH    results/screenshots/20261111_224219/TC1.4-01_01_tim_kiem.png
+2026-11-11 22:50:31 | INFO    | TC1.4-01       |    MONG ĐỢI: Chỉ hiển thị bài khớp từ khóa: ['Món ngon hải sản địa phương']
+2026-11-11 22:50:31 | INFO    | TC1.4-01       |    THỰC TẾ : Hiện ['Món ngon hải sản địa phương']  => PASS
+2026-11-11 22:50:31 | INFO    | TC1.4-01       | KẾT QUẢ: PASSED
+2026-11-11 22:50:33 | INFO    | TC1.4-02       | ----------------------------------------------------------------------
+2026-11-11 22:50:33 | INFO    | TC1.4-02       | TEST CASE TC1.4-02: Tìm kiếm tin tức và gửi bình luận | Kỹ thuật: Equivalence Partitioning
+2026-11-11 22:50:33 | INFO    | TC1.4-02       |    INPUT  tu_khoa = 'HẢI SẢN'
+2026-11-11 22:50:33 | INFO    | TC1.4-02       | BƯỚC 1: Mở /news
+2026-11-11 22:50:35 | INFO    | TC1.4-02       | BƯỚC 2: Nhập từ khóa 'HẢI SẢN' vào ô tìm kiếm
+2026-11-11 22:50:36 | INFO    | TC1.4-02       |    ẢNH    results/screenshots/20261111_224219/TC1.4-02_01_tim_kiem.png
+2026-11-11 22:50:36 | INFO    | TC1.4-02       |    MONG ĐỢI: Chỉ hiển thị bài khớp từ khóa: ['Món ngon hải sản địa phương']
+2026-11-11 22:50:36 | INFO    | TC1.4-02       |    THỰC TẾ : Hiện ['Món ngon hải sản địa phương']  => PASS
+2026-11-11 22:50:36 | INFO    | TC1.4-02       | KẾT QUẢ: PASSED
+2026-11-11 22:50:39 | INFO    | TC1.4-03       | ----------------------------------------------------------------------
+2026-11-11 22:50:39 | INFO    | TC1.4-03       | TEST CASE TC1.4-03: Tìm kiếm tin tức và gửi bình luận | Kỹ thuật: Equivalence Partitioning
+2026-11-11 22:50:39 | INFO    | TC1.4-03       |    INPUT  tu_khoa = 'zzkhongcobaiviet'
+2026-11-11 22:50:39 | INFO    | TC1.4-03       | BƯỚC 1: Mở /news
+2026-11-11 22:50:41 | INFO    | TC1.4-03       | BƯỚC 2: Nhập từ khóa 'zzkhongcobaiviet' vào ô tìm kiếm
+2026-11-11 22:50:42 | INFO    | TC1.4-03       |    ẢNH    results/screenshots/20261111_224219/TC1.4-03_01_tim_kiem_rong.png
+2026-11-11 22:50:42 | INFO    | TC1.4-03       |    MONG ĐỢI: Hiển thị 'Không tìm thấy bài viết nào!'
+2026-11-11 22:50:42 | INFO    | TC1.4-03       |    THỰC TẾ : Có  => PASS
+2026-11-11 22:50:42 | INFO    | TC1.4-03       | KẾT QUẢ: PASSED
+2026-11-11 22:50:44 | INFO    | TC1.4-04       | ----------------------------------------------------------------------
+2026-11-11 22:50:44 | INFO    | TC1.4-04       | TEST CASE TC1.4-04: Tìm kiếm tin tức và gửi bình luận | Kỹ thuật: Equivalence Partitioning
+2026-11-11 22:50:44 | INFO    | TC1.4-04       |    INPUT  danh_muc = 'Góc Thư Giãn'
+2026-11-11 22:50:44 | INFO    | TC1.4-04       | BƯỚC 1: Mở /news và chọn danh mục
+2026-11-11 22:50:48 | INFO    | TC1.4-04       |    ẢNH    results/screenshots/20261111_224219/TC1.4-04_01_loc_danh_muc.png
+2026-11-11 22:50:48 | INFO    | TC1.4-04       |    MONG ĐỢI: Chỉ hiện bài thuộc 'Góc Thư Giãn': ['Cách thư giãn cuối tuần']
+2026-11-11 22:50:48 | INFO    | TC1.4-04       |    THỰC TẾ : Đúng  => PASS
+2026-11-11 22:50:48 | INFO    | TC1.4-04       | BƯỚC 2: Bấm 'ĐỌC CHI TIẾT →' của bài viết trong danh mục
+2026-11-11 22:50:50 | INFO    | TC1.4-04       |    MONG ĐỢI: Mở nội dung bài 'Cách thư giãn cuối tuần'
+2026-11-11 22:50:50 | INFO    | TC1.4-04       |    THỰC TẾ : ✕ Góc Thư Giãn 06 tháng 3, 2026 Ban Truyền Thông Cách thư giãn cuối tuần Nội dung... ĐÓNG CỬA SỔ  => PASS
+2026-11-11 22:50:50 | INFO    | TC1.4-04       |    ẢNH    results/screenshots/20261111_224219/TC1.4-04_02_doc_bai_viet.png
+2026-11-11 22:50:50 | INFO    | TC1.4-04       |    MONG ĐỢI: Từ trang chi tiết bài viết, khách có thể xem/gửi bình luận (trang /post/{id})
+2026-11-11 22:50:50 | ERROR   | TC1.4-04       |    THỰC TẾ : Chỉ mở modal tại http://localhost:5173/news, không có phần bình luận  => FAIL
+2026-11-11 22:50:50 | INFO    | TC1.4-04       |    ẢNH    results/screenshots/20261111_224219/TC1.4-04_03_FAIL.png
+2026-11-11 22:50:50 | ERROR   | TC1.4-04       |    LỖI    [Major] Trang Tin tức không dẫn tới trang chi tiết /post/{id}; khách không thể bình luận qua giao diện
+2026-11-11 22:50:50 | ERROR   | TC1.4-04       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Từ trang chi tiết bài viết, khách có thể xem/gửi bình luận (trang /post/{id}) | Thực tế: Chỉ mở modal tại http://localhost:5173/news, không có phần bình luận
+2026-11-11 22:50:53 | INFO    | TC1.4-05       | ----------------------------------------------------------------------
+2026-11-11 22:50:53 | INFO    | TC1.4-05       | TEST CASE TC1.4-05: Tìm kiếm tin tức và gửi bình luận | Kỹ thuật: Equivalence Partitioning
+2026-11-11 22:50:53 | INFO    | TC1.4-05       |    INPUT  guestName = ''
+2026-11-11 22:50:53 | INFO    | TC1.4-05       |    INPUT  guestEmail = ''
+2026-11-11 22:50:53 | INFO    | TC1.4-05       |    INPUT  rating = 0
+2026-11-11 22:50:53 | INFO    | TC1.4-05       |    INPUT  content = ''
+2026-11-11 22:50:53 | INFO    | TC1.4-05       | BƯỚC 1: Mở /post/1
+2026-11-11 22:50:57 | INFO    | TC1.4-05       | BƯỚC 2: Điền form bình luận và bấm 'Gửi Bình Luận'
+2026-11-11 22:50:59 | INFO    | TC1.4-05       |    ẢNH    results/screenshots/20261111_224219/TC1.4-05_01_loi_validation.png
+2026-11-11 22:50:59 | INFO    | TC1.4-05       |    MONG ĐỢI: Hiển thị lỗi: ['Nhập tên của bạn', 'Nhập email', 'Vui lòng chọn sao đánh giá', 'Nhập nội dung bình luận']
+2026-11-11 22:50:59 | INFO    | TC1.4-05       |    THỰC TẾ : ['Nhập tên của bạn', 'Nhập email', 'Vui lòng chọn sao đánh giá', 'Nhập nội dung bình luận']  => PASS
+2026-11-11 22:50:59 | INFO    | TC1.4-05       | KẾT QUẢ: PASSED
+2026-11-11 22:51:01 | INFO    | TC1.4-06       | ----------------------------------------------------------------------
+2026-11-11 22:51:01 | INFO    | TC1.4-06       | TEST CASE TC1.4-06: Tìm kiếm tin tức và gửi bình luận | Kỹ thuật: Equivalence Partitioning
+2026-11-11 22:51:01 | INFO    | TC1.4-06       |    INPUT  guestName = 'Khách Selenium'
+2026-11-11 22:51:01 | INFO    | TC1.4-06       |    INPUT  guestEmail = 'khach@'
+2026-11-11 22:51:01 | INFO    | TC1.4-06       |    INPUT  rating = 5
+2026-11-11 22:51:01 | INFO    | TC1.4-06       |    INPUT  content = 'Bài viết hay'
+2026-11-11 22:51:01 | INFO    | TC1.4-06       | BƯỚC 1: Mở /post/1
+2026-11-11 22:51:03 | INFO    | TC1.4-06       | BƯỚC 2: Điền form bình luận và bấm 'Gửi Bình Luận'
+2026-11-11 22:51:07 | INFO    | TC1.4-06       |    ẢNH    results/screenshots/20261111_224219/TC1.4-06_01_loi_validation.png
+2026-11-11 22:51:07 | INFO    | TC1.4-06       |    MONG ĐỢI: Hiển thị lỗi: ['Email không hợp lệ']
+2026-11-11 22:51:07 | INFO    | TC1.4-06       |    THỰC TẾ : ['Email không hợp lệ']  => PASS
+2026-11-11 22:51:07 | INFO    | TC1.4-06       | KẾT QUẢ: PASSED
+2026-11-11 22:51:10 | INFO    | TC1.4-07       | ----------------------------------------------------------------------
+2026-11-11 22:51:10 | INFO    | TC1.4-07       | TEST CASE TC1.4-07: Tìm kiếm tin tức và gửi bình luận | Kỹ thuật: Equivalence Partitioning
+2026-11-11 22:51:10 | INFO    | TC1.4-07       |    INPUT  guestName = 'Khách Selenium'
+2026-11-11 22:51:10 | INFO    | TC1.4-07       |    INPUT  guestEmail = 'selenium.comment@hotel.com'
+2026-11-11 22:51:10 | INFO    | TC1.4-07       |    INPUT  rating = 5
+2026-11-11 22:51:10 | INFO    | TC1.4-07       |    INPUT  content = 'Selenium: bình luận hợp lệ'
+2026-11-11 22:51:10 | INFO    | TC1.4-07       | BƯỚC 1: Mở /post/1
+2026-11-11 22:51:12 | INFO    | TC1.4-07       | BƯỚC 2: Điền form bình luận và bấm 'Gửi Bình Luận'
+2026-11-11 22:51:17 | INFO    | TC1.4-07       |    ẢNH    results/screenshots/20261111_224219/TC1.4-07_01_gui_thanh_cong.png
+2026-11-11 22:51:17 | INFO    | TC1.4-07       |    MONG ĐỢI: Thông báo 'Gửi bình luận thành công! Đang chờ admin duyệt.'
+2026-11-11 22:51:17 | INFO    | TC1.4-07       |    THỰC TẾ : Gửi bình luận thành công! Đang chờ admin duyệt.  => PASS
+2026-11-11 22:51:17 | INFO    | TC1.4-07       | KẾT QUẢ: PASSED
+2026-11-11 22:51:19 | INFO    | TC1.5-01       | ----------------------------------------------------------------------
+2026-11-11 22:51:19 | INFO    | TC1.5-01       | TEST CASE TC1.5-01: Biểu mẫu liên hệ và kiểm tra dữ liệu | Kỹ thuật: Equivalence Partitioning
+2026-11-11 22:51:19 | INFO    | TC1.5-01       |    INPUT  name = ''
+2026-11-11 22:51:19 | INFO    | TC1.5-01       |    INPUT  email = ''
+2026-11-11 22:51:19 | INFO    | TC1.5-01       |    INPUT  message = ''
+2026-11-11 22:51:19 | INFO    | TC1.5-01       | BƯỚC 1: Mở /contact, điền form và bấm 'GỬI TIN NHẮN'
+2026-11-11 22:51:22 | INFO    | TC1.5-01       |    ẢNH    results/screenshots/20261111_224219/TC1.5-01_01_loi_validation.png
+2026-11-11 22:51:22 | INFO    | TC1.5-01       |    MONG ĐỢI: Hiển thị lỗi: ['Vui lòng nhập tên!', 'Vui lòng nhập email hợp lệ!', 'Vui lòng nhập tin nhắn!']
+2026-11-11 22:51:22 | INFO    | TC1.5-01       |    THỰC TẾ : ['Vui lòng nhập tên!', 'Vui lòng nhập email hợp lệ!', 'Vui lòng nhập tin nhắn!']  => PASS
+2026-11-11 22:51:22 | INFO    | TC1.5-01       | KẾT QUẢ: PASSED
+2026-11-11 22:51:25 | INFO    | TC1.5-02       | ----------------------------------------------------------------------
+2026-11-11 22:51:25 | INFO    | TC1.5-02       | TEST CASE TC1.5-02: Biểu mẫu liên hệ và kiểm tra dữ liệu | Kỹ thuật: Equivalence Partitioning
+2026-11-11 22:51:25 | INFO    | TC1.5-02       |    INPUT  name = 'Nguyễn Văn A'
+2026-11-11 22:51:25 | INFO    | TC1.5-02       |    INPUT  email = 'nguyenvana.com'
+2026-11-11 22:51:25 | INFO    | TC1.5-02       |    INPUT  message = 'Xin chào'
+2026-11-11 22:51:25 | INFO    | TC1.5-02       | BƯỚC 1: Mở /contact, điền form và bấm 'GỬI TIN NHẮN'
+2026-11-11 22:51:29 | INFO    | TC1.5-02       |    ẢNH    results/screenshots/20261111_224219/TC1.5-02_01_loi_validation.png
+2026-11-11 22:51:29 | INFO    | TC1.5-02       |    MONG ĐỢI: Hiển thị lỗi: ['Vui lòng nhập email hợp lệ!']
+2026-11-11 22:51:29 | INFO    | TC1.5-02       |    THỰC TẾ : ['Vui lòng nhập email hợp lệ!']  => PASS
+2026-11-11 22:51:29 | INFO    | TC1.5-02       | KẾT QUẢ: PASSED
+2026-11-11 22:51:31 | INFO    | TC1.5-03       | ----------------------------------------------------------------------
+2026-11-11 22:51:31 | INFO    | TC1.5-03       | TEST CASE TC1.5-03: Biểu mẫu liên hệ và kiểm tra dữ liệu | Kỹ thuật: Equivalence Partitioning
+2026-11-11 22:51:31 | INFO    | TC1.5-03       |    INPUT  name = 'Nguyễn Văn A'
+2026-11-11 22:51:31 | INFO    | TC1.5-03       |    INPUT  email = 'nguyenvana@hotel.com'
+2026-11-11 22:51:31 | INFO    | TC1.5-03       |    INPUT  message = 'Selenium: cần tư vấn đặt phòng'
+2026-11-11 22:51:31 | INFO    | TC1.5-03       | BƯỚC 1: Mở /contact, điền form và bấm 'GỬI TIN NHẮN'
+2026-11-11 22:51:35 | INFO    | TC1.5-03       |    ẢNH    results/screenshots/20261111_224219/TC1.5-03_01_gui_lien_he.png
+2026-11-11 22:51:35 | INFO    | TC1.5-03       |    MONG ĐỢI: Hiển thị thông báo cảm ơn
+2026-11-11 22:51:35 | INFO    | TC1.5-03       |    THỰC TẾ : Cảm ơn bạn! Chúng tôi đã nhận được tin nhắn và sẽ phản hồi sớm nhất.  => PASS
+2026-11-11 22:51:35 | INFO    | TC1.5-03       |    GHI CHÚ Request tới Backend sau khi gửi: []
+2026-11-11 22:51:35 | INFO    | TC1.5-03       |    MONG ĐỢI: Nội dung liên hệ được gửi tới Backend để lưu/chuyển cho khách sạn
+2026-11-11 22:51:35 | ERROR   | TC1.5-03       |    THỰC TẾ : Không có request nào tới Backend (form chỉ console.log)  => FAIL
+2026-11-11 22:51:36 | INFO    | TC1.5-03       |    ẢNH    results/screenshots/20261111_224219/TC1.5-03_02_FAIL.png
+2026-11-11 22:51:36 | ERROR   | TC1.5-03       |    LỖI    [Major] Form liên hệ báo thành công nhưng không gửi/lưu nội dung lên hệ thống
+2026-11-11 22:51:36 | ERROR   | TC1.5-03       | KẾT QUẢ: FAILED - Lỗi phần mềm (defect): Mong đợi: Nội dung liên hệ được gửi tới Backend để lưu/chuyển cho khách sạn | Thực tế: Không có request nào tới Backend (form chỉ console.log)
+2026-11-11 22:51:38 | INFO    | RUN            | ======================================================================
+2026-11-11 22:51:38 | INFO    | RUN            | TỔNG KẾT: 63 ca đã chạy | Passed 44 | Failed 19 | Error 0 | Thủ công 4
+2026-11-11 22:51:38 | INFO    | RUN            | Tỷ lệ đạt: 69.8% | Số lỗi: 18 | Defect density: 0.86 lỗi/TC, 0.9 lỗi/chức năng
+2026-11-11 22:51:38 | INFO    | RUN            | Báo cáo: results/report.html | Dữ liệu: results/test-results.json | Ảnh: results/screenshots/20261111_224219
+2026-11-11 22:51:38 | INFO    | RUN            | ======================================================================

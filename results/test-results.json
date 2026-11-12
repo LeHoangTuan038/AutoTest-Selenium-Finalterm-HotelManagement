@@ -1,0 +1,3231 @@
+{
+  "run_id": "20261112_122307",
+  "generated_at": "2026-11-12 12:33:52",
+  "duration_s": 645.0,
+  "log_file": "results/logs/test-run_20261112_122307.log",
+  "metrics": {
+    "planned_tc": 25,
+    "automated_tc": 21,
+    "manual": 4,
+    "tc_passed": 9,
+    "tc_failed": 12,
+    "tc_blocked": 0,
+    "tc_status": {
+      "TC1.1": "Passed",
+      "TC1.2": "Failed",
+      "TC1.3": "Failed",
+      "TC1.4": "Failed",
+      "TC1.5": "Failed",
+      "TC2.1": "Passed",
+      "TC2.2": "Passed",
+      "TC2.3": "Passed",
+      "TC2.4": "Passed",
+      "TC2.5": "Failed",
+      "TC2.6": "Manual",
+      "TC2.7": "Failed",
+      "TC3.1": "Failed",
+      "TC3.2": "Passed",
+      "TC3.3": "Passed",
+      "TC3.4": "Passed",
+      "TC3.5": "Passed",
+      "TC3.6": "Failed",
+      "TC4.1": "Failed",
+      "TC4.2": "Failed",
+      "TC4.3": "Failed",
+      "TC4.4": "Manual",
+      "TC4.5": "Failed",
+      "TC4.6": "Manual",
+      "TC4.7": "Manual"
+    },
+    "executed": 63,
+    "passed": 44,
+    "failed": 19,
+    "error": 0,
+    "pass_rate": 69.8,
+    "tc_pass_rate": 42.9,
+    "defects": 18,
+    "defects_by_severity": {
+      "Critical": 1,
+      "Major": 10,
+      "Minor": 5,
+      "Trivial": 2
+    },
+    "defect_density_tc": 0.86,
+    "defect_density_func": 0.9,
+    "functions_total": 20,
+    "automation_coverage": 84.0,
+    "execution_coverage": 84.0
+  },
+  "cases": [
+    {
+      "tc_id": "TC1.1",
+      "case_id": "TC1.1-01",
+      "title": "Trang chủ và điều hướng công khai",
+      "case": "homepage_navigation",
+      "technique": "Kiểm thử điều hướng (state transition)",
+      "nodeid": "tests/test_public.py::test_homepage_navigation",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 16.22,
+      "inputs": {},
+      "steps": [
+        "Bước 1: Mở /homepage và chờ nội dung chính tải",
+        "Bước 2: Bấm menu 'PHÒNG NGHỈ'",
+        "Bước 3: Quay lại trang chủ",
+        "Bước 4: Bấm menu 'GIỚI THIỆU'",
+        "Bước 5: Quay lại trang chủ",
+        "Bước 6: Bấm menu 'LIÊN HỆ'",
+        "Bước 7: Quay lại trang chủ",
+        "Bước 8: Mở một route không tồn tại /khong-ton-tai"
+      ],
+      "checks": [
+        {
+          "expected": "Trang chủ hiển thị nhận diện 'IT HOTEL'",
+          "actual": "Có 'IT HOTEL'",
+          "passed": true
+        },
+        {
+          "expected": "Menu có đủ ['TRANG CHỦ', 'PHÒNG NGHỈ', 'GIỚI THIỆU', 'LIÊN HỆ']",
+          "actual": "Đủ 4 mục menu",
+          "passed": true
+        },
+        {
+          "expected": "Chuyển tới /rooms và có nội dung 'phòng có sẵn'",
+          "actual": "URL=http://localhost:5173/rooms, có nội dung=True",
+          "passed": true
+        },
+        {
+          "expected": "Chuyển tới /about và có nội dung 'Câu Chuyện'",
+          "actual": "URL=http://localhost:5173/about, có nội dung=True",
+          "passed": true
+        },
+        {
+          "expected": "Chuyển tới /contact và có nội dung 'Thông Tin Liên Hệ'",
+          "actual": "URL=http://localhost:5173/contact, có nội dung=True",
+          "passed": true
+        },
+        {
+          "expected": "Route sai hiển thị trang NotFound thay vì trang trắng",
+          "actual": "404 - Đường dẫn này không tồn tại 😢",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.1-01_01_trang_chu.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC1.2",
+      "case_id": "TC1.2-01",
+      "title": "Danh sách phòng và bộ lọc",
+      "case": "rooms_default_list",
+      "technique": "Equivalence Partitioning",
+      "nodeid": "tests/test_public.py::test_rooms_default_list",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Bộ lọc mặc định '2 Người lớn' chỉ hiện phòng có sức chứa >= 2 | Thực tế: Hiện cả phòng sức chứa < 2: [('Phòng tiêu chuẩn 1 giường đơn', 1)]",
+      "duration": 6.29,
+      "inputs": {
+        "api_room_types": "10"
+      },
+      "steps": [
+        "Bước 1: Lấy danh sách loại phòng công khai từ API làm dữ liệu đối chiếu",
+        "Bước 2: Mở /rooms (mặc định: 2 người lớn, 0 trẻ em)"
+      ],
+      "checks": [
+        {
+          "expected": "Số đếm 'N phòng có sẵn' bằng số thẻ phòng",
+          "actual": "Nhãn=9, thẻ=9",
+          "passed": true
+        },
+        {
+          "expected": "Mỗi thẻ có tên và sức chứa",
+          "actual": "[('Phòng tiêu chuẩn 1 giường đơn', 1), ('Phòng tiêu chuẩn 1 giường đôi', 2), ('Phòng cao cấp hướng phố', 2)]",
+          "passed": true
+        },
+        {
+          "expected": "Bộ lọc mặc định '2 Người lớn' chỉ hiện phòng có sức chứa >= 2",
+          "actual": "Hiện cả phòng sức chứa < 2: [('Phòng tiêu chuẩn 1 giường đơn', 1)]",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.2-01_01_danh_sach_mac_dinh.png",
+        "results/screenshots/20261112_122307/TC1.2-01_02_FAIL.png"
+      ],
+      "defect": {
+        "title": "Trang /rooms ghi '2 Người lớn' nhưng vẫn hiển thị phòng tối đa 1 khách",
+        "severity": "Minor",
+        "priority": "Medium",
+        "component": "Danh sách phòng",
+        "expected": "Bộ lọc mặc định '2 Người lớn' chỉ hiện phòng có sức chứa >= 2",
+        "actual": "Hiện cả phòng sức chứa < 2: [('Phòng tiêu chuẩn 1 giường đơn', 1)]",
+        "screenshot": "results/screenshots/20261112_122307/TC1.2-01_02_FAIL.png",
+        "id": "BUG-01"
+      }
+    },
+    {
+      "tc_id": "TC1.2",
+      "case_id": "TC1.2-02",
+      "title": "Danh sách phòng và bộ lọc",
+      "case": "rooms_default_shows_all_types",
+      "technique": "Equivalence Partitioning",
+      "nodeid": "tests/test_public.py::test_rooms_default_shows_all_types",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Hiển thị đủ 10 loại phòng đang hoạt động | Thực tế: Bị ẩn: ['Biệt thự hoàng gia nguyên căn']",
+      "duration": 5.93,
+      "inputs": {
+        "api_active_types": "10",
+        "shown": "9"
+      },
+      "steps": [
+        "Bước 1: Mở /rooms?adults=1 (sức chứa thấp nhất để không loại phòng nào)"
+      ],
+      "checks": [
+        {
+          "expected": "Hiển thị đủ 10 loại phòng đang hoạt động",
+          "actual": "Bị ẩn: ['Biệt thự hoàng gia nguyên căn']",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.2-02_01_FAIL.png"
+      ],
+      "defect": {
+        "title": "Khoảng giá mặc định 0-5.000.000đ ẩn các loại phòng giá cao (Biệt thự 8.000.000đ) khỏi danh sách",
+        "severity": "Minor",
+        "priority": "Medium",
+        "component": "Danh sách phòng",
+        "expected": "Hiển thị đủ 10 loại phòng đang hoạt động",
+        "actual": "Bị ẩn: ['Biệt thự hoàng gia nguyên căn']",
+        "screenshot": "results/screenshots/20261112_122307/TC1.2-02_01_FAIL.png",
+        "id": "BUG-02"
+      }
+    },
+    {
+      "tc_id": "TC1.2",
+      "case_id": "TC1.2-03",
+      "title": "Danh sách phòng và bộ lọc",
+      "case": "BVA_4",
+      "technique": "Boundary Value Analysis",
+      "nodeid": "tests/test_public.py::test_rooms_capacity_filter[BVA_4]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 6.09,
+      "inputs": {
+        "adults": "4",
+        "children": "0"
+      },
+      "steps": [
+        "Bước 1: Mở /rooms?adults=4&children=0"
+      ],
+      "checks": [
+        {
+          "expected": "Mọi phòng hiển thị có sức chứa >= 4",
+          "actual": "[('Phòng Suite cho gia đình', 4), ('Phòng Tổng thống', 4)]",
+          "passed": true
+        },
+        {
+          "expected": "Danh sách khớp dữ liệu API: ['Phòng Suite cho gia đình', 'Phòng Tổng thống']",
+          "actual": "['Phòng Suite cho gia đình', 'Phòng Tổng thống']",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.2-03_01_adults_4.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC1.2",
+      "case_id": "TC1.2-04",
+      "title": "Danh sách phòng và bộ lọc",
+      "case": "BVA_6_max",
+      "technique": "Boundary Value Analysis",
+      "nodeid": "tests/test_public.py::test_rooms_capacity_filter[BVA_6_max]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 5.86,
+      "inputs": {
+        "adults": "6",
+        "children": "0"
+      },
+      "steps": [
+        "Bước 1: Mở /rooms?adults=6&children=0"
+      ],
+      "checks": [
+        {
+          "expected": "Mọi phòng hiển thị có sức chứa >= 6",
+          "actual": "[]",
+          "passed": true
+        },
+        {
+          "expected": "Danh sách khớp dữ liệu API: []",
+          "actual": "[]",
+          "passed": true
+        },
+        {
+          "expected": "Hiển thị trạng thái rỗng kèm nút 'Xóa bộ lọc'",
+          "actual": "ộ lọc Đặt phòng an toàn Thanh toán được mã hóa Xác nhận tức thì Nhận email ngay lập tức Hỗ trợ 24/7 Luôn sẵn sàng hỗ trợ",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.2-04_01_adults_6.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC1.2",
+      "case_id": "TC1.2-05",
+      "title": "Danh sách phòng và bộ lọc",
+      "case": "BVA_7_tren_max",
+      "technique": "Boundary Value Analysis",
+      "nodeid": "tests/test_public.py::test_rooms_capacity_filter[BVA_7_tren_max]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 5.81,
+      "inputs": {
+        "adults": "7",
+        "children": "0"
+      },
+      "steps": [
+        "Bước 1: Mở /rooms?adults=7&children=0"
+      ],
+      "checks": [
+        {
+          "expected": "Mọi phòng hiển thị có sức chứa >= 7",
+          "actual": "[]",
+          "passed": true
+        },
+        {
+          "expected": "Danh sách khớp dữ liệu API: []",
+          "actual": "[]",
+          "passed": true
+        },
+        {
+          "expected": "Hiển thị trạng thái rỗng kèm nút 'Xóa bộ lọc'",
+          "actual": "ộ lọc Đặt phòng an toàn Thanh toán được mã hóa Xác nhận tức thì Nhận email ngay lập tức Hỗ trợ 24/7 Luôn sẵn sàng hỗ trợ",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.2-05_01_adults_7.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC1.2",
+      "case_id": "TC1.2-06",
+      "title": "Danh sách phòng và bộ lọc",
+      "case": "EP_Standard",
+      "technique": "Equivalence Partitioning",
+      "nodeid": "tests/test_public.py::test_rooms_type_filter[EP_Standard]",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Chỉ hiển thị phòng thuộc loại Standard: ['Phòng tiêu chuẩn 1 giường đôi', 'Phòng tiêu chuẩn 1 giường đơn'] | Thực tế: []",
+      "duration": 7.37,
+      "inputs": {
+        "loai_phong": "Standard"
+      },
+      "steps": [
+        "Bước 1: Mở /rooms?adults=1",
+        "Bước 2: Chọn bộ lọc loại phòng 'Standard'"
+      ],
+      "checks": [
+        {
+          "expected": "Chỉ hiển thị phòng thuộc loại Standard: ['Phòng tiêu chuẩn 1 giường đôi', 'Phòng tiêu chuẩn 1 giường đơn']",
+          "actual": "[]",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.2-06_01_loc_Standard.png",
+        "results/screenshots/20261112_122307/TC1.2-06_02_FAIL.png"
+      ],
+      "defect": {
+        "title": "Bộ lọc loại phòng 'Standard' không khớp tên phòng tiếng Việt nên không trả về phòng nào",
+        "severity": "Major",
+        "priority": "High",
+        "component": "Danh sách phòng",
+        "expected": "Chỉ hiển thị phòng thuộc loại Standard: ['Phòng tiêu chuẩn 1 giường đôi', 'Phòng tiêu chuẩn 1 giường đơn']",
+        "actual": "[]",
+        "screenshot": "results/screenshots/20261112_122307/TC1.2-06_02_FAIL.png",
+        "id": "BUG-03"
+      }
+    },
+    {
+      "tc_id": "TC1.2",
+      "case_id": "TC1.2-07",
+      "title": "Danh sách phòng và bộ lọc",
+      "case": "EP_Deluxe",
+      "technique": "Equivalence Partitioning",
+      "nodeid": "tests/test_public.py::test_rooms_type_filter[EP_Deluxe]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 6.74,
+      "inputs": {
+        "loai_phong": "Deluxe"
+      },
+      "steps": [
+        "Bước 1: Mở /rooms?adults=1",
+        "Bước 2: Chọn bộ lọc loại phòng 'Deluxe'"
+      ],
+      "checks": [
+        {
+          "expected": "Chỉ hiển thị phòng thuộc loại Deluxe: ['Phòng Deluxe hướng biển']",
+          "actual": "['Phòng Deluxe hướng biển']",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.2-07_01_loc_Deluxe.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC1.2",
+      "case_id": "TC1.2-08",
+      "title": "Danh sách phòng và bộ lọc",
+      "case": "EP_Suite",
+      "technique": "Equivalence Partitioning",
+      "nodeid": "tests/test_public.py::test_rooms_type_filter[EP_Suite]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 7.49,
+      "inputs": {
+        "loai_phong": "Suite"
+      },
+      "steps": [
+        "Bước 1: Mở /rooms?adults=1",
+        "Bước 2: Chọn bộ lọc loại phòng 'Suite'"
+      ],
+      "checks": [
+        {
+          "expected": "Chỉ hiển thị phòng thuộc loại Suite: ['Phòng Suite cho doanh nhân', 'Phòng Suite cho gia đình', 'Phòng Suite nhỏ nhắn sang trọng']",
+          "actual": "['Phòng Suite cho doanh nhân', 'Phòng Suite cho gia đình', 'Phòng Suite nhỏ nhắn sang trọng']",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.2-08_01_loc_Suite.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC1.2",
+      "case_id": "TC1.2-09",
+      "title": "Danh sách phòng và bộ lọc",
+      "case": "rooms_location_consistency",
+      "technique": "Kiểm tra nội dung",
+      "nodeid": "tests/test_public.py::test_rooms_location_consistency",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Tiêu đề /rooms ghi đúng thành phố của khách sạn (Đà Nẵng) | Thực tế: Hà Nội",
+      "duration": 7.88,
+      "inputs": {},
+      "steps": [
+        "Bước 1: Mở /contact và đọc địa chỉ khách sạn",
+        "Bước 2: Mở /rooms và đọc phần tiêu đề vị trí"
+      ],
+      "checks": [
+        {
+          "expected": "Tiêu đề /rooms ghi đúng thành phố của khách sạn (Đà Nẵng)",
+          "actual": "Hà Nội",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.2-09_01_FAIL.png"
+      ],
+      "defect": {
+        "title": "Trang /rooms ghi vị trí 'Hà Nội' trong khi địa chỉ liên hệ ở Đà Nẵng",
+        "severity": "Trivial",
+        "priority": "Low",
+        "component": "Nội dung",
+        "expected": "Tiêu đề /rooms ghi đúng thành phố của khách sạn (Đà Nẵng)",
+        "actual": "Hà Nội",
+        "screenshot": "results/screenshots/20261112_122307/TC1.2-09_01_FAIL.png",
+        "id": "BUG-04"
+      }
+    },
+    {
+      "tc_id": "TC1.3",
+      "case_id": "TC1.3-01",
+      "title": "Chi tiết loại phòng và đánh giá hiện có",
+      "case": "room_detail",
+      "technique": "Equivalence Partitioning",
+      "nodeid": "tests/test_public.py::test_room_detail",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Thông tin 'Diện tích' có giá trị | Thực tế: Diện tích: ' m²'",
+      "duration": 8.46,
+      "inputs": {
+        "room_id": "1",
+        "ten_phong": "Phòng tiêu chuẩn 1 giường đơn"
+      },
+      "steps": [
+        "Bước 1: Mở /rooms và bấm 'XEM CHI TIẾT' của phòng đầu tiên"
+      ],
+      "checks": [
+        {
+          "expected": "Chuyển tới /room/{id}",
+          "actual": "http://localhost:5173/room/1",
+          "passed": true
+        },
+        {
+          "expected": "Tên phòng trên trang chi tiết khớp thẻ đã chọn và dữ liệu API",
+          "actual": "Thẻ='Phòng tiêu chuẩn 1 giường đơn', API='Phòng tiêu chuẩn 1 giường đơn'",
+          "passed": true
+        },
+        {
+          "expected": "Hiển thị giá 400.000đ/đêm",
+          "actual": "Có",
+          "passed": true
+        },
+        {
+          "expected": "Hiển thị sức chứa '1 người lớn, 0 trẻ em'",
+          "actual": "Sức chứa: 1 người lớn, 0 trẻ em",
+          "passed": true
+        },
+        {
+          "expected": "Có khu vực đánh giá và form gửi đánh giá",
+          "actual": "Có",
+          "passed": true
+        },
+        {
+          "expected": "Thông tin 'Diện tích' có giá trị",
+          "actual": "Diện tích: ' m²'",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.3-01_01_chi_tiet_phong.png",
+        "results/screenshots/20261112_122307/TC1.3-01_02_FAIL.png"
+      ],
+      "defect": {
+        "title": "Trang chi tiết phòng hiển thị 'Diện tích: m²' (thiếu số liệu diện tích)",
+        "severity": "Minor",
+        "priority": "Medium",
+        "component": "Chi tiết phòng",
+        "expected": "Thông tin 'Diện tích' có giá trị",
+        "actual": "Diện tích: ' m²'",
+        "screenshot": "results/screenshots/20261112_122307/TC1.3-01_02_FAIL.png",
+        "id": "BUG-05"
+      }
+    },
+    {
+      "tc_id": "TC1.3",
+      "case_id": "TC1.3-02",
+      "title": "Chi tiết loại phòng và đánh giá hiện có",
+      "case": "room_review_requires_login",
+      "technique": "Equivalence Partitioning (chưa đăng nhập)",
+      "nodeid": "tests/test_public.py::test_room_review_requires_login",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 9.36,
+      "inputs": {},
+      "steps": [
+        "Bước 1: Mở /room/1 khi chưa đăng nhập",
+        "Bước 2: Chọn 5 sao, nhập nhận xét và bấm GỬI ĐÁNH GIÁ"
+      ],
+      "checks": [
+        {
+          "expected": "Hệ thống yêu cầu đăng nhập trước khi gửi đánh giá",
+          "actual": "Vui lòng đăng nhập để gửi đánh giá.",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.3-02_01_danh_gia_chua_dang_nhap.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC1.4",
+      "case_id": "TC1.4-01",
+      "title": "Tìm kiếm tin tức và gửi bình luận",
+      "case": "EP_co_ket_qua",
+      "technique": "Equivalence Partitioning",
+      "nodeid": "tests/test_public.py::test_news_search[EP_co_ket_qua]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 6.16,
+      "inputs": {
+        "tu_khoa": "hải sản"
+      },
+      "steps": [
+        "Bước 1: Mở /news",
+        "Bước 2: Nhập từ khóa 'hải sản' vào ô tìm kiếm"
+      ],
+      "checks": [
+        {
+          "expected": "Chỉ hiển thị bài khớp từ khóa: ['Món ngon hải sản địa phương']",
+          "actual": "Hiện ['Món ngon hải sản địa phương']",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.4-01_01_tim_kiem.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC1.4",
+      "case_id": "TC1.4-02",
+      "title": "Tìm kiếm tin tức và gửi bình luận",
+      "case": "EP_khong_phan_biet_hoa_thuong",
+      "technique": "Equivalence Partitioning",
+      "nodeid": "tests/test_public.py::test_news_search[EP_khong_phan_biet_hoa_thuong]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 6.75,
+      "inputs": {
+        "tu_khoa": "HẢI SẢN"
+      },
+      "steps": [
+        "Bước 1: Mở /news",
+        "Bước 2: Nhập từ khóa 'HẢI SẢN' vào ô tìm kiếm"
+      ],
+      "checks": [
+        {
+          "expected": "Chỉ hiển thị bài khớp từ khóa: ['Món ngon hải sản địa phương']",
+          "actual": "Hiện ['Món ngon hải sản địa phương']",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.4-02_01_tim_kiem.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC1.4",
+      "case_id": "TC1.4-03",
+      "title": "Tìm kiếm tin tức và gửi bình luận",
+      "case": "EP_khong_ket_qua",
+      "technique": "Equivalence Partitioning",
+      "nodeid": "tests/test_public.py::test_news_search[EP_khong_ket_qua]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 6.09,
+      "inputs": {
+        "tu_khoa": "zzkhongcobaiviet"
+      },
+      "steps": [
+        "Bước 1: Mở /news",
+        "Bước 2: Nhập từ khóa 'zzkhongcobaiviet' vào ô tìm kiếm"
+      ],
+      "checks": [
+        {
+          "expected": "Hiển thị 'Không tìm thấy bài viết nào!'",
+          "actual": "Có",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.4-03_01_tim_kiem_rong.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC1.4",
+      "case_id": "TC1.4-04",
+      "title": "Tìm kiếm tin tức và gửi bình luận",
+      "case": "news_category_filter",
+      "technique": "Equivalence Partitioning",
+      "nodeid": "tests/test_public.py::test_news_category_filter",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Từ trang chi tiết bài viết, khách có thể xem/gửi bình luận (trang /post/{id}) | Thực tế: Chỉ mở modal tại http://localhost:5173/news, không có phần bình luận",
+      "duration": 9.91,
+      "inputs": {
+        "danh_muc": "Góc Thư Giãn"
+      },
+      "steps": [
+        "Bước 1: Mở /news và chọn danh mục",
+        "Bước 2: Bấm 'ĐỌC CHI TIẾT →' của bài viết trong danh mục"
+      ],
+      "checks": [
+        {
+          "expected": "Chỉ hiện bài thuộc 'Góc Thư Giãn': ['Cách thư giãn cuối tuần']",
+          "actual": "Đúng",
+          "passed": true
+        },
+        {
+          "expected": "Mở nội dung bài 'Cách thư giãn cuối tuần'",
+          "actual": "✕ Góc Thư Giãn 06 tháng 3, 2026 Ban Truyền Thông Cách thư giãn cuối tuần Nội dung... ĐÓNG CỬA SỔ",
+          "passed": true
+        },
+        {
+          "expected": "Từ trang chi tiết bài viết, khách có thể xem/gửi bình luận (trang /post/{id})",
+          "actual": "Chỉ mở modal tại http://localhost:5173/news, không có phần bình luận",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.4-04_01_loc_danh_muc.png",
+        "results/screenshots/20261112_122307/TC1.4-04_02_doc_bai_viet.png",
+        "results/screenshots/20261112_122307/TC1.4-04_03_FAIL.png"
+      ],
+      "defect": {
+        "title": "Trang Tin tức không dẫn tới trang chi tiết /post/{id}; khách không thể bình luận qua giao diện",
+        "severity": "Major",
+        "priority": "High",
+        "component": "Tin tức",
+        "expected": "Từ trang chi tiết bài viết, khách có thể xem/gửi bình luận (trang /post/{id})",
+        "actual": "Chỉ mở modal tại http://localhost:5173/news, không có phần bình luận",
+        "screenshot": "results/screenshots/20261112_122307/TC1.4-04_03_FAIL.png",
+        "id": "BUG-06"
+      }
+    },
+    {
+      "tc_id": "TC1.4",
+      "case_id": "TC1.4-05",
+      "title": "Tìm kiếm tin tức và gửi bình luận",
+      "case": "EP_bo_trong",
+      "technique": "Equivalence Partitioning",
+      "nodeid": "tests/test_public.py::test_post_comment[EP_bo_trong]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 7.41,
+      "inputs": {
+        "guestName": "",
+        "guestEmail": "",
+        "rating": "0",
+        "content": ""
+      },
+      "steps": [
+        "Bước 1: Mở /post/1",
+        "Bước 2: Điền form bình luận và bấm 'Gửi Bình Luận'"
+      ],
+      "checks": [
+        {
+          "expected": "Hiển thị lỗi: ['Nhập tên của bạn', 'Nhập email', 'Vui lòng chọn sao đánh giá', 'Nhập nội dung bình luận']",
+          "actual": "['Nhập tên của bạn', 'Nhập email', 'Vui lòng chọn sao đánh giá', 'Nhập nội dung bình luận']",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.4-05_01_loi_validation.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC1.4",
+      "case_id": "TC1.4-06",
+      "title": "Tìm kiếm tin tức và gửi bình luận",
+      "case": "EP_email_sai",
+      "technique": "Equivalence Partitioning",
+      "nodeid": "tests/test_public.py::test_post_comment[EP_email_sai]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 9.11,
+      "inputs": {
+        "guestName": "Khách Selenium",
+        "guestEmail": "khach@",
+        "rating": "5",
+        "content": "Bài viết hay"
+      },
+      "steps": [
+        "Bước 1: Mở /post/1",
+        "Bước 2: Điền form bình luận và bấm 'Gửi Bình Luận'"
+      ],
+      "checks": [
+        {
+          "expected": "Hiển thị lỗi: ['Email không hợp lệ']",
+          "actual": "['Email không hợp lệ']",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.4-06_01_loi_validation.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC1.4",
+      "case_id": "TC1.4-07",
+      "title": "Tìm kiếm tin tức và gửi bình luận",
+      "case": "EP_hop_le",
+      "technique": "Equivalence Partitioning",
+      "nodeid": "tests/test_public.py::test_post_comment[EP_hop_le]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 10.08,
+      "inputs": {
+        "guestName": "Khách Selenium",
+        "guestEmail": "selenium.comment@hotel.com",
+        "rating": "5",
+        "content": "Selenium: bình luận hợp lệ"
+      },
+      "steps": [
+        "Bước 1: Mở /post/1",
+        "Bước 2: Điền form bình luận và bấm 'Gửi Bình Luận'"
+      ],
+      "checks": [
+        {
+          "expected": "Thông báo 'Gửi bình luận thành công! Đang chờ admin duyệt.'",
+          "actual": "Gửi bình luận thành công! Đang chờ admin duyệt.",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.4-07_01_gui_thanh_cong.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC1.5",
+      "case_id": "TC1.5-01",
+      "title": "Biểu mẫu liên hệ và kiểm tra dữ liệu",
+      "case": "EP_bo_trong",
+      "technique": "Equivalence Partitioning",
+      "nodeid": "tests/test_public.py::test_contact_form[EP_bo_trong]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 6.73,
+      "inputs": {
+        "name": "",
+        "email": "",
+        "message": ""
+      },
+      "steps": [
+        "Bước 1: Mở /contact, điền form và bấm 'GỬI TIN NHẮN'"
+      ],
+      "checks": [
+        {
+          "expected": "Hiển thị lỗi: ['Vui lòng nhập tên!', 'Vui lòng nhập email hợp lệ!', 'Vui lòng nhập tin nhắn!']",
+          "actual": "['Vui lòng nhập tên!', 'Vui lòng nhập email hợp lệ!', 'Vui lòng nhập tin nhắn!']",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.5-01_01_loi_validation.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC1.5",
+      "case_id": "TC1.5-02",
+      "title": "Biểu mẫu liên hệ và kiểm tra dữ liệu",
+      "case": "EP_email_sai",
+      "technique": "Equivalence Partitioning",
+      "nodeid": "tests/test_public.py::test_contact_form[EP_email_sai]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 7.25,
+      "inputs": {
+        "name": "Nguyễn Văn A",
+        "email": "nguyenvana.com",
+        "message": "Xin chào"
+      },
+      "steps": [
+        "Bước 1: Mở /contact, điền form và bấm 'GỬI TIN NHẮN'"
+      ],
+      "checks": [
+        {
+          "expected": "Hiển thị lỗi: ['Vui lòng nhập email hợp lệ!']",
+          "actual": "['Vui lòng nhập email hợp lệ!']",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.5-02_01_loi_validation.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC1.5",
+      "case_id": "TC1.5-03",
+      "title": "Biểu mẫu liên hệ và kiểm tra dữ liệu",
+      "case": "EP_hop_le",
+      "technique": "Equivalence Partitioning",
+      "nodeid": "tests/test_public.py::test_contact_form[EP_hop_le]",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Nội dung liên hệ được gửi tới Backend để lưu/chuyển cho khách sạn | Thực tế: Không có request nào tới Backend (form chỉ console.log)",
+      "duration": 8.47,
+      "inputs": {
+        "name": "Nguyễn Văn A",
+        "email": "nguyenvana@hotel.com",
+        "message": "Selenium: cần tư vấn đặt phòng"
+      },
+      "steps": [
+        "Bước 1: Mở /contact, điền form và bấm 'GỬI TIN NHẮN'"
+      ],
+      "checks": [
+        {
+          "expected": "Hiển thị thông báo cảm ơn",
+          "actual": "Cảm ơn bạn! Chúng tôi đã nhận được tin nhắn và sẽ phản hồi sớm nhất.",
+          "passed": true
+        },
+        {
+          "expected": "Nội dung liên hệ được gửi tới Backend để lưu/chuyển cho khách sạn",
+          "actual": "Không có request nào tới Backend (form chỉ console.log)",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC1.5-03_01_gui_lien_he.png",
+        "results/screenshots/20261112_122307/TC1.5-03_02_FAIL.png"
+      ],
+      "defect": {
+        "title": "Form liên hệ báo thành công nhưng không gửi/lưu nội dung lên hệ thống",
+        "severity": "Major",
+        "priority": "High",
+        "component": "Liên hệ",
+        "expected": "Nội dung liên hệ được gửi tới Backend để lưu/chuyển cho khách sạn",
+        "actual": "Không có request nào tới Backend (form chỉ console.log)",
+        "screenshot": "results/screenshots/20261112_122307/TC1.5-03_02_FAIL.png",
+        "id": "BUG-07"
+      }
+    },
+    {
+      "tc_id": "TC2.1",
+      "case_id": "TC2.1-01",
+      "title": "Kiểm tra dữ liệu đăng ký Guest",
+      "case": "EP_bo_trong",
+      "technique": "Equivalence Partitioning + Boundary Value (độ dài mật khẩu = 6)",
+      "nodeid": "tests/test_account.py::test_register_validation[EP_bo_trong]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 12.65,
+      "inputs": {
+        "fullName": "",
+        "email": "",
+        "password": "",
+        "confirmPassword": ""
+      },
+      "steps": [
+        "Bước 1: Mở /register, nhập dữ liệu và bấm 'Đăng Ký'"
+      ],
+      "checks": [
+        {
+          "expected": "Hiển thị lỗi ['Vui lòng nhập họ tên!', 'Vui lòng nhập email!', 'Vui lòng nhập mật khẩu!', 'Vui lòng xác nhận mật khẩu!']",
+          "actual": "['Vui lòng nhập họ tên!', 'Vui lòng nhập email!', 'Vui lòng nhập mật khẩu!', 'Vui lòng xác nhận mật khẩu!']",
+          "passed": true
+        },
+        {
+          "expected": "Không chuyển sang bước nhập OTP",
+          "actual": "Vẫn ở bước 1",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC2.1-01_01_loi_validation.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC2.1",
+      "case_id": "TC2.1-02",
+      "title": "Kiểm tra dữ liệu đăng ký Guest",
+      "case": "EP_email_sai",
+      "technique": "Equivalence Partitioning + Boundary Value (độ dài mật khẩu = 6)",
+      "nodeid": "tests/test_account.py::test_register_validation[EP_email_sai]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 8.62,
+      "inputs": {
+        "fullName": "Khách Test",
+        "email": "khachtest@",
+        "password": "123456",
+        "confirmPassword": "123456"
+      },
+      "steps": [
+        "Bước 1: Mở /register, nhập dữ liệu và bấm 'Đăng Ký'"
+      ],
+      "checks": [
+        {
+          "expected": "Hiển thị lỗi ['Email không hợp lệ!']",
+          "actual": "['Email không hợp lệ!']",
+          "passed": true
+        },
+        {
+          "expected": "Không chuyển sang bước nhập OTP",
+          "actual": "Vẫn ở bước 1",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC2.1-02_01_loi_validation.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC2.1",
+      "case_id": "TC2.1-03",
+      "title": "Kiểm tra dữ liệu đăng ký Guest",
+      "case": "BVA_mat_khau_5_ky_tu",
+      "technique": "Equivalence Partitioning + Boundary Value (độ dài mật khẩu = 6)",
+      "nodeid": "tests/test_account.py::test_register_validation[BVA_mat_khau_5_ky_tu]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 8.44,
+      "inputs": {
+        "fullName": "Khách Test",
+        "email": "tc21_1794461010404@hotel.com",
+        "password": "12345",
+        "confirmPassword": "12345"
+      },
+      "steps": [
+        "Bước 1: Mở /register, nhập dữ liệu và bấm 'Đăng Ký'"
+      ],
+      "checks": [
+        {
+          "expected": "Hiển thị lỗi ['Mật khẩu ít nhất 6 ký tự!']",
+          "actual": "['Mật khẩu ít nhất 6 ký tự!']",
+          "passed": true
+        },
+        {
+          "expected": "Không chuyển sang bước nhập OTP",
+          "actual": "Vẫn ở bước 1",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC2.1-03_01_loi_validation.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC2.1",
+      "case_id": "TC2.1-04",
+      "title": "Kiểm tra dữ liệu đăng ký Guest",
+      "case": "BVA_mat_khau_6_ky_tu",
+      "technique": "Equivalence Partitioning + Boundary Value (độ dài mật khẩu = 6)",
+      "nodeid": "tests/test_account.py::test_register_validation[BVA_mat_khau_6_ky_tu]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 8.07,
+      "inputs": {
+        "fullName": "Khách Test",
+        "email": "tc21_1794461018855@hotel.com",
+        "password": "123456",
+        "confirmPassword": "123456"
+      },
+      "steps": [
+        "Bước 1: Mở /register, nhập dữ liệu và bấm 'Đăng Ký'"
+      ],
+      "checks": [
+        {
+          "expected": "Mật khẩu đúng 6 ký tự được chấp nhận, chuyển sang bước nhập OTP",
+          "actual": "Đã chuyển sang bước OTP",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC2.1-04_01_buoc_otp.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC2.1",
+      "case_id": "TC2.1-05",
+      "title": "Kiểm tra dữ liệu đăng ký Guest",
+      "case": "EP_xac_nhan_khong_khop",
+      "technique": "Equivalence Partitioning + Boundary Value (độ dài mật khẩu = 6)",
+      "nodeid": "tests/test_account.py::test_register_validation[EP_xac_nhan_khong_khop]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 9.03,
+      "inputs": {
+        "fullName": "Khách Test",
+        "email": "tc21_1794461027008@hotel.com",
+        "password": "123456",
+        "confirmPassword": "1234567"
+      },
+      "steps": [
+        "Bước 1: Mở /register, nhập dữ liệu và bấm 'Đăng Ký'"
+      ],
+      "checks": [
+        {
+          "expected": "Hiển thị lỗi ['Mật khẩu xác nhận không khớp!']",
+          "actual": "['Mật khẩu xác nhận không khớp!']",
+          "passed": true
+        },
+        {
+          "expected": "Không chuyển sang bước nhập OTP",
+          "actual": "Vẫn ở bước 1",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC2.1-05_01_loi_validation.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC2.2",
+      "case_id": "TC2.2-01",
+      "title": "Đăng ký Guest thành công bằng OTP test",
+      "case": "register_success",
+      "technique": "Equivalence Partitioning (OTP hợp lệ)",
+      "nodeid": "tests/test_account.py::test_register_success",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 11.31,
+      "inputs": {
+        "fullName": "Khách Selenium",
+        "email": "tc22_1794461035983@hotel.com",
+        "password": "Test@123",
+        "otp": "123456"
+      },
+      "steps": [
+        "Bước 1: Nhập thông tin đăng ký hợp lệ và bấm 'Đăng Ký'",
+        "Bước 2: Nhập OTP test 123456 và bấm 'Xác nhận & Đăng Ký'",
+        "Bước 3: Kiểm tra tài khoản mới đăng nhập được và có vai trò Guest"
+      ],
+      "checks": [
+        {
+          "expected": "Chuyển sang bước nhập OTP",
+          "actual": "Đã gửi mã OTP (Tài khoản Test: Mặc định là 123456)",
+          "passed": true
+        },
+        {
+          "expected": "Thông báo 'Đăng ký thành công!'",
+          "actual": "Đăng ký thành công! Đang chuyển hướng... | Đăng ký thành công!",
+          "passed": true
+        },
+        {
+          "expected": "Tự chuyển về /login",
+          "actual": "http://localhost:5173/login",
+          "passed": true
+        },
+        {
+          "expected": "Tài khoản được tạo với vai trò Guest",
+          "actual": "HTTP 200, roles=['Guest']",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC2.2-01_01_dang_ky_thanh_cong.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC2.2",
+      "case_id": "TC2.2-02",
+      "title": "Đăng ký Guest thành công bằng OTP test",
+      "case": "register_wrong_otp",
+      "technique": "Equivalence Partitioning (OTP sai)",
+      "nodeid": "tests/test_account.py::test_register_wrong_otp",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 10.82,
+      "inputs": {
+        "email": "tc22otp_1794461047320@hotel.com",
+        "otp": "000000"
+      },
+      "steps": [
+        "Bước 1: Nhập thông tin hợp lệ, sang bước OTP",
+        "Bước 2: Nhập OTP sai 000000 và xác nhận"
+      ],
+      "checks": [
+        {
+          "expected": "Chuyển sang bước nhập OTP",
+          "actual": "Không thấy ô OTP",
+          "passed": true
+        },
+        {
+          "expected": "Báo 'Mã OTP không chính xác!'",
+          "actual": "Mã OTP không chính xác! | Mã OTP không chính xác!",
+          "passed": true
+        },
+        {
+          "expected": "Không tạo tài khoản khi OTP sai",
+          "actual": "Đăng nhập HTTP 401",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC2.2-02_01_otp_sai.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC2.3",
+      "case_id": "TC2.3-01",
+      "title": "Từ chối đăng ký trùng email",
+      "case": "register_duplicate_email",
+      "technique": "Equivalence Partitioning (email đã tồn tại)",
+      "nodeid": "tests/test_account.py::test_register_duplicate_email",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 8.81,
+      "inputs": {
+        "email": "selenium1794461058209@hotel.com",
+        "otp": "123456"
+      },
+      "steps": [
+        "Bước 1: Chuẩn bị: tạo sẵn một Guest qua API",
+        "Bước 2: Đăng ký lại bằng chính email đó"
+      ],
+      "checks": [
+        {
+          "expected": "Báo 'Email đã tồn tại!'",
+          "actual": "Email đã tồn tại! | Email đã tồn tại!",
+          "passed": true
+        },
+        {
+          "expected": "Ở lại trang đăng ký, không chuyển về /login",
+          "actual": "http://localhost:5173/register",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC2.3-01_01_trung_email.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC2.4",
+      "case_id": "TC2.4-01",
+      "title": "Đăng nhập tài khoản Guest hợp lệ",
+      "case": "login_success",
+      "technique": "Equivalence Partitioning (thông tin hợp lệ)",
+      "nodeid": "tests/test_account.py::test_login_success",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 7.95,
+      "inputs": {
+        "email": "guest_1794461066936@hotel.com",
+        "password": "Test@123"
+      },
+      "steps": [
+        "Bước 1: Mở /login, nhập email và mật khẩu Guest hợp lệ, bấm 'Đăng nhập'"
+      ],
+      "checks": [
+        {
+          "expected": "Chuyển tới /guest/dashboard",
+          "actual": "http://localhost:5173/guest/dashboard",
+          "passed": true
+        },
+        {
+          "expected": "Menu Guest hiển thị kèm email người dùng",
+          "actual": "G IT HOTEL Trang chủ Đặt phòng Tài khoản Khách Selenium 066936Khách hàng Khách Selenium 066936 guest_1794461066936@hotel.com 🏆 Khách Mới Tổng quan Đặt",
+          "passed": true
+        },
+        {
+          "expected": "Phiên đăng nhập (JWT vai trò Guest) được lưu",
+          "actual": "Có token Guest",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC2.4-01_01_dashboard.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC2.5",
+      "case_id": "TC2.5-01",
+      "title": "Từ chối đăng nhập Guest sai mật khẩu",
+      "case": "EP_sai_mat_khau",
+      "technique": "Equivalence Partitioning (lớp không hợp lệ)",
+      "nodeid": "tests/test_account.py::test_login_rejected[EP_sai_mat_khau]",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Hiển thị lỗi chứa 'không đúng' | Thực tế: Không có thông báo nào, trang /login bị tải lại",
+      "duration": 17.79,
+      "inputs": {
+        "email": "guest_1794461074868@hotel.com",
+        "password": "SaiMatKhau1"
+      },
+      "steps": [
+        "Bước 1: Mở /login, nhập thông tin và bấm 'Đăng nhập'"
+      ],
+      "checks": [
+        {
+          "expected": "Hiển thị lỗi chứa 'không đúng'",
+          "actual": "Không có thông báo nào, trang /login bị tải lại",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC2.5-01_01_tu_choi.png",
+        "results/screenshots/20261112_122307/TC2.5-01_02_FAIL.png"
+      ],
+      "defect": {
+        "title": "Đăng nhập sai không hiện thông báo lỗi: interceptor 401 của axios tải lại trang /login nên thông báo bị mất",
+        "severity": "Major",
+        "priority": "High",
+        "component": "Đăng nhập",
+        "expected": "Hiển thị lỗi chứa 'không đúng'",
+        "actual": "Không có thông báo nào, trang /login bị tải lại",
+        "screenshot": "results/screenshots/20261112_122307/TC2.5-01_02_FAIL.png",
+        "id": "BUG-08"
+      }
+    },
+    {
+      "tc_id": "TC2.5",
+      "case_id": "TC2.5-02",
+      "title": "Từ chối đăng nhập Guest sai mật khẩu",
+      "case": "EP_email_chua_dang_ky",
+      "technique": "Equivalence Partitioning (lớp không hợp lệ)",
+      "nodeid": "tests/test_account.py::test_login_rejected[EP_email_chua_dang_ky]",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Hiển thị lỗi chứa 'không đúng' | Thực tế: Không có thông báo nào, trang /login bị tải lại",
+      "duration": 16.87,
+      "inputs": {
+        "email": "khongtontai@hotel.com",
+        "password": "Test@123"
+      },
+      "steps": [
+        "Bước 1: Mở /login, nhập thông tin và bấm 'Đăng nhập'"
+      ],
+      "checks": [
+        {
+          "expected": "Hiển thị lỗi chứa 'không đúng'",
+          "actual": "Không có thông báo nào, trang /login bị tải lại",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC2.5-02_01_tu_choi.png",
+        "results/screenshots/20261112_122307/TC2.5-02_02_FAIL.png"
+      ],
+      "defect": {
+        "title": "Đăng nhập sai không hiện thông báo lỗi: interceptor 401 của axios tải lại trang /login nên thông báo bị mất",
+        "severity": "Major",
+        "priority": "High",
+        "component": "Đăng nhập",
+        "expected": "Hiển thị lỗi chứa 'không đúng'",
+        "actual": "Không có thông báo nào, trang /login bị tải lại",
+        "screenshot": "results/screenshots/20261112_122307/TC2.5-02_02_FAIL.png",
+        "id": "BUG-08"
+      }
+    },
+    {
+      "tc_id": "TC2.5",
+      "case_id": "TC2.5-03",
+      "title": "Từ chối đăng nhập Guest sai mật khẩu",
+      "case": "EP_email_sai_dinh_dang",
+      "technique": "Equivalence Partitioning (lớp không hợp lệ)",
+      "nodeid": "tests/test_account.py::test_login_rejected[EP_email_sai_dinh_dang]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 6.47,
+      "inputs": {
+        "email": "khach.hotel.com",
+        "password": "Test@123"
+      },
+      "steps": [
+        "Bước 1: Mở /login, nhập thông tin và bấm 'Đăng nhập'"
+      ],
+      "checks": [
+        {
+          "expected": "Hiển thị lỗi chứa 'Email không đúng định dạng!'",
+          "actual": "Email không đúng định dạng!",
+          "passed": true
+        },
+        {
+          "expected": "Ở lại /login và không tạo phiên",
+          "actual": "URL=http://localhost:5173/login, token=không",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC2.5-03_01_tu_choi.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC2.5",
+      "case_id": "TC2.5-04",
+      "title": "Từ chối đăng nhập Guest sai mật khẩu",
+      "case": "EP_bo_trong",
+      "technique": "Equivalence Partitioning (lớp không hợp lệ)",
+      "nodeid": "tests/test_account.py::test_login_rejected[EP_bo_trong]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 6.44,
+      "inputs": {
+        "email": "",
+        "password": ""
+      },
+      "steps": [
+        "Bước 1: Mở /login, nhập thông tin và bấm 'Đăng nhập'"
+      ],
+      "checks": [
+        {
+          "expected": "Hiển thị lỗi chứa 'Vui lòng nhập email!'",
+          "actual": "Vui lòng nhập email! | Vui lòng nhập mật khẩu!",
+          "passed": true
+        },
+        {
+          "expected": "Ở lại /login và không tạo phiên",
+          "actual": "URL=http://localhost:5173/login, token=không",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC2.5-04_01_tu_choi.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC2.6",
+      "case_id": "TC2.6-01",
+      "title": "Khôi phục mật khẩu Guest bằng OTP",
+      "case": "manual_TC2_6",
+      "technique": "Thủ công",
+      "nodeid": "tests/test_manual.py::test_manual_TC2_6",
+      "status": "Manual",
+      "root_cause": "",
+      "detail": "THỦ CÔNG - OTP khôi phục sinh ngẫu nhiên và chỉ gửi qua email, Selenium không đọc được hộp thư.",
+      "duration": 0.0,
+      "inputs": {},
+      "steps": [],
+      "checks": [],
+      "screenshots": [],
+      "defect": null
+    },
+    {
+      "tc_id": "TC2.7",
+      "case_id": "TC2.7-01",
+      "title": "Đăng xuất Guest và chặn trang cần phiên",
+      "case": "logout",
+      "technique": "State transition (đã đăng nhập -> đã đăng xuất)",
+      "nodeid": "tests/test_account.py::test_logout",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Thông tin cá nhân (user, userEmail, userName, userId) cũng bị xóa khỏi trình duyệt | Thực tế: Vẫn lưu ['user', 'userName', 'userEmail', 'userId']",
+      "duration": 8.58,
+      "inputs": {},
+      "steps": [
+        "Bước 1: Mở /guest/dashboard khi đang đăng nhập",
+        "Bước 2: Bấm 'Đăng xuất'",
+        "Bước 3: Truy cập trực tiếp /guest/book-room sau khi đăng xuất"
+      ],
+      "checks": [
+        {
+          "expected": "Chuyển về /login",
+          "actual": "http://localhost:5173/login",
+          "passed": true
+        },
+        {
+          "expected": "Token đăng nhập bị xóa",
+          "actual": "Còn: ['user', 'userName', 'userEmail', 'userId']",
+          "passed": true
+        },
+        {
+          "expected": "Bị chuyển về /login, không xem được trang đặt phòng",
+          "actual": "http://localhost:5173/login",
+          "passed": true
+        },
+        {
+          "expected": "Thông tin cá nhân (user, userEmail, userName, userId) cũng bị xóa khỏi trình duyệt",
+          "actual": "Vẫn lưu ['user', 'userName', 'userEmail', 'userId']",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC2.7-01_01_sau_dang_xuat.png",
+        "results/screenshots/20261112_122307/TC2.7-01_02_FAIL.png"
+      ],
+      "defect": {
+        "title": "Đăng xuất chỉ xóa token, thông tin cá nhân Guest (email, họ tên, id) vẫn lưu trong localStorage",
+        "severity": "Minor",
+        "priority": "Medium",
+        "component": "Tài khoản",
+        "expected": "Thông tin cá nhân (user, userEmail, userName, userId) cũng bị xóa khỏi trình duyệt",
+        "actual": "Vẫn lưu ['user', 'userName', 'userEmail', 'userId']",
+        "screenshot": "results/screenshots/20261112_122307/TC2.7-01_02_FAIL.png",
+        "id": "BUG-09"
+      }
+    },
+    {
+      "tc_id": "TC3.1",
+      "case_id": "TC3.1-01",
+      "title": "Tìm phòng trống theo ngày và số người lớn",
+      "case": "EP_2_nguoi_lon",
+      "technique": "Equivalence Partitioning + Boundary Value (số người lớn)",
+      "nodeid": "tests/test_booking.py::test_search_available[EP_2_nguoi_lon]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 10.16,
+      "inputs": {
+        "nhan_phong": "11/01/2027",
+        "tra_phong": "13/01/2027",
+        "nguoi_lon": "2",
+        "loai_phong": "Tất cả"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 2",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'"
+      ],
+      "checks": [
+        {
+          "expected": "Thông báo tìm thấy phòng và hiển thị danh sách kết quả",
+          "actual": "Đã tìm thấy 8 loại phòng phù hợp!",
+          "passed": true
+        },
+        {
+          "expected": "Mọi loại phòng có sức chứa >= 2 người lớn",
+          "actual": "[('Phòng cao cấp hướng phố', 2), ('Phòng Deluxe hướng biển', 2), ('Phòng Premium tiện nghi cao cấp', 2), ('Phòng Suite cho gia đình', 4), ('Phòng Suite nhỏ nhắn sang trọng', 2), ('Phòng Suite cho doanh nhân', 2), ('Phòng Tổng thống', 4), ('Biệt thự hoàng gia nguyên căn', 6)]",
+          "passed": true
+        },
+        {
+          "expected": "Mỗi kết quả có giá/đêm và số phòng còn trống",
+          "actual": "[('Phòng cao cấp hướng phố', 700000, 2), ('Phòng Deluxe hướng biển', 900000, 2), ('Phòng Premium tiện nghi cao cấp', 1200000, 1), ('Phòng Suite cho gia đình', 1500000, 1), ('Phòng Suite nhỏ nhắn sang trọng', 1800000, 1), ('Phòng Suite cho doanh nhân', 2500000, 1), ('Phòng Tổng thống', 5000000, 1), ('Biệt thự hoàng gia nguyên căn', 8000000, 1)]",
+          "passed": true
+        },
+        {
+          "expected": "Kết quả khớp API available-rooms: ['Biệt thự hoàng gia nguyên căn', 'Phòng Deluxe hướng biển', 'Phòng Premium tiện nghi cao cấp', 'Phòng Suite cho doanh nhân', 'Phòng Suite cho gia đình', 'Phòng Suite nhỏ nhắn sang trọng', 'Phòng Tổng thống', 'Phòng cao cấp hướng phố']",
+          "actual": "['Biệt thự hoàng gia nguyên căn', 'Phòng Deluxe hướng biển', 'Phòng Premium tiện nghi cao cấp', 'Phòng Suite cho doanh nhân', 'Phòng Suite cho gia đình', 'Phòng Suite nhỏ nhắn sang trọng', 'Phòng Tổng thống', 'Phòng cao cấp hướng phố']",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.1-01_01_ket_qua.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC3.1",
+      "case_id": "TC3.1-02",
+      "title": "Tìm phòng trống theo ngày và số người lớn",
+      "case": "BVA_1_nguoi_lon_min",
+      "technique": "Equivalence Partitioning + Boundary Value (số người lớn)",
+      "nodeid": "tests/test_booking.py::test_search_available[BVA_1_nguoi_lon_min]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 10.08,
+      "inputs": {
+        "nhan_phong": "11/01/2027",
+        "tra_phong": "13/01/2027",
+        "nguoi_lon": "1",
+        "loai_phong": "Tất cả"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 1",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'"
+      ],
+      "checks": [
+        {
+          "expected": "Thông báo tìm thấy phòng và hiển thị danh sách kết quả",
+          "actual": "Đã tìm thấy 9 loại phòng phù hợp!",
+          "passed": true
+        },
+        {
+          "expected": "Mọi loại phòng có sức chứa >= 1 người lớn",
+          "actual": "[('Phòng tiêu chuẩn 1 giường đơn', 1), ('Phòng cao cấp hướng phố', 2), ('Phòng Deluxe hướng biển', 2), ('Phòng Premium tiện nghi cao cấp', 2), ('Phòng Suite cho gia đình', 4), ('Phòng Suite nhỏ nhắn sang trọng', 2), ('Phòng Suite cho doanh nhân', 2), ('Phòng Tổng thống', 4), ('Biệt thự hoàng gia nguyên căn', 6)]",
+          "passed": true
+        },
+        {
+          "expected": "Mỗi kết quả có giá/đêm và số phòng còn trống",
+          "actual": "[('Phòng tiêu chuẩn 1 giường đơn', 400000, 4), ('Phòng cao cấp hướng phố', 700000, 2), ('Phòng Deluxe hướng biển', 900000, 2), ('Phòng Premium tiện nghi cao cấp', 1200000, 1), ('Phòng Suite cho gia đình', 1500000, 1), ('Phòng Suite nhỏ nhắn sang trọng', 1800000, 1), ('Phòng Suite cho doanh nhân', 2500000, 1), ('Phòng Tổng thống', 5000000, 1), ('Biệt thự hoàng gia nguyên căn', 8000000, 1)]",
+          "passed": true
+        },
+        {
+          "expected": "Kết quả khớp API available-rooms: ['Biệt thự hoàng gia nguyên căn', 'Phòng Deluxe hướng biển', 'Phòng Premium tiện nghi cao cấp', 'Phòng Suite cho doanh nhân', 'Phòng Suite cho gia đình', 'Phòng Suite nhỏ nhắn sang trọng', 'Phòng Tổng thống', 'Phòng cao cấp hướng phố', 'Phòng tiêu chuẩn 1 giường đơn']",
+          "actual": "['Biệt thự hoàng gia nguyên căn', 'Phòng Deluxe hướng biển', 'Phòng Premium tiện nghi cao cấp', 'Phòng Suite cho doanh nhân', 'Phòng Suite cho gia đình', 'Phòng Suite nhỏ nhắn sang trọng', 'Phòng Tổng thống', 'Phòng cao cấp hướng phố', 'Phòng tiêu chuẩn 1 giường đơn']",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.1-02_01_ket_qua.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC3.1",
+      "case_id": "TC3.1-03",
+      "title": "Tìm phòng trống theo ngày và số người lớn",
+      "case": "BVA_6_nguoi_lon_suc_chua_lon_nhat",
+      "technique": "Equivalence Partitioning + Boundary Value (số người lớn)",
+      "nodeid": "tests/test_booking.py::test_search_available[BVA_6_nguoi_lon_suc_chua_lon_nhat]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 9.27,
+      "inputs": {
+        "nhan_phong": "11/01/2027",
+        "tra_phong": "13/01/2027",
+        "nguoi_lon": "6",
+        "loai_phong": "Tất cả"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 6",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'"
+      ],
+      "checks": [
+        {
+          "expected": "Thông báo tìm thấy phòng và hiển thị danh sách kết quả",
+          "actual": "Đã tìm thấy 1 loại phòng phù hợp!",
+          "passed": true
+        },
+        {
+          "expected": "Mọi loại phòng có sức chứa >= 6 người lớn",
+          "actual": "[('Biệt thự hoàng gia nguyên căn', 6)]",
+          "passed": true
+        },
+        {
+          "expected": "Mỗi kết quả có giá/đêm và số phòng còn trống",
+          "actual": "[('Biệt thự hoàng gia nguyên căn', 8000000, 1)]",
+          "passed": true
+        },
+        {
+          "expected": "Kết quả khớp API available-rooms: ['Biệt thự hoàng gia nguyên căn']",
+          "actual": "['Biệt thự hoàng gia nguyên căn']",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.1-03_01_ket_qua.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC3.1",
+      "case_id": "TC3.1-04",
+      "title": "Tìm phòng trống theo ngày và số người lớn",
+      "case": "EP_loc_loai_phong",
+      "technique": "Equivalence Partitioning + Boundary Value (số người lớn)",
+      "nodeid": "tests/test_booking.py::test_search_available[EP_loc_loai_phong]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 11.96,
+      "inputs": {
+        "nhan_phong": "11/01/2027",
+        "tra_phong": "13/01/2027",
+        "nguoi_lon": "2",
+        "loai_phong": "Phòng cao cấp hướng phố"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 2, loại phòng 'Phòng cao cấp hướng phố'",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'"
+      ],
+      "checks": [
+        {
+          "expected": "Thông báo tìm thấy phòng và hiển thị danh sách kết quả",
+          "actual": "Đã tìm thấy 8 loại phòng phù hợp!",
+          "passed": true
+        },
+        {
+          "expected": "Mọi loại phòng có sức chứa >= 2 người lớn",
+          "actual": "[('Phòng cao cấp hướng phố', 2)]",
+          "passed": true
+        },
+        {
+          "expected": "Mỗi kết quả có giá/đêm và số phòng còn trống",
+          "actual": "[('Phòng cao cấp hướng phố', 700000, 2)]",
+          "passed": true
+        },
+        {
+          "expected": "Kết quả khớp API available-rooms: ['Phòng cao cấp hướng phố']",
+          "actual": "['Phòng cao cấp hướng phố']",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.1-04_01_ket_qua.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC3.1",
+      "case_id": "TC3.1-05",
+      "title": "Tìm phòng trống theo ngày và số người lớn",
+      "case": "BVA_ngay_nhan_trong_qua_khu",
+      "technique": "Boundary Value Analysis (ngày nhận/trả)",
+      "nodeid": "tests/test_booking.py::test_search_invalid_dates[BVA_ngay_nhan_trong_qua_khu]",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Hệ thống từ chối tìm phòng khi ngày nhận phòng ở quá khứ và báo lỗi ngày | Thực tế: Vẫn trả 8 loại phòng; thông báo: Đã tìm thấy 8 loại phòng phù hợp!",
+      "duration": 10.89,
+      "inputs": {
+        "nhan_phong": "11/11/2026",
+        "tra_phong": "13/11/2026",
+        "nguoi_lon": "2",
+        "loai_phong": "Tất cả"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 2",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'"
+      ],
+      "checks": [
+        {
+          "expected": "Hệ thống từ chối tìm phòng khi ngày nhận phòng ở quá khứ và báo lỗi ngày",
+          "actual": "Vẫn trả 8 loại phòng; thông báo: Đã tìm thấy 8 loại phòng phù hợp!",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.1-05_01_ngay_khong_hop_le.png",
+        "results/screenshots/20261112_122307/TC3.1-05_02_FAIL.png"
+      ],
+      "defect": {
+        "title": "Tìm/đặt phòng chấp nhận ngày nhận phòng ở quá khứ (không kiểm tra ngày ở Frontend và Backend)",
+        "severity": "Major",
+        "priority": "High",
+        "component": "Đặt phòng",
+        "expected": "Hệ thống từ chối tìm phòng khi ngày nhận phòng ở quá khứ và báo lỗi ngày",
+        "actual": "Vẫn trả 8 loại phòng; thông báo: Đã tìm thấy 8 loại phòng phù hợp!",
+        "screenshot": "results/screenshots/20261112_122307/TC3.1-05_02_FAIL.png",
+        "id": "BUG-10"
+      }
+    },
+    {
+      "tc_id": "TC3.1",
+      "case_id": "TC3.1-06",
+      "title": "Tìm phòng trống theo ngày và số người lớn",
+      "case": "BVA_ngay_tra_bang_ngay_nhan",
+      "technique": "Boundary Value Analysis (ngày nhận/trả)",
+      "nodeid": "tests/test_booking.py::test_search_invalid_dates[BVA_ngay_tra_bang_ngay_nhan]",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Hệ thống từ chối tìm phòng khi số đêm = 0 (ngày trả = ngày nhận) và báo lỗi ngày | Thực tế: Vẫn trả 8 loại phòng; thông báo: Đã tìm thấy 8 loại phòng phù hợp!",
+      "duration": 14.91,
+      "inputs": {
+        "nhan_phong": "16/01/2027",
+        "tra_phong": "16/01/2027",
+        "nguoi_lon": "2",
+        "loai_phong": "Tất cả"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 2",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'"
+      ],
+      "checks": [
+        {
+          "expected": "Hệ thống từ chối tìm phòng khi số đêm = 0 (ngày trả = ngày nhận) và báo lỗi ngày",
+          "actual": "Vẫn trả 8 loại phòng; thông báo: Đã tìm thấy 8 loại phòng phù hợp!",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.1-06_01_ngay_khong_hop_le.png",
+        "results/screenshots/20261112_122307/TC3.1-06_02_FAIL.png"
+      ],
+      "defect": {
+        "title": "Tìm/đặt phòng chấp nhận số đêm = 0 (ngày trả = ngày nhận) (không kiểm tra ngày ở Frontend và Backend)",
+        "severity": "Major",
+        "priority": "High",
+        "component": "Đặt phòng",
+        "expected": "Hệ thống từ chối tìm phòng khi số đêm = 0 (ngày trả = ngày nhận) và báo lỗi ngày",
+        "actual": "Vẫn trả 8 loại phòng; thông báo: Đã tìm thấy 8 loại phòng phù hợp!",
+        "screenshot": "results/screenshots/20261112_122307/TC3.1-06_02_FAIL.png",
+        "id": "BUG-11"
+      }
+    },
+    {
+      "tc_id": "TC3.2",
+      "case_id": "TC3.2-01",
+      "title": "Hiển thị rỗng khi không có phòng phù hợp",
+      "case": "BVA_7_nguoi_lon_tren_suc_chua",
+      "technique": "Boundary Value Analysis",
+      "nodeid": "tests/test_booking.py::test_search_no_rooms[BVA_7_nguoi_lon_tren_suc_chua]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 11.56,
+      "inputs": {
+        "nhan_phong": "11/01/2027",
+        "tra_phong": "12/01/2027",
+        "nguoi_lon": "7",
+        "loai_phong": "Tất cả"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 7",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'"
+      ],
+      "checks": [
+        {
+          "expected": "Ô người lớn nhận giá trị 7 (giới hạn 1-10)",
+          "actual": "7",
+          "passed": true
+        },
+        {
+          "expected": "Không có thẻ phòng, hiển thị 'Không tìm thấy phòng phù hợp với tiêu chí của bạn.'",
+          "actual": "0 kết quả",
+          "passed": true
+        },
+        {
+          "expected": "Cảnh báo 'Không có phòng trống phù hợp với yêu cầu của bạn.'",
+          "actual": "Không có phòng trống phù hợp với yêu cầu của bạn.",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.2-01_01_ket_qua_rong.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC3.2",
+      "case_id": "TC3.2-02",
+      "title": "Hiển thị rỗng khi không có phòng phù hợp",
+      "case": "BVA_10_nguoi_lon_max_o_nhap",
+      "technique": "Boundary Value Analysis",
+      "nodeid": "tests/test_booking.py::test_search_no_rooms[BVA_10_nguoi_lon_max_o_nhap]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 9.76,
+      "inputs": {
+        "nhan_phong": "11/01/2027",
+        "tra_phong": "12/01/2027",
+        "nguoi_lon": "10",
+        "loai_phong": "Tất cả"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 10",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'"
+      ],
+      "checks": [
+        {
+          "expected": "Ô người lớn nhận giá trị 10 (giới hạn 1-10)",
+          "actual": "10",
+          "passed": true
+        },
+        {
+          "expected": "Không có thẻ phòng, hiển thị 'Không tìm thấy phòng phù hợp với tiêu chí của bạn.'",
+          "actual": "0 kết quả",
+          "passed": true
+        },
+        {
+          "expected": "Cảnh báo 'Không có phòng trống phù hợp với yêu cầu của bạn.'",
+          "actual": "Không có phòng trống phù hợp với yêu cầu của bạn.",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.2-02_01_ket_qua_rong.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC3.2",
+      "case_id": "TC3.2-03",
+      "title": "Hiển thị rỗng khi không có phòng phù hợp",
+      "case": "BVA_11_nguoi_lon_vuot_max_o_nhap",
+      "technique": "Boundary Value Analysis",
+      "nodeid": "tests/test_booking.py::test_search_no_rooms[BVA_11_nguoi_lon_vuot_max_o_nhap]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 10.4,
+      "inputs": {
+        "nhan_phong": "11/01/2027",
+        "tra_phong": "12/01/2027",
+        "nguoi_lon": "11",
+        "loai_phong": "Tất cả"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 11",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'"
+      ],
+      "checks": [
+        {
+          "expected": "Ô người lớn nhận giá trị 10 (giới hạn 1-10)",
+          "actual": "10",
+          "passed": true
+        },
+        {
+          "expected": "Không có thẻ phòng, hiển thị 'Không tìm thấy phòng phù hợp với tiêu chí của bạn.'",
+          "actual": "0 kết quả",
+          "passed": true
+        },
+        {
+          "expected": "Cảnh báo 'Không có phòng trống phù hợp với yêu cầu của bạn.'",
+          "actual": "Không có phòng trống phù hợp với yêu cầu của bạn.",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.2-03_01_ket_qua_rong.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC3.3",
+      "case_id": "TC3.3-01",
+      "title": "Áp dụng voucher và tính tiền cọc",
+      "case": "EP_KM1_giam_10_phan_tram",
+      "technique": "Equivalence Partitioning + Boundary Value (giá trị đơn tối thiểu)",
+      "nodeid": "tests/test_booking.py::test_apply_voucher[EP_KM1_giam_10_phan_tram]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 13.93,
+      "inputs": {
+        "nhan_phong": "21/01/2027",
+        "tra_phong": "23/01/2027",
+        "nguoi_lon": "1",
+        "loai_phong": "Phòng cao cấp hướng phố",
+        "voucher": "KM1"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 1, loại phòng 'Phòng cao cấp hướng phố'",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'",
+        "Bước 4: Bấm 'Đặt ngay' cho 'Phòng cao cấp hướng phố' để mở biên lai",
+        "Bước 5: Nhập mã voucher 'KM1' và bấm 'Áp dụng'",
+        "Bước 6: Bấm 'Hủy áp dụng'"
+      ],
+      "checks": [
+        {
+          "expected": "Tiền cọc ban đầu = 30% giá gốc",
+          "actual": "{'goc': 1400000, 'giam': None, 'tong': 1400000, 'coc': 420000}",
+          "passed": true
+        },
+        {
+          "expected": "Thông báo áp dụng mã KM1 thành công",
+          "actual": "Áp dụng mã giảm giá KM1 thành công!",
+          "passed": true
+        },
+        {
+          "expected": "Giảm 140,000đ, tổng sau giảm 1,260,000đ",
+          "actual": "{'goc': 1400000, 'giam': 140000, 'tong': 1260000, 'coc': 378000}",
+          "passed": true
+        },
+        {
+          "expected": "Tiền cọc = 30% tổng sau giảm = 378,000đ",
+          "actual": "378000",
+          "passed": true
+        },
+        {
+          "expected": "Giá và tiền cọc trở về mức ban đầu",
+          "actual": "{'goc': 1400000, 'giam': None, 'tong': 1400000, 'coc': 420000}",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.3-01_01_da_ap_dung.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC3.3",
+      "case_id": "TC3.3-02",
+      "title": "Áp dụng voucher và tính tiền cọc",
+      "case": "EP_KM6_giam_co_dinh_50k",
+      "technique": "Equivalence Partitioning + Boundary Value (giá trị đơn tối thiểu)",
+      "nodeid": "tests/test_booking.py::test_apply_voucher[EP_KM6_giam_co_dinh_50k]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 14.06,
+      "inputs": {
+        "nhan_phong": "21/01/2027",
+        "tra_phong": "23/01/2027",
+        "nguoi_lon": "1",
+        "loai_phong": "Phòng cao cấp hướng phố",
+        "voucher": "KM6"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 1, loại phòng 'Phòng cao cấp hướng phố'",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'",
+        "Bước 4: Bấm 'Đặt ngay' cho 'Phòng cao cấp hướng phố' để mở biên lai",
+        "Bước 5: Nhập mã voucher 'KM6' và bấm 'Áp dụng'",
+        "Bước 6: Bấm 'Hủy áp dụng'"
+      ],
+      "checks": [
+        {
+          "expected": "Tiền cọc ban đầu = 30% giá gốc",
+          "actual": "{'goc': 1400000, 'giam': None, 'tong': 1400000, 'coc': 420000}",
+          "passed": true
+        },
+        {
+          "expected": "Thông báo áp dụng mã KM6 thành công",
+          "actual": "Áp dụng mã giảm giá KM6 thành công!",
+          "passed": true
+        },
+        {
+          "expected": "Giảm 50,000đ, tổng sau giảm 1,350,000đ",
+          "actual": "{'goc': 1400000, 'giam': 50000, 'tong': 1350000, 'coc': 405000}",
+          "passed": true
+        },
+        {
+          "expected": "Tiền cọc = 30% tổng sau giảm = 405,000đ",
+          "actual": "405000",
+          "passed": true
+        },
+        {
+          "expected": "Giá và tiền cọc trở về mức ban đầu",
+          "actual": "{'goc': 1400000, 'giam': None, 'tong': 1400000, 'coc': 420000}",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.3-02_01_da_ap_dung.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC3.3",
+      "case_id": "TC3.3-03",
+      "title": "Áp dụng voucher và tính tiền cọc",
+      "case": "BVA_KM4_tong_bang_gia_tri_toi_thieu",
+      "technique": "Equivalence Partitioning + Boundary Value (giá trị đơn tối thiểu)",
+      "nodeid": "tests/test_booking.py::test_apply_voucher[BVA_KM4_tong_bang_gia_tri_toi_thieu]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 12.38,
+      "inputs": {
+        "nhan_phong": "21/01/2027",
+        "tra_phong": "22/01/2027",
+        "nguoi_lon": "1",
+        "loai_phong": "Phòng Suite cho gia đình",
+        "voucher": "KM4"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 1, loại phòng 'Phòng Suite cho gia đình'",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'",
+        "Bước 4: Bấm 'Đặt ngay' cho 'Phòng Suite cho gia đình' để mở biên lai",
+        "Bước 5: Nhập mã voucher 'KM4' và bấm 'Áp dụng'",
+        "Bước 6: Bấm 'Hủy áp dụng'"
+      ],
+      "checks": [
+        {
+          "expected": "Tiền cọc ban đầu = 30% giá gốc",
+          "actual": "{'goc': 1500000, 'giam': None, 'tong': 1500000, 'coc': 450000}",
+          "passed": true
+        },
+        {
+          "expected": "Thông báo áp dụng mã KM4 thành công",
+          "actual": "Áp dụng mã giảm giá KM4 thành công!",
+          "passed": true
+        },
+        {
+          "expected": "Giảm 200,000đ, tổng sau giảm 1,300,000đ",
+          "actual": "{'goc': 1500000, 'giam': 200000, 'tong': 1300000, 'coc': 390000}",
+          "passed": true
+        },
+        {
+          "expected": "Tiền cọc = 30% tổng sau giảm = 390,000đ",
+          "actual": "390000",
+          "passed": true
+        },
+        {
+          "expected": "Giá và tiền cọc trở về mức ban đầu",
+          "actual": "{'goc': 1500000, 'giam': None, 'tong': 1500000, 'coc': 450000}",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.3-03_01_da_ap_dung.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC3.4",
+      "case_id": "TC3.4-01",
+      "title": "Từ chối voucher sai hoặc hết hạn",
+      "case": "EP_ma_khong_ton_tai",
+      "technique": "Equivalence Partitioning (lớp không hợp lệ) + Boundary Value",
+      "nodeid": "tests/test_booking.py::test_reject_voucher[EP_ma_khong_ton_tai]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 12.8,
+      "inputs": {
+        "nhan_phong": "26/01/2027",
+        "tra_phong": "27/01/2027",
+        "nguoi_lon": "1",
+        "loai_phong": "Phòng cao cấp hướng phố",
+        "voucher": "KHONGTONTAI"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 1, loại phòng 'Phòng cao cấp hướng phố'",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'",
+        "Bước 4: Bấm 'Đặt ngay' cho 'Phòng cao cấp hướng phố' để mở biên lai",
+        "Bước 5: Nhập mã voucher 'KHONGTONTAI' và bấm 'Áp dụng'"
+      ],
+      "checks": [
+        {
+          "expected": "Báo lỗi chứa 'không tồn tại'",
+          "actual": "Mã giảm giá không tồn tại trên hệ thống!",
+          "passed": true
+        },
+        {
+          "expected": "Voucher không được áp dụng, tổng tiền và tiền cọc giữ nguyên",
+          "actual": "Đã áp dụng=False, trước={'goc': 700000, 'giam': None, 'tong': 700000, 'coc': 210000}, sau={'goc': 700000, 'giam': None, 'tong': 700000, 'coc': 210000}",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.4-01_01_tu_choi_voucher.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC3.4",
+      "case_id": "TC3.4-02",
+      "title": "Từ chối voucher sai hoặc hết hạn",
+      "case": "EP_ma_het_han",
+      "technique": "Equivalence Partitioning (lớp không hợp lệ) + Boundary Value",
+      "nodeid": "tests/test_booking.py::test_reject_voucher[EP_ma_het_han]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 12.55,
+      "inputs": {
+        "nhan_phong": "26/01/2027",
+        "tra_phong": "27/01/2027",
+        "nguoi_lon": "1",
+        "loai_phong": "Phòng cao cấp hướng phố",
+        "voucher": "SELENIUMEXPIRED"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 1, loại phòng 'Phòng cao cấp hướng phố'",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'",
+        "Bước 4: Bấm 'Đặt ngay' cho 'Phòng cao cấp hướng phố' để mở biên lai",
+        "Bước 5: Nhập mã voucher 'SELENIUMEXPIRED' và bấm 'Áp dụng'"
+      ],
+      "checks": [
+        {
+          "expected": "Báo lỗi chứa 'quá hạn'",
+          "actual": "Mã giảm giá đã quá hạn sử dụng!",
+          "passed": true
+        },
+        {
+          "expected": "Voucher không được áp dụng, tổng tiền và tiền cọc giữ nguyên",
+          "actual": "Đã áp dụng=False, trước={'goc': 700000, 'giam': None, 'tong': 700000, 'coc': 210000}, sau={'goc': 700000, 'giam': None, 'tong': 700000, 'coc': 210000}",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.4-02_01_tu_choi_voucher.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC3.4",
+      "case_id": "TC3.4-03",
+      "title": "Từ chối voucher sai hoặc hết hạn",
+      "case": "BVA_duoi_gia_tri_toi_thieu",
+      "technique": "Equivalence Partitioning (lớp không hợp lệ) + Boundary Value",
+      "nodeid": "tests/test_booking.py::test_reject_voucher[BVA_duoi_gia_tri_toi_thieu]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 12.42,
+      "inputs": {
+        "nhan_phong": "26/01/2027",
+        "tra_phong": "27/01/2027",
+        "nguoi_lon": "1",
+        "loai_phong": "Phòng Premium tiện nghi cao cấp",
+        "voucher": "KM4"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 1, loại phòng 'Phòng Premium tiện nghi cao cấp'",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'",
+        "Bước 4: Bấm 'Đặt ngay' cho 'Phòng Premium tiện nghi cao cấp' để mở biên lai",
+        "Bước 5: Nhập mã voucher 'KM4' và bấm 'Áp dụng'"
+      ],
+      "checks": [
+        {
+          "expected": "Báo lỗi chứa 'chỉ áp dụng cho đơn'",
+          "actual": "Mã này chỉ áp dụng cho đơn đặt phòng từ 1,500,000đ trở lên!",
+          "passed": true
+        },
+        {
+          "expected": "Voucher không được áp dụng, tổng tiền và tiền cọc giữ nguyên",
+          "actual": "Đã áp dụng=False, trước={'goc': 1200000, 'giam': None, 'tong': 1200000, 'coc': 360000}, sau={'goc': 1200000, 'giam': None, 'tong': 1200000, 'coc': 360000}",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.4-03_01_tu_choi_voucher.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC3.4",
+      "case_id": "TC3.4-04",
+      "title": "Từ chối voucher sai hoặc hết hạn",
+      "case": "EP_ma_trong",
+      "technique": "Equivalence Partitioning (lớp không hợp lệ) + Boundary Value",
+      "nodeid": "tests/test_booking.py::test_reject_voucher[EP_ma_trong]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 11.97,
+      "inputs": {
+        "nhan_phong": "26/01/2027",
+        "tra_phong": "27/01/2027",
+        "nguoi_lon": "1",
+        "loai_phong": "Phòng cao cấp hướng phố",
+        "voucher": "(trống)"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 1, loại phòng 'Phòng cao cấp hướng phố'",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'",
+        "Bước 4: Bấm 'Đặt ngay' cho 'Phòng cao cấp hướng phố' để mở biên lai",
+        "Bước 5: Nhập mã voucher '' và bấm 'Áp dụng'"
+      ],
+      "checks": [
+        {
+          "expected": "Báo lỗi chứa 'Vui lòng nhập mã giảm giá'",
+          "actual": "Vui lòng nhập mã giảm giá!",
+          "passed": true
+        },
+        {
+          "expected": "Voucher không được áp dụng, tổng tiền và tiền cọc giữ nguyên",
+          "actual": "Đã áp dụng=False, trước={'goc': 700000, 'giam': None, 'tong': 700000, 'coc': 210000}, sau={'goc': 700000, 'giam': None, 'tong': 700000, 'coc': 210000}",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.4-04_01_tu_choi_voucher.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC3.5",
+      "case_id": "TC3.5-01",
+      "title": "Tạo đặt phòng Guest thành công",
+      "case": "create_booking",
+      "technique": "Equivalence Partitioning (luồng hợp lệ)",
+      "nodeid": "tests/test_booking.py::test_create_booking",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 17.94,
+      "inputs": {
+        "nhan_phong": "31/01/2027",
+        "tra_phong": "01/02/2027",
+        "nguoi_lon": "2",
+        "loai_phong": "Phòng Deluxe hướng biển",
+        "ma_don": "BK-20261112-7567"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 2, loại phòng 'Phòng Deluxe hướng biển'",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'",
+        "Bước 4: Bấm 'Đặt ngay' cho 'Phòng Deluxe hướng biển' để mở biên lai",
+        "Bước 5: Bấm 'Xác nhận đã chuyển khoản & Đặt phòng'"
+      ],
+      "checks": [
+        {
+          "expected": "Thông báo 'Đặt phòng Phòng Deluxe hướng biển thành công!'",
+          "actual": "Đặt phòng Phòng Deluxe hướng biển thành công!",
+          "passed": true
+        },
+        {
+          "expected": "Chuyển tới /guest/bookings",
+          "actual": "http://localhost:5173/guest/bookings",
+          "passed": true
+        },
+        {
+          "expected": "Có đúng 1 mã đơn mới, trạng thái 'Chờ xác nhận'",
+          "actual": "Mã: ['BK-20261112-7567'], có 'Chờ xác nhận'=True",
+          "passed": true
+        },
+        {
+          "expected": "Booking lưu ở Backend: trạng thái Pending, đúng email Guest",
+          "actual": "{'id': 35, 'bookingCode': 'BK-20261112-7567', 'guestName': 'Khách Selenium 320543', 'guestEmail': 'guest_1794461320543@hotel.com', 'checkInDate': '2027-01-31T00:00:00', 'checkOutDate': '2027-02-01T00:00:00', 'totalAmount': 900000.0, 'status': 'Pending'}",
+          "passed": true
+        },
+        {
+          "expected": "Tổng tiền đơn = 900,000đ như biên lai",
+          "actual": "900000.0",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.5-01_01_bien_lai.png",
+        "results/screenshots/20261112_122307/TC3.5-01_02_lich_su.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC3.6",
+      "case_id": "TC3.6-01",
+      "title": "Xem lịch sử và chi tiết booking Guest",
+      "case": "booking_history_detail",
+      "technique": "Equivalence Partitioning",
+      "nodeid": "tests/test_booking.py::test_booking_history_detail",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Chi tiết hiện tổng tiền 1.400.000đ | Thực tế: Tổng tiền: NaN ₫",
+      "duration": 13.47,
+      "inputs": {
+        "ma_don": "BK-20261112-9648"
+      },
+      "steps": [
+        "Bước 1: Chuẩn bị: tạo 1 booking cho Guest qua API",
+        "Bước 2: Mở /guest/bookings",
+        "Bước 3: Bấm 'Xem chi tiết'"
+      ],
+      "checks": [
+        {
+          "expected": "Danh sách có mã đơn BK-20261112-9648",
+          "actual": "Dashboard > Lịch sử đặt phòng Lịch sử đặt phòng của tôi Mã đơn: BK-20261112-9648 Từ: 05/02/2027 - Đến: 07/02/2027 1.400.000 ₫ Chờ xác nhận Xem chi tiết",
+          "passed": true
+        },
+        {
+          "expected": "Chi tiết hiện đúng mã đơn, khách hàng và trạng thái 'Chờ xác nhận'",
+          "actual": "Chi Tiết Mã Đơn: BK-20261112-9648 Khách hàng Khách Selenium 338539 Số điện thoại N/A Trạng thái Chờ xác nhận Tổng tiền NaN ₫ Danh sách phòng đã được cấp Số Phòng Loại phòng Check-in Check-out Giá / Đêm P.201 Phòng cao cấp hướng phố 05/02/2027 07/02/2027 700.000 Đóng",
+          "passed": true
+        },
+        {
+          "expected": "Chi tiết hiện tổng tiền 1.400.000đ",
+          "actual": "Tổng tiền: NaN ₫",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.6-01_01_chi_tiet_don.png",
+        "results/screenshots/20261112_122307/TC3.6-01_02_FAIL.png"
+      ],
+      "defect": {
+        "title": "Chi tiết đơn đặt phòng hiển thị 'Tổng tiền NaN ₫'",
+        "severity": "Major",
+        "priority": "High",
+        "component": "Lịch sử đặt phòng",
+        "expected": "Chi tiết hiện tổng tiền 1.400.000đ",
+        "actual": "Tổng tiền: NaN ₫",
+        "screenshot": "results/screenshots/20261112_122307/TC3.6-01_02_FAIL.png",
+        "id": "BUG-12"
+      }
+    },
+    {
+      "tc_id": "TC3.6",
+      "case_id": "TC3.6-02",
+      "title": "Xem lịch sử và chi tiết booking Guest",
+      "case": "booking_history_isolation",
+      "technique": "Equivalence Partitioning (Guest khác cùng họ tên)",
+      "nodeid": "tests/test_booking.py::test_booking_history_isolation",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Guest B không thấy booking của Guest khác (danh sách rỗng) | Thực tế: Guest B thấy 1 đơn của khách khác, gồm BK-20261112-1455",
+      "duration": 10.91,
+      "inputs": {
+        "guest_A": "guestA_1794461354555@hotel.com",
+        "guest_B": "guest_1794461352013@hotel.com",
+        "ma_don_A": "BK-20261112-1455"
+      },
+      "steps": [
+        "Bước 1: Chuẩn bị: Guest A (cùng họ tên 'Khách Selenium', email khác) tạo một booking qua API",
+        "Bước 2: Guest B (chưa có booking nào) mở /guest/bookings"
+      ],
+      "checks": [
+        {
+          "expected": "Guest B không thấy booking của Guest khác (danh sách rỗng)",
+          "actual": "Guest B thấy 1 đơn của khách khác, gồm BK-20261112-1455",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC3.6-02_01_lich_su_guest_B.png",
+        "results/screenshots/20261112_122307/TC3.6-02_02_FAIL.png"
+      ],
+      "defect": {
+        "title": "Lịch sử đặt phòng lọc theo email HOẶC họ tên: Guest trùng họ tên xem được booking của người khác",
+        "severity": "Critical",
+        "priority": "Highest",
+        "component": "Lịch sử đặt phòng",
+        "expected": "Guest B không thấy booking của Guest khác (danh sách rỗng)",
+        "actual": "Guest B thấy 1 đơn của khách khác, gồm BK-20261112-1455",
+        "screenshot": "results/screenshots/20261112_122307/TC3.6-02_02_FAIL.png",
+        "id": "BUG-13"
+      }
+    },
+    {
+      "tc_id": "TC4.1",
+      "case_id": "TC4.1-01",
+      "title": "Dashboard và hạng thành viên Guest",
+      "case": "dashboard_and_rank",
+      "technique": "Equivalence Partitioning (Guest mới / Guest có booking)",
+      "nodeid": "tests/test_guest_area.py::test_dashboard_and_rank",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Mục 'Đặt phòng sắp tới' ghi đúng tên loại phòng 'Phòng cao cấp hướng phố' | Thực tế: P Phòng nghỉ cao cấp Mã đơn: BK-20261112-5833 Từ: 2/3/2027 - Đến: 3/3/2027 700.000 ₫ Chờ xác nhận",
+      "duration": 13.53,
+      "inputs": {
+        "ma_don": "BK-20261112-5833"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/dashboard với Guest mới (chưa có booking)",
+        "Bước 2: Chuẩn bị: Guest tạo 1 booking qua API, tải lại dashboard",
+        "Bước 3: Mở /guest/rank"
+      ],
+      "checks": [
+        {
+          "expected": "Guest mới: 0 lượt đặt, 0 điểm, hạng 'Khách Mới'",
+          "actual": "lượt=0, điểm=0",
+          "passed": true
+        },
+        {
+          "expected": "Lượt đặt phòng tăng thành 1",
+          "actual": "1",
+          "passed": true
+        },
+        {
+          "expected": "Mục 'Đặt phòng sắp tới' hiện mã đơn BK-20261112-5833",
+          "actual": "P Phòng nghỉ cao cấp Mã đơn: BK-20261112-5833 Từ: 2/3/2027 - Đến: 3/3/2027 700.000 ₫ Chờ xác nhận",
+          "passed": true
+        },
+        {
+          "expected": "Hạng hiện tại 'Khách Mới', tiến trình 0%",
+          "actual": "Dashboard > Hạng thành viên Khách Mới Hạng hiện tại Điểm tích lũy: 0 điểm Bạn cần thêm 500 điểm nữa để thăng hạng lên Đồng. 0% 0 điểm 500 điểm Hệ thống Hạng thà",
+          "passed": true
+        },
+        {
+          "expected": "Hiện mốc kế tiếp: cần thêm 500 điểm để lên hạng Đồng",
+          "actual": "Dashboard > Hạng thành viên Khách Mới Hạng hiện tại Điểm tích lũy: 0 điểm Bạn cần thêm 500 điểm nữa để thăng hạng lên Đồng. 0% 0 điểm 500 điểm Hệ thống Hạng thành viên Khách Mới Yêu cầu: 0 điểm Đồng Yêu cầu: 500 điểm Bạc",
+          "passed": true
+        },
+        {
+          "expected": "Mục 'Đặt phòng sắp tới' ghi đúng tên loại phòng 'Phòng cao cấp hướng phố'",
+          "actual": "P Phòng nghỉ cao cấp Mã đơn: BK-20261112-5833 Từ: 2/3/2027 - Đến: 3/3/2027 700.000 ₫ Chờ xác nhận",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC4.1-01_01_dashboard_moi.png",
+        "results/screenshots/20261112_122307/TC4.1-01_02_dashboard_co_booking.png",
+        "results/screenshots/20261112_122307/TC4.1-01_03_hang_thanh_vien.png",
+        "results/screenshots/20261112_122307/TC4.1-01_04_FAIL.png"
+      ],
+      "defect": {
+        "title": "Dashboard ghi tên phòng cố định 'Phòng nghỉ cao cấp' thay vì tên loại phòng đã đặt",
+        "severity": "Trivial",
+        "priority": "Low",
+        "component": "Dashboard",
+        "expected": "Mục 'Đặt phòng sắp tới' ghi đúng tên loại phòng 'Phòng cao cấp hướng phố'",
+        "actual": "P Phòng nghỉ cao cấp Mã đơn: BK-20261112-5833 Từ: 2/3/2027 - Đến: 3/3/2027 700.000 ₫ Chờ xác nhận",
+        "screenshot": "results/screenshots/20261112_122307/TC4.1-01_04_FAIL.png",
+        "id": "BUG-14"
+      }
+    },
+    {
+      "tc_id": "TC4.2",
+      "case_id": "TC4.2-01",
+      "title": "Xem QR và gửi yêu cầu xác nhận thanh toán",
+      "case": "invoice_qr_payment",
+      "technique": "State transition (Chưa thanh toán -> Đang xử lý)",
+      "nodeid": "tests/test_guest_area.py::test_invoice_qr_payment",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 14.98,
+      "inputs": {
+        "ma_don": "BK-20261112-8408",
+        "tong_tien": "1.400.000"
+      },
+      "steps": [
+        "Bước 1: Chuẩn bị: Guest tạo booking 2 đêm qua API",
+        "Bước 2: Mở /guest/invoices",
+        "Bước 3: Bấm 'Thanh toán'",
+        "Bước 4: Bấm 'Xác nhận đã chuyển khoản'",
+        "Bước 5: Tải lại /guest/invoices"
+      ],
+      "checks": [
+        {
+          "expected": "Hóa đơn hiện mã đơn và tổng tiền 1.400.000",
+          "actual": "Dashboard > Hóa đơn Hóa đơn của tôi Quản lý và thanh toán các hóa đơn đặt phòng của bạn. Hóa đơn #INV-BK-20261112-8408 Chưa thanh toán Ngày đặt: 07/03/2027 Mã đặt phòng: BK-20261112-8408 Tổng tiền: 1.400.000 ₫ Thanh toán",
+          "passed": true
+        },
+        {
+          "expected": "Cửa sổ VietQR hiện đúng mã đơn và số tiền",
+          "actual": "Thanh toán trực tuyến (Mã VietQR) Ngân hàng Techcombank - HOTEL IT CODE Số tài khoản: 000000000000 Mã đơn đặt phòng: BK-20261112-8408 Tổng tiền cần thanh toán: 1.400.000 ₫ Quay lại Xác nhận đã chuyển khoản",
+          "passed": true
+        },
+        {
+          "expected": "Mã QR chứa đúng số tiền thanh toán",
+          "actual": "https://img.vietqr.io/image/970407-000000000000-compact2.png?amount=1400000&addInfo=Thanh%20toan%20don%20BK-20261112-8408&accountName=HOTEL%20IT%20CODE",
+          "passed": true
+        },
+        {
+          "expected": "Thông báo đã gửi yêu cầu xác nhận thanh toán",
+          "actual": "Đã gửi yêu cầu xác nhận thanh toán. Tiền trả trước đã được ghi nhận vào đơn!",
+          "passed": true
+        },
+        {
+          "expected": "Đơn chuyển sang 'Đang xử lý' (nút bị khóa), không cho gửi lại yêu cầu",
+          "actual": "['Đang xử lý']",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC4.2-01_01_ma_qr.png",
+        "results/screenshots/20261112_122307/TC4.2-01_02_dang_xu_ly.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC4.2",
+      "case_id": "TC4.2-02",
+      "title": "Xem QR và gửi yêu cầu xác nhận thanh toán",
+      "case": "invoice_amount_with_voucher",
+      "technique": "Equivalence Partitioning (đơn có voucher)",
+      "nodeid": "tests/test_guest_area.py::test_invoice_amount_with_voucher",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Tổng tiền hóa đơn đã trừ voucher: 1.260.000đ | Thực tế: 1.400.000đ",
+      "duration": 11.48,
+      "inputs": {
+        "ma_don": "BK-20261112-5499",
+        "voucher": "KM1",
+        "gia_goc": "1400000",
+        "tong_sau_giam": "1.260.000"
+      },
+      "steps": [
+        "Bước 1: Chuẩn bị: Guest đặt phòng 2 đêm có áp dụng voucher KM1 (giảm 10%) qua API",
+        "Bước 2: Mở /guest/invoices"
+      ],
+      "checks": [
+        {
+          "expected": "Tổng tiền hóa đơn đã trừ voucher: 1.260.000đ",
+          "actual": "1.400.000đ",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC4.2-02_01_hoa_don_voucher.png",
+        "results/screenshots/20261112_122307/TC4.2-02_02_FAIL.png"
+      ],
+      "defect": {
+        "title": "Hóa đơn/QR thanh toán tính theo giá gốc, bỏ qua giảm giá voucher đã áp dụng khi đặt phòng",
+        "severity": "Major",
+        "priority": "High",
+        "component": "Hóa đơn",
+        "expected": "Tổng tiền hóa đơn đã trừ voucher: 1.260.000đ",
+        "actual": "1.400.000đ",
+        "screenshot": "results/screenshots/20261112_122307/TC4.2-02_02_FAIL.png",
+        "id": "BUG-15"
+      }
+    },
+    {
+      "tc_id": "TC4.3",
+      "case_id": "TC4.3-01",
+      "title": "Cập nhật hồ sơ và ảnh đại diện",
+      "case": "update_profile",
+      "technique": "Equivalence Partitioning (dữ liệu hợp lệ)",
+      "nodeid": "tests/test_guest_area.py::test_update_profile",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Ngày sinh hiển thị đúng 20/05/1999 | Thực tế: 19/05/1999",
+      "duration": 11.02,
+      "inputs": {
+        "fullName": "Nguyễn Selenium Test",
+        "phone": "0912345678",
+        "address": "Hải Châu, Đà Nẵng",
+        "dob": "1999-05-20"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/profile và bấm 'Chỉnh sửa hồ sơ'",
+        "Bước 2: Sửa họ tên, số điện thoại, ngày sinh, địa chỉ và bấm 'Lưu thay đổi'",
+        "Bước 3: Tải lại /guest/profile"
+      ],
+      "checks": [
+        {
+          "expected": "Thông báo cập nhật thông tin thành công",
+          "actual": "Cập nhật thông tin cá nhân thành công!",
+          "passed": true
+        },
+        {
+          "expected": "Họ tên, số điện thoại, địa chỉ mới hiển thị sau khi tải lại",
+          "actual": "Trang chủ > Cài đặt tài khoản Nguyễn Selenium Test guest_1794461403094@hotel.com 🏆 Khách Mới SĐT: 0912345678 Địa chỉ: Hải Châu, Đà Nẵng Ngày sinh: 19/05/1999 Điểm tích lũy: 0 điểm Thông tin cá nhân Hộp thư cá nhân Thông Tin Cá Nhân Chi Tiết Chỉnh sửa hồ sơ Họ và tên Nguyễn Selenium Test Địa chỉ Emai",
+          "passed": true
+        },
+        {
+          "expected": "Ngày sinh hiển thị đúng 20/05/1999",
+          "actual": "19/05/1999",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC4.3-01_01_ho_so_sau_cap_nhat.png",
+        "results/screenshots/20261112_122307/TC4.3-01_02_FAIL.png"
+      ],
+      "defect": {
+        "title": "Ngày sinh lưu bị lùi 1 ngày (gửi toISOString theo UTC, lệch múi giờ +7)",
+        "severity": "Major",
+        "priority": "High",
+        "component": "Hồ sơ cá nhân",
+        "expected": "Ngày sinh hiển thị đúng 20/05/1999",
+        "actual": "19/05/1999",
+        "screenshot": "results/screenshots/20261112_122307/TC4.3-01_02_FAIL.png",
+        "id": "BUG-16"
+      }
+    },
+    {
+      "tc_id": "TC4.3",
+      "case_id": "TC4.3-02",
+      "title": "Cập nhật hồ sơ và ảnh đại diện",
+      "case": "EP_ho_ten_trong",
+      "technique": "Equivalence Partitioning (dữ liệu không hợp lệ)",
+      "nodeid": "tests/test_guest_area.py::test_update_profile_invalid[EP_ho_ten_trong]",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 10.77,
+      "inputs": {
+        "fullName": "(trống)"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/profile và bấm 'Chỉnh sửa hồ sơ'",
+        "Bước 2: Nhập fullName = '' và bấm 'Lưu thay đổi'"
+      ],
+      "checks": [
+        {
+          "expected": "Báo lỗi 'Vui lòng nhập họ tên!' và không lưu",
+          "actual": "Lỗi form=['Vui lòng nhập họ tên!'], thông báo=",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC4.3-02_01_du_lieu_sai.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC4.3",
+      "case_id": "TC4.3-03",
+      "title": "Cập nhật hồ sơ và ảnh đại diện",
+      "case": "EP_so_dien_thoai_chu",
+      "technique": "Equivalence Partitioning (dữ liệu không hợp lệ)",
+      "nodeid": "tests/test_guest_area.py::test_update_profile_invalid[EP_so_dien_thoai_chu]",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Báo lỗi 'số điện thoại' và không lưu | Thực tế: Lỗi form=[], thông báo=",
+      "duration": 14.96,
+      "inputs": {
+        "phone": "abcxyz"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/profile và bấm 'Chỉnh sửa hồ sơ'",
+        "Bước 2: Nhập phone = 'abcxyz' và bấm 'Lưu thay đổi'"
+      ],
+      "checks": [
+        {
+          "expected": "Báo lỗi 'số điện thoại' và không lưu",
+          "actual": "Lỗi form=[], thông báo=",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC4.3-03_01_du_lieu_sai.png",
+        "results/screenshots/20261112_122307/TC4.3-03_02_FAIL.png"
+      ],
+      "defect": {
+        "title": "Hồ sơ chấp nhận số điện thoại chứa chữ cái (không kiểm tra định dạng)",
+        "severity": "Minor",
+        "priority": "Medium",
+        "component": "Hồ sơ cá nhân",
+        "expected": "Báo lỗi 'số điện thoại' và không lưu",
+        "actual": "Lỗi form=[], thông báo=",
+        "screenshot": "results/screenshots/20261112_122307/TC4.3-03_02_FAIL.png",
+        "id": "BUG-17"
+      }
+    },
+    {
+      "tc_id": "TC4.3",
+      "case_id": "TC4.3-04",
+      "title": "Cập nhật hồ sơ và ảnh đại diện",
+      "case": "upload_avatar",
+      "technique": "Equivalence Partitioning (ảnh PNG hợp lệ)",
+      "nodeid": "tests/test_guest_area.py::test_upload_avatar",
+      "status": "Passed",
+      "root_cause": "",
+      "detail": "",
+      "duration": 11.35,
+      "inputs": {
+        "file": "avatar.png"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/profile và bấm 'Chỉnh sửa hồ sơ'",
+        "Bước 2: Chọn file ảnh avatar.png ở 'Thay đổi ảnh đại diện'",
+        "Bước 3: Tải lại hồ sơ và kiểm tra ảnh đại diện"
+      ],
+      "checks": [
+        {
+          "expected": "Thông báo 'Cập nhật ảnh đại diện thành công!'",
+          "actual": "Cập nhật ảnh đại diện thành công!",
+          "passed": true
+        },
+        {
+          "expected": "Ảnh đại diện mới (Cloudinary) hiển thị sau khi tải lại",
+          "actual": "['https://res.cloudinary.com/dqx8hqmcv/image/upload/v1794461444/QuanTriKhachSan/xmcfjdfswlco1tp5cgdb.png']",
+          "passed": true
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC4.3-04_01_tai_anh.png"
+      ],
+      "defect": null
+    },
+    {
+      "tc_id": "TC4.4",
+      "case_id": "TC4.4-01",
+      "title": "Đổi mật khẩu Guest bằng OTP",
+      "case": "manual_TC4_4",
+      "technique": "Thủ công",
+      "nodeid": "tests/test_manual.py::test_manual_TC4_4",
+      "status": "Manual",
+      "root_cause": "",
+      "detail": "THỦ CÔNG - OTP đổi mật khẩu sinh ngẫu nhiên và chỉ gửi qua email, không có OTP test cố định.",
+      "duration": 0.0,
+      "inputs": {},
+      "steps": [],
+      "checks": [],
+      "screenshots": [],
+      "defect": null
+    },
+    {
+      "tc_id": "TC4.5",
+      "case_id": "TC4.5-01",
+      "title": "Đọc thông báo trong hộp thư Guest",
+      "case": "read_mailbox",
+      "technique": "State transition (thư Mới -> Đã đọc)",
+      "nodeid": "tests/test_guest_area.py::test_read_mailbox",
+      "status": "Failed",
+      "root_cause": "Lỗi phần mềm (defect)",
+      "detail": "Mong đợi: Hộp thư có thư chúc mừng sinh nhật (chưa đọc, nhãn 'Mới') | Thực tế: Hộp thư trống",
+      "duration": 10.37,
+      "inputs": {
+        "ngay_sinh": "12/11/2026"
+      },
+      "steps": [
+        "Bước 1: Mở /guest/profile và bấm 'Chỉnh sửa hồ sơ'",
+        "Bước 2: Đặt ngày sinh là hôm nay và lưu để hệ thống gửi thư sinh nhật",
+        "Bước 3: Mở /guest/profile?tab=mailbox"
+      ],
+      "checks": [
+        {
+          "expected": "Hộp thư có thư chúc mừng sinh nhật (chưa đọc, nhãn 'Mới')",
+          "actual": "Hộp thư trống",
+          "passed": false
+        }
+      ],
+      "screenshots": [
+        "results/screenshots/20261112_122307/TC4.5-01_01_hop_thu.png",
+        "results/screenshots/20261112_122307/TC4.5-01_02_FAIL.png"
+      ],
+      "defect": {
+        "title": "Không nhận thư/voucher sinh nhật khi đặt ngày sinh là hôm nay (ngày sinh lưu lệch múi giờ)",
+        "severity": "Major",
+        "priority": "High",
+        "component": "Hộp thư",
+        "expected": "Hộp thư có thư chúc mừng sinh nhật (chưa đọc, nhãn 'Mới')",
+        "actual": "Hộp thư trống",
+        "screenshot": "results/screenshots/20261112_122307/TC4.5-01_02_FAIL.png",
+        "id": "BUG-18"
+      }
+    },
+    {
+      "tc_id": "TC4.6",
+      "case_id": "TC4.6-01",
+      "title": "Đánh giá booking đã hoàn tất",
+      "case": "manual_TC4_6",
+      "technique": "Thủ công",
+      "nodeid": "tests/test_manual.py::test_manual_TC4_6",
+      "status": "Manual",
+      "root_cause": "",
+      "detail": "THỦ CÔNG - Cần booking trạng thái Completed do Lễ tân/Admin trả phòng, ngoài phạm vi User.",
+      "duration": 0.0,
+      "inputs": {},
+      "steps": [],
+      "checks": [],
+      "screenshots": [],
+      "defect": null
+    },
+    {
+      "tc_id": "TC4.7",
+      "case_id": "TC4.7-01",
+      "title": "Đánh giá loại phòng từ trang chi tiết",
+      "case": "manual_TC4_7",
+      "technique": "Thủ công",
+      "nodeid": "tests/test_manual.py::test_manual_TC4_7",
+      "status": "Manual",
+      "root_cause": "",
+      "detail": "THỦ CÔNG - Backend chỉ cho đánh giá khi Guest có lượt lưu trú Completed/Checked_out, cần Lễ tân/Admin.",
+      "duration": 0.0,
+      "inputs": {},
+      "steps": [],
+      "checks": [],
+      "screenshots": [],
+      "defect": null
+    }
+  ],
+  "defects": [
+    {
+      "title": "Trang /rooms ghi '2 Người lớn' nhưng vẫn hiển thị phòng tối đa 1 khách",
+      "severity": "Minor",
+      "priority": "Medium",
+      "component": "Danh sách phòng",
+      "expected": "Bộ lọc mặc định '2 Người lớn' chỉ hiện phòng có sức chứa >= 2",
+      "actual": "Hiện cả phòng sức chứa < 2: [('Phòng tiêu chuẩn 1 giường đơn', 1)]",
+      "screenshot": "results/screenshots/20261112_122307/TC1.2-01_02_FAIL.png",
+      "id": "BUG-01",
+      "tc_id": "TC1.2",
+      "case_id": "TC1.2-01",
+      "cases": [
+        "TC1.2-01"
+      ],
+      "title_tc": "Danh sách phòng và bộ lọc",
+      "steps": [
+        "Bước 1: Lấy danh sách loại phòng công khai từ API làm dữ liệu đối chiếu",
+        "Bước 2: Mở /rooms (mặc định: 2 người lớn, 0 trẻ em)"
+      ],
+      "inputs": {
+        "api_room_types": "10"
+      }
+    },
+    {
+      "title": "Khoảng giá mặc định 0-5.000.000đ ẩn các loại phòng giá cao (Biệt thự 8.000.000đ) khỏi danh sách",
+      "severity": "Minor",
+      "priority": "Medium",
+      "component": "Danh sách phòng",
+      "expected": "Hiển thị đủ 10 loại phòng đang hoạt động",
+      "actual": "Bị ẩn: ['Biệt thự hoàng gia nguyên căn']",
+      "screenshot": "results/screenshots/20261112_122307/TC1.2-02_01_FAIL.png",
+      "id": "BUG-02",
+      "tc_id": "TC1.2",
+      "case_id": "TC1.2-02",
+      "cases": [
+        "TC1.2-02"
+      ],
+      "title_tc": "Danh sách phòng và bộ lọc",
+      "steps": [
+        "Bước 1: Mở /rooms?adults=1 (sức chứa thấp nhất để không loại phòng nào)"
+      ],
+      "inputs": {
+        "api_active_types": "10",
+        "shown": "9"
+      }
+    },
+    {
+      "title": "Bộ lọc loại phòng 'Standard' không khớp tên phòng tiếng Việt nên không trả về phòng nào",
+      "severity": "Major",
+      "priority": "High",
+      "component": "Danh sách phòng",
+      "expected": "Chỉ hiển thị phòng thuộc loại Standard: ['Phòng tiêu chuẩn 1 giường đôi', 'Phòng tiêu chuẩn 1 giường đơn']",
+      "actual": "[]",
+      "screenshot": "results/screenshots/20261112_122307/TC1.2-06_02_FAIL.png",
+      "id": "BUG-03",
+      "tc_id": "TC1.2",
+      "case_id": "TC1.2-06",
+      "cases": [
+        "TC1.2-06"
+      ],
+      "title_tc": "Danh sách phòng và bộ lọc",
+      "steps": [
+        "Bước 1: Mở /rooms?adults=1",
+        "Bước 2: Chọn bộ lọc loại phòng 'Standard'"
+      ],
+      "inputs": {
+        "loai_phong": "Standard"
+      }
+    },
+    {
+      "title": "Trang /rooms ghi vị trí 'Hà Nội' trong khi địa chỉ liên hệ ở Đà Nẵng",
+      "severity": "Trivial",
+      "priority": "Low",
+      "component": "Nội dung",
+      "expected": "Tiêu đề /rooms ghi đúng thành phố của khách sạn (Đà Nẵng)",
+      "actual": "Hà Nội",
+      "screenshot": "results/screenshots/20261112_122307/TC1.2-09_01_FAIL.png",
+      "id": "BUG-04",
+      "tc_id": "TC1.2",
+      "case_id": "TC1.2-09",
+      "cases": [
+        "TC1.2-09"
+      ],
+      "title_tc": "Danh sách phòng và bộ lọc",
+      "steps": [
+        "Bước 1: Mở /contact và đọc địa chỉ khách sạn",
+        "Bước 2: Mở /rooms và đọc phần tiêu đề vị trí"
+      ],
+      "inputs": {}
+    },
+    {
+      "title": "Trang chi tiết phòng hiển thị 'Diện tích: m²' (thiếu số liệu diện tích)",
+      "severity": "Minor",
+      "priority": "Medium",
+      "component": "Chi tiết phòng",
+      "expected": "Thông tin 'Diện tích' có giá trị",
+      "actual": "Diện tích: ' m²'",
+      "screenshot": "results/screenshots/20261112_122307/TC1.3-01_02_FAIL.png",
+      "id": "BUG-05",
+      "tc_id": "TC1.3",
+      "case_id": "TC1.3-01",
+      "cases": [
+        "TC1.3-01"
+      ],
+      "title_tc": "Chi tiết loại phòng và đánh giá hiện có",
+      "steps": [
+        "Bước 1: Mở /rooms và bấm 'XEM CHI TIẾT' của phòng đầu tiên"
+      ],
+      "inputs": {
+        "room_id": "1",
+        "ten_phong": "Phòng tiêu chuẩn 1 giường đơn"
+      }
+    },
+    {
+      "title": "Trang Tin tức không dẫn tới trang chi tiết /post/{id}; khách không thể bình luận qua giao diện",
+      "severity": "Major",
+      "priority": "High",
+      "component": "Tin tức",
+      "expected": "Từ trang chi tiết bài viết, khách có thể xem/gửi bình luận (trang /post/{id})",
+      "actual": "Chỉ mở modal tại http://localhost:5173/news, không có phần bình luận",
+      "screenshot": "results/screenshots/20261112_122307/TC1.4-04_03_FAIL.png",
+      "id": "BUG-06",
+      "tc_id": "TC1.4",
+      "case_id": "TC1.4-04",
+      "cases": [
+        "TC1.4-04"
+      ],
+      "title_tc": "Tìm kiếm tin tức và gửi bình luận",
+      "steps": [
+        "Bước 1: Mở /news và chọn danh mục",
+        "Bước 2: Bấm 'ĐỌC CHI TIẾT →' của bài viết trong danh mục"
+      ],
+      "inputs": {
+        "danh_muc": "Góc Thư Giãn"
+      }
+    },
+    {
+      "title": "Form liên hệ báo thành công nhưng không gửi/lưu nội dung lên hệ thống",
+      "severity": "Major",
+      "priority": "High",
+      "component": "Liên hệ",
+      "expected": "Nội dung liên hệ được gửi tới Backend để lưu/chuyển cho khách sạn",
+      "actual": "Không có request nào tới Backend (form chỉ console.log)",
+      "screenshot": "results/screenshots/20261112_122307/TC1.5-03_02_FAIL.png",
+      "id": "BUG-07",
+      "tc_id": "TC1.5",
+      "case_id": "TC1.5-03",
+      "cases": [
+        "TC1.5-03"
+      ],
+      "title_tc": "Biểu mẫu liên hệ và kiểm tra dữ liệu",
+      "steps": [
+        "Bước 1: Mở /contact, điền form và bấm 'GỬI TIN NHẮN'"
+      ],
+      "inputs": {
+        "name": "Nguyễn Văn A",
+        "email": "nguyenvana@hotel.com",
+        "message": "Selenium: cần tư vấn đặt phòng"
+      }
+    },
+    {
+      "title": "Đăng nhập sai không hiện thông báo lỗi: interceptor 401 của axios tải lại trang /login nên thông báo bị mất",
+      "severity": "Major",
+      "priority": "High",
+      "component": "Đăng nhập",
+      "expected": "Hiển thị lỗi chứa 'không đúng'",
+      "actual": "Không có thông báo nào, trang /login bị tải lại",
+      "screenshot": "results/screenshots/20261112_122307/TC2.5-01_02_FAIL.png",
+      "id": "BUG-08",
+      "tc_id": "TC2.5",
+      "case_id": "TC2.5-01",
+      "cases": [
+        "TC2.5-01",
+        "TC2.5-02"
+      ],
+      "title_tc": "Từ chối đăng nhập Guest sai mật khẩu",
+      "steps": [
+        "Bước 1: Mở /login, nhập thông tin và bấm 'Đăng nhập'"
+      ],
+      "inputs": {
+        "email": "guest_1794461074868@hotel.com",
+        "password": "SaiMatKhau1"
+      }
+    },
+    {
+      "title": "Đăng xuất chỉ xóa token, thông tin cá nhân Guest (email, họ tên, id) vẫn lưu trong localStorage",
+      "severity": "Minor",
+      "priority": "Medium",
+      "component": "Tài khoản",
+      "expected": "Thông tin cá nhân (user, userEmail, userName, userId) cũng bị xóa khỏi trình duyệt",
+      "actual": "Vẫn lưu ['user', 'userName', 'userEmail', 'userId']",
+      "screenshot": "results/screenshots/20261112_122307/TC2.7-01_02_FAIL.png",
+      "id": "BUG-09",
+      "tc_id": "TC2.7",
+      "case_id": "TC2.7-01",
+      "cases": [
+        "TC2.7-01"
+      ],
+      "title_tc": "Đăng xuất Guest và chặn trang cần phiên",
+      "steps": [
+        "Bước 1: Mở /guest/dashboard khi đang đăng nhập",
+        "Bước 2: Bấm 'Đăng xuất'",
+        "Bước 3: Truy cập trực tiếp /guest/book-room sau khi đăng xuất"
+      ],
+      "inputs": {}
+    },
+    {
+      "title": "Tìm/đặt phòng chấp nhận ngày nhận phòng ở quá khứ (không kiểm tra ngày ở Frontend và Backend)",
+      "severity": "Major",
+      "priority": "High",
+      "component": "Đặt phòng",
+      "expected": "Hệ thống từ chối tìm phòng khi ngày nhận phòng ở quá khứ và báo lỗi ngày",
+      "actual": "Vẫn trả 8 loại phòng; thông báo: Đã tìm thấy 8 loại phòng phù hợp!",
+      "screenshot": "results/screenshots/20261112_122307/TC3.1-05_02_FAIL.png",
+      "id": "BUG-10",
+      "tc_id": "TC3.1",
+      "case_id": "TC3.1-05",
+      "cases": [
+        "TC3.1-05"
+      ],
+      "title_tc": "Tìm phòng trống theo ngày và số người lớn",
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 2",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'"
+      ],
+      "inputs": {
+        "nhan_phong": "11/11/2026",
+        "tra_phong": "13/11/2026",
+        "nguoi_lon": "2",
+        "loai_phong": "Tất cả"
+      }
+    },
+    {
+      "title": "Tìm/đặt phòng chấp nhận số đêm = 0 (ngày trả = ngày nhận) (không kiểm tra ngày ở Frontend và Backend)",
+      "severity": "Major",
+      "priority": "High",
+      "component": "Đặt phòng",
+      "expected": "Hệ thống từ chối tìm phòng khi số đêm = 0 (ngày trả = ngày nhận) và báo lỗi ngày",
+      "actual": "Vẫn trả 8 loại phòng; thông báo: Đã tìm thấy 8 loại phòng phù hợp!",
+      "screenshot": "results/screenshots/20261112_122307/TC3.1-06_02_FAIL.png",
+      "id": "BUG-11",
+      "tc_id": "TC3.1",
+      "case_id": "TC3.1-06",
+      "cases": [
+        "TC3.1-06"
+      ],
+      "title_tc": "Tìm phòng trống theo ngày và số người lớn",
+      "steps": [
+        "Bước 1: Mở /guest/book-room",
+        "Bước 2: Chọn ngày nhận/trả phòng, số người lớn = 2",
+        "Bước 3: Bấm 'Kiểm tra phòng trống'"
+      ],
+      "inputs": {
+        "nhan_phong": "16/01/2027",
+        "tra_phong": "16/01/2027",
+        "nguoi_lon": "2",
+        "loai_phong": "Tất cả"
+      }
+    },
+    {
+      "title": "Chi tiết đơn đặt phòng hiển thị 'Tổng tiền NaN ₫'",
+      "severity": "Major",
+      "priority": "High",
+      "component": "Lịch sử đặt phòng",
+      "expected": "Chi tiết hiện tổng tiền 1.400.000đ",
+      "actual": "Tổng tiền: NaN ₫",
+      "screenshot": "results/screenshots/20261112_122307/TC3.6-01_02_FAIL.png",
+      "id": "BUG-12",
+      "tc_id": "TC3.6",
+      "case_id": "TC3.6-01",
+      "cases": [
+        "TC3.6-01"
+      ],
+      "title_tc": "Xem lịch sử và chi tiết booking Guest",
+      "steps": [
+        "Bước 1: Chuẩn bị: tạo 1 booking cho Guest qua API",
+        "Bước 2: Mở /guest/bookings",
+        "Bước 3: Bấm 'Xem chi tiết'"
+      ],
+      "inputs": {
+        "ma_don": "BK-20261112-9648"
+      }
+    },
+    {
+      "title": "Lịch sử đặt phòng lọc theo email HOẶC họ tên: Guest trùng họ tên xem được booking của người khác",
+      "severity": "Critical",
+      "priority": "Highest",
+      "component": "Lịch sử đặt phòng",
+      "expected": "Guest B không thấy booking của Guest khác (danh sách rỗng)",
+      "actual": "Guest B thấy 1 đơn của khách khác, gồm BK-20261112-1455",
+      "screenshot": "results/screenshots/20261112_122307/TC3.6-02_02_FAIL.png",
+      "id": "BUG-13",
+      "tc_id": "TC3.6",
+      "case_id": "TC3.6-02",
+      "cases": [
+        "TC3.6-02"
+      ],
+      "title_tc": "Xem lịch sử và chi tiết booking Guest",
+      "steps": [
+        "Bước 1: Chuẩn bị: Guest A (cùng họ tên 'Khách Selenium', email khác) tạo một booking qua API",
+        "Bước 2: Guest B (chưa có booking nào) mở /guest/bookings"
+      ],
+      "inputs": {
+        "guest_A": "guestA_1794461354555@hotel.com",
+        "guest_B": "guest_1794461352013@hotel.com",
+        "ma_don_A": "BK-20261112-1455"
+      }
+    },
+    {
+      "title": "Dashboard ghi tên phòng cố định 'Phòng nghỉ cao cấp' thay vì tên loại phòng đã đặt",
+      "severity": "Trivial",
+      "priority": "Low",
+      "component": "Dashboard",
+      "expected": "Mục 'Đặt phòng sắp tới' ghi đúng tên loại phòng 'Phòng cao cấp hướng phố'",
+      "actual": "P Phòng nghỉ cao cấp Mã đơn: BK-20261112-5833 Từ: 2/3/2027 - Đến: 3/3/2027 700.000 ₫ Chờ xác nhận",
+      "screenshot": "results/screenshots/20261112_122307/TC4.1-01_04_FAIL.png",
+      "id": "BUG-14",
+      "tc_id": "TC4.1",
+      "case_id": "TC4.1-01",
+      "cases": [
+        "TC4.1-01"
+      ],
+      "title_tc": "Dashboard và hạng thành viên Guest",
+      "steps": [
+        "Bước 1: Mở /guest/dashboard với Guest mới (chưa có booking)",
+        "Bước 2: Chuẩn bị: Guest tạo 1 booking qua API, tải lại dashboard",
+        "Bước 3: Mở /guest/rank"
+      ],
+      "inputs": {
+        "ma_don": "BK-20261112-5833"
+      }
+    },
+    {
+      "title": "Hóa đơn/QR thanh toán tính theo giá gốc, bỏ qua giảm giá voucher đã áp dụng khi đặt phòng",
+      "severity": "Major",
+      "priority": "High",
+      "component": "Hóa đơn",
+      "expected": "Tổng tiền hóa đơn đã trừ voucher: 1.260.000đ",
+      "actual": "1.400.000đ",
+      "screenshot": "results/screenshots/20261112_122307/TC4.2-02_02_FAIL.png",
+      "id": "BUG-15",
+      "tc_id": "TC4.2",
+      "case_id": "TC4.2-02",
+      "cases": [
+        "TC4.2-02"
+      ],
+      "title_tc": "Xem QR và gửi yêu cầu xác nhận thanh toán",
+      "steps": [
+        "Bước 1: Chuẩn bị: Guest đặt phòng 2 đêm có áp dụng voucher KM1 (giảm 10%) qua API",
+        "Bước 2: Mở /guest/invoices"
+      ],
+      "inputs": {
+        "ma_don": "BK-20261112-5499",
+        "voucher": "KM1",
+        "gia_goc": "1400000",
+        "tong_sau_giam": "1.260.000"
+      }
+    },
+    {
+      "title": "Ngày sinh lưu bị lùi 1 ngày (gửi toISOString theo UTC, lệch múi giờ +7)",
+      "severity": "Major",
+      "priority": "High",
+      "component": "Hồ sơ cá nhân",
+      "expected": "Ngày sinh hiển thị đúng 20/05/1999",
+      "actual": "19/05/1999",
+      "screenshot": "results/screenshots/20261112_122307/TC4.3-01_02_FAIL.png",
+      "id": "BUG-16",
+      "tc_id": "TC4.3",
+      "case_id": "TC4.3-01",
+      "cases": [
+        "TC4.3-01"
+      ],
+      "title_tc": "Cập nhật hồ sơ và ảnh đại diện",
+      "steps": [
+        "Bước 1: Mở /guest/profile và bấm 'Chỉnh sửa hồ sơ'",
+        "Bước 2: Sửa họ tên, số điện thoại, ngày sinh, địa chỉ và bấm 'Lưu thay đổi'",
+        "Bước 3: Tải lại /guest/profile"
+      ],
+      "inputs": {
+        "fullName": "Nguyễn Selenium Test",
+        "phone": "0912345678",
+        "address": "Hải Châu, Đà Nẵng",
+        "dob": "1999-05-20"
+      }
+    },
+    {
+      "title": "Hồ sơ chấp nhận số điện thoại chứa chữ cái (không kiểm tra định dạng)",
+      "severity": "Minor",
+      "priority": "Medium",
+      "component": "Hồ sơ cá nhân",
+      "expected": "Báo lỗi 'số điện thoại' và không lưu",
+      "actual": "Lỗi form=[], thông báo=",
+      "screenshot": "results/screenshots/20261112_122307/TC4.3-03_02_FAIL.png",
+      "id": "BUG-17",
+      "tc_id": "TC4.3",
+      "case_id": "TC4.3-03",
+      "cases": [
+        "TC4.3-03"
+      ],
+      "title_tc": "Cập nhật hồ sơ và ảnh đại diện",
+      "steps": [
+        "Bước 1: Mở /guest/profile và bấm 'Chỉnh sửa hồ sơ'",
+        "Bước 2: Nhập phone = 'abcxyz' và bấm 'Lưu thay đổi'"
+      ],
+      "inputs": {
+        "phone": "abcxyz"
+      }
+    },
+    {
+      "title": "Không nhận thư/voucher sinh nhật khi đặt ngày sinh là hôm nay (ngày sinh lưu lệch múi giờ)",
+      "severity": "Major",
+      "priority": "High",
+      "component": "Hộp thư",
+      "expected": "Hộp thư có thư chúc mừng sinh nhật (chưa đọc, nhãn 'Mới')",
+      "actual": "Hộp thư trống",
+      "screenshot": "results/screenshots/20261112_122307/TC4.5-01_02_FAIL.png",
+      "id": "BUG-18",
+      "tc_id": "TC4.5",
+      "case_id": "TC4.5-01",
+      "cases": [
+        "TC4.5-01"
+      ],
+      "title_tc": "Đọc thông báo trong hộp thư Guest",
+      "steps": [
+        "Bước 1: Mở /guest/profile và bấm 'Chỉnh sửa hồ sơ'",
+        "Bước 2: Đặt ngày sinh là hôm nay và lưu để hệ thống gửi thư sinh nhật",
+        "Bước 3: Mở /guest/profile?tab=mailbox"
+      ],
+      "inputs": {
+        "ngay_sinh": "12/11/2026"
+      }
+    }
+  ]
+}
